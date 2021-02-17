@@ -26,8 +26,7 @@ class HentaiCommand extends Command {
         .setColor("RANDOM")
         .setTimestamp()
         .setImage(url);
-        msg.channel.send(embed);
-    message.channel.send(embed)
+        message.channel.send(embed)
     }
 }
 
