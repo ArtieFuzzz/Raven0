@@ -6,8 +6,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class HentaiCommand extends Command {
     constructor() {
-        super('helplesshentai', {
-           aliases: ['helplesshentai'] 
+        super('randnsfw', {
+           aliases: ['randnsfw'] 
         });
     }
 
