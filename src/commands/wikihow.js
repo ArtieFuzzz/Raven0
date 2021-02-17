@@ -13,7 +13,7 @@ class DankMemeCommand extends Command {
 
     exec(message) {
         const { article, url } = await ksoft.images.wikihow();
-        const embed = new DiscordJS.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle(article.title)
         .setFooter('Powered by api.ksoft.si')
         .setURL(article.link)

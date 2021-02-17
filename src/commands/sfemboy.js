@@ -13,7 +13,7 @@ class DankMemeCommand extends Command {
 
     exec(message) {
         const { url, post } = await ksoft.images.reddit('femboy');
-        const embed = new DiscordJS.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle(post.title)
         .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
         .setURL(post.link)
