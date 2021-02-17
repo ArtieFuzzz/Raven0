@@ -6,14 +6,14 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DankMemeCommand extends Command {
     constructor() {
-        super('aww', {
-           aliases: ['aww'] 
+        super('fox', {
+           aliases: ['fox'] 
         });
     }
 
-    exec(message) {
+   async exec(message) {
     const { url } = await ksoft.images.random('fox');
-    const embed = new DiscordJS.MessageEmbed()
+    const embed = new MessageEmbed()
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

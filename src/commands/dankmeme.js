@@ -6,12 +6,12 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DankMemeCommand extends Command {
     constructor() {
-        super('aww', {
-           aliases: ['aww'] 
+        super('dankmeme', {
+           aliases: ['dankmeme'] 
         });
     }
 
-    exec(message) {
+    async exec(message) {
     const { url, post } = await ksoft.images.reddit('dankmemes');
     const embed = new MessageEmbed()
     .setTitle(post.title)

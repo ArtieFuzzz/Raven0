@@ -6,21 +6,21 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class WikiHowCommand extends Command {
     constructor() {
-        super('aww', {
-           aliases: ['aww'] 
+        super('wikihow', {
+           aliases: ['wikihow'] 
         });
     }
 
-    exec(message) {
-        const { article, url } = await ksoft.images.wikihow();
-        const embed = new MessageEmbed()
-        .setTitle(article.title)
-        .setFooter('Powered by api.ksoft.si')
-        .setURL(article.link)
-        .setColor("RANDOM")
-        .setImage(url)
-        .setTimestamp();
-        message.channel.send(embed)
+    async exec(message) {
+    const { article, url } = await ksoft.images.wikihow();
+    const embed = new MessageEmbed()
+    .setTitle(article.title)
+    .setFooter('Powered by api.ksoft.si')
+    .setURL(article.link)
+    .setColor("RANDOM")
+    .setImage(url)
+    .setTimestamp();
+    message.channel.send(embed)
     }
 }
 

@@ -11,8 +11,8 @@ class AwwCommand extends Command {
         });
     }
 
-    exec(message) {
-        const { url, post } = await ksoft.images.aww();
+    async exec(message) {
+    const { url, post } = await ksoft.images.aww();
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)

@@ -6,21 +6,21 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class SFWFemboyCommand extends Command {
     constructor() {
-        super('aww', {
-           aliases: ['aww'] 
+        super('sfemboy', {
+           aliases: ['sfemboy'] 
         });
     }
 
-    exec(message) {
-        const { url, post } = await ksoft.images.reddit('femboy');
-        const embed = new MessageEmbed()
-        .setTitle(post.title)
-        .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
-        .setURL(post.link)
-        .setColor("RANDOM")
-        .setTimestamp()
-        .setImage(url);
-        message.channel.send(embed)
+    async exec(message) {
+    const { url, post } = await ksoft.images.reddit('femboy');
+    const embed = new MessageEmbed()
+    .setTitle(post.title)
+    .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
+    .setURL(post.link)
+    .setColor("RANDOM")
+    .setTimestamp()
+    .setImage(url);
+    message.channel.send(embed)
     }
 }
 
