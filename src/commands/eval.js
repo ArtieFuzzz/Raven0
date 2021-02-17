@@ -9,6 +9,7 @@ class EvalCommand extends Command {
         super('eval', {
            aliases: ['eval', 'e', 'ev'] ,
            ownerOnly: true,
+           category: 'Owner'
         });
     }
 

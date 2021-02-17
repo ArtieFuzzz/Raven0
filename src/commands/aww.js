@@ -7,7 +7,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class AwwCommand extends Command {
     constructor() {
         super('aww', {
-           aliases: ['aww'] 
+           aliases: ['aww'],
+           category: 'Images' 
         });
     }
 

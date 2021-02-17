@@ -7,7 +7,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class SFWFemboyCommand extends Command {
     constructor() {
         super('sfemboy', {
-           aliases: ['sfemboy'] 
+           aliases: ['sfemboy'],
+           category: 'SFW' 
         });
     }
 

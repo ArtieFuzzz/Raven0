@@ -7,7 +7,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class DankMemeCommand extends Command {
     constructor() {
         super('dankmeme', {
-           aliases: ['dankmeme'] 
+           aliases: ['dankmeme'],
+           category: 'Images' 
         });
     }
 

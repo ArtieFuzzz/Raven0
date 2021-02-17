@@ -7,7 +7,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class HentaiCommand extends Command {
     constructor() {
         super('femboy', {
-           aliases: ['femboy'] 
+           aliases: ['femboy'],
+           category: 'NSFW'
         });
     }
 
