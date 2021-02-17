@@ -10,6 +10,7 @@ class ReadyListener extends Listener {
 
     exec() {
         console.log('I\'m ready!');
+        this.client.user.setActivity('To Music', { type: 'LISTENING' })
     }
 }
 
