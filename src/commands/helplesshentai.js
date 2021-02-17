@@ -4,10 +4,10 @@ const { MessageEmbed } = require('discord.js')
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class HelplessHentaiCommand extends Command {
+class HentaiCommand extends Command {
     constructor() {
-        super('hentai', {
-           aliases: ['hentai'] 
+        super('helplesshentai', {
+           aliases: ['helplesshentai'] 
         });
     }
 
@@ -18,7 +18,7 @@ class HelplessHentaiCommand extends Command {
             return true;
         }
 
-    const { url, post } = await ksoft.images.reddit('hentai');
+    const { url, post } = await ksoft.images.reddit('helplesshentai');
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
@@ -31,4 +31,4 @@ class HelplessHentaiCommand extends Command {
     }
 }
 
-module.exports = HelplessHentaiCommand;
+module.exports = HentaiCommand;
