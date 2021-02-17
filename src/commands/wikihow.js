@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js')
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class DankMemeCommand extends Command {
+class WikiHowCommand extends Command {
     constructor() {
         super('aww', {
            aliases: ['aww'] 
@@ -24,4 +24,4 @@ class DankMemeCommand extends Command {
     }
 }
 
-module.exports = DankMemeCommand;
+module.exports = WikiHowCommand;
