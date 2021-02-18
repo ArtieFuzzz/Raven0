@@ -1,7 +1,6 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 const { inspect } = require('util')
-require('dotenv').config();
 const prefix = process.env.PREFIX;
 
 class EvalCommand extends Command {
@@ -9,7 +8,12 @@ class EvalCommand extends Command {
         super('eval', {
            aliases: ['eval', 'e', 'ev'] ,
            ownerOnly: true,
-           category: 'Owner'
+           category: 'Owner',
+                description: {
+                    usage: 'eval <code>',
+                    examples: [`eval console.log('hello!')`, 'eval this.client.token'],
+                    description: 'Evaluate javascript with the bot'
+                }
         });
     }
 
