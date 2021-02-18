@@ -1,5 +1,5 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
-const BotColors = require('./src/Util/Colors');
+const BotColors = require('./src/Util/colors');
 require('dotenv').config()
 
 class KairoClient extends AkairoClient {
