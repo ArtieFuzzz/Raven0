@@ -9,7 +9,7 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        console.log('I\'m ready!');
+        console.log(`I\'m ready! Logged in as ${this.client.user.tag}`);
         this.client.user.setActivity(`To Music | ${process.env.PREFIX}`, { type: 'LISTENING' })
     }
 }
