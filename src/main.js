@@ -1,4 +1,4 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command } = require('discord-akairo');
+const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 require('dotenv').config()
 
 class KairoClient extends AkairoClient {
@@ -9,7 +9,7 @@ class KairoClient extends AkairoClient {
             disableMentions: 'everyone'
         });
         this.commandHandler = new CommandHandler(this, {
-            directory: './src/commands/',
+            directory: './src/Commands/',
             prefix: process.env.PREFIX,
             handleEdits: true,
             commandUtil: true,
@@ -33,10 +33,10 @@ class KairoClient extends AkairoClient {
                     commandUtilLifetime: 300000,
         });
         this.inhibitorHandler = new InhibitorHandler(this, {
-            directory: './src/inhibitors/'
+            directory: './src/Inhibitors/'
         });
         this.listenerHandler = new ListenerHandler(this, {
-            directory: './src/listeners/'
+            directory: './src/Listeners/'
         });
         this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
         this.commandHandler.useListenerHandler(this.listenerHandler);
@@ -49,7 +49,11 @@ class KairoClient extends AkairoClient {
         });
         this.listenerHandler.loadAll();
     }
+    async start() {
+            require('./Extensions/message');      
+        super.login(process.env.TOKEN)
+    }
 }
 
 const client = new KairoClient();
-client.login(process.env.TOKEN);
+client.start();
