@@ -22,7 +22,7 @@ const { MessageEmbed } = require('discord.js');
 
         exec(message, { member }) {
         const embed = new MessageEmbed()
-            .setColor(this.client.colors['defaultColor'])
+            .setColor('RANDOM')
             .setTitle(`${member.id === message.author.id ? 'Your' : `${member.user.tag}'s`} Profile Picture`)
             .setURL(member.user.displayAvatarURL())
             .setImage(member.user.displayAvatarURL({ size: 2048 }))

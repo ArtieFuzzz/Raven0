@@ -43,7 +43,7 @@ const { formatName } = require('../../Util/Functions');
             } else if(command) {
                         const cmd = command;
                         const embed = new MessageEmbed()
-                            .setColor(this.client.colors['defaultColor'])
+                            .setColor('RANDOM')
                             .setAuthor(`Help: ${formatName(cmd.aliases[0])} | ${message.guild.name}`, message.guild.iconURL())
                             .setDescription(`
                             **Command Name**: \`${cmd.aliases[0]}\`
