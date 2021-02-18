@@ -15,10 +15,10 @@ class ChangelogCommand extends Command {
 
     exec(message) {
         const embed = new MessageEmbed()
-        .setTitle('Changelog')
-        .setDescription('Using Akairo framework.\nMost commands got removed since some of the command mainly use the DBM Actions.\nI\'ll maybe try to re-write them whenever I feel like it')
-        .url('https://github.com/ArtieFuzzz/Kairo')
-        .setFooter('(Source)[https://github.com/ArtieFuzzz/Kairo]');
+        .setTitle('Changelog | V5')
+        .setURL('https://github.com/ArtieFuzzz/Kairo')
+        .setFooter('Source: https://github.com/ArtieFuzzz/Kairo')
+        .setDescription('Katsu is no longer using DBM. It\'s now using discord-akairo\n\nWhat does this mean?\n Most commands that are made with DBM will no longer work as the new code cannot use DBM data\nI\'ll maybe try to re-write them whenever I feel like it.\n\nKatsu => Kairo');
 
         message.channel.send(embed)
     }
