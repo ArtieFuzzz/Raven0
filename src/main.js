@@ -12,7 +12,24 @@ class KairoClient extends AkairoClient {
             directory: './src/commands/',
             prefix: process.env.PREFIX,
             handleEdits: true,
-            commandUtil: true
+            commandUtil: true,
+            argumentDefaults: {
+                prompt: {
+                    modifyStart: (message, str) => `${message.author}, ${str}\n\nType: \`cancel\` to cancel the command...`,
+                    modifyRetry: (message, str) => `${message.author}, ${str}\n\nType: \`cancel\` to cancel the command...`,
+                    cancel: `You have cancelled the command successfully.`,
+                    timeout: 'Your time has ran out. Command was cancelled...',
+                    ended: 'You took too many tries. Command was cancelled...',
+                    retries: 4,
+                    time: 30000,
+                },
+                otherwise: ""
+            },
+                    ignoreCooldown: this.ownerID,
+                    ignorePermissions: this.ownerID,
+                    automateCategories: true,
+                    defaultCooldown: 2000,
+                    commandUtilLifetime: 300000,
         });
         this.inhibitorHandler = new InhibitorHandler(this, {
             directory: './src/inhibitors/'
