@@ -14,13 +14,13 @@ const { MessageEmbed } = require('discord.js');
             let result = missingPermissions(message.guild.me, missing);
             const embed = new MessageEmbed()
                 .setColor(this.client.colors['red'])
-                .setDescription(`I do not have the following permission(s): \`${result}\` for the command: \`${command}\`. Command execution has halted.`)
+                .setDescription(`${this.client.emojis.get('660343595626397699')} I do not have the following permission(s): \`${result}\` for the command: \`${command}\`. Command execution has halted.`)
             return message.channel.send({ embed });
             } else if(type == 'user') {
             let result = missingPermissions(message.member, missing);
             const embed = new MessageEmbed()
                 .setColor(this.client.colors['red'])
-                .setDescription(`You do not have the following permission(s): \`${result}\` for the command: \`${command}\`. Command execution has halted.`)
+                .setDescription(`${this.client.emojis.get('660343595626397699')} You do not have the following permission(s): \`${result}\` for the command: \`${command}\`. Command execution has halted.`)
             return message.channel.send({ embed });
             }
         }

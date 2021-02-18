@@ -1,4 +1,4 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require('discord-akairo');
+const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command } = require('discord-akairo');
 require('dotenv').config()
 
 class KairoClient extends AkairoClient {
@@ -13,6 +13,7 @@ class KairoClient extends AkairoClient {
             prefix: process.env.PREFIX,
             handleEdits: true,
             commandUtil: true,
+            classToHandle: Command,
             argumentDefaults: {
                 prompt: {
                     modifyStart: (message, str) => `${message.author}, ${str}\n\nType: \`cancel\` to cancel the command...`,
@@ -41,6 +42,11 @@ class KairoClient extends AkairoClient {
         this.commandHandler.useListenerHandler(this.listenerHandler);
         this.commandHandler.loadAll();
         this.inhibitorHandler.loadAll();
+        this.listenerHandler.setEmitters({
+            commandHandler: this.commandHandler,
+            listenerHandler: this.listenerHandler,
+            process: process
+        });
         this.listenerHandler.loadAll();
     }
 }
