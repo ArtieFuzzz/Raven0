@@ -3,7 +3,11 @@ const { Command } = require('discord-akairo');
 class NsfwCommand extends Command {
     constructor() {
         super('nsfw', {
-           aliases: ['nsfw'] 
+           aliases: ['nsfw'],
+           description: {
+               usage: 'nsfw',
+               description: 'Just a test command.'
+           }
         });
     }
 

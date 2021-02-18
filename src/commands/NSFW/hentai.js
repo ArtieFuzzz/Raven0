@@ -8,7 +8,11 @@ class HelplessHentaiCommand extends Command {
     constructor() {
         super('hentai', {
            aliases: ['hentai'],
-           category: 'NSFW'
+           category: 'NSFW',
+           description: {
+               usage: 'hentai',
+               description: 'Returns a nsfw image of hentai.'
+           }
         });
     }
 

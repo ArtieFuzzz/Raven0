@@ -8,7 +8,11 @@ class DankMemeCommand extends Command {
     constructor() {
         super('fox', {
            aliases: ['fox'],
-           category: 'Images' 
+           category: 'Images',
+           description: {
+               usage: 'fox',
+               description: 'Returns fox image.'
+           }
         });
     }
 

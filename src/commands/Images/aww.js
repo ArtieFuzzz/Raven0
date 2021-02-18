@@ -8,7 +8,11 @@ class AwwCommand extends Command {
     constructor() {
         super('aww', {
            aliases: ['aww'],
-           category: 'Images' 
+           category: 'Images',
+           description: {
+               usage: 'aww',
+               description: 'Returns cute image.'
+           }
         });
     }
 

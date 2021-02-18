@@ -8,7 +8,11 @@ class HentaiCommand extends Command {
     constructor() {
         super('femboy', {
            aliases: ['femboy'],
-           category: 'NSFW'
+           category: 'NSFW',
+           description: {
+               usage: 'femboy',
+               description: 'Returns a nsfw image of a femboy.'
+           }
         });
     }
 

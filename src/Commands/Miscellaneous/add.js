@@ -4,6 +4,7 @@ class AddCommand extends Command {
     constructor() {
         super('add', {
             aliases: ['add'],
+            category: 'Miscellaneous',
             args: [
                 {
                     id: 'numOne',
@@ -20,7 +21,12 @@ class AddCommand extends Command {
                     type: 'number',
                     default: 0
                 }
-            ]
+            ],
+            description: {
+                usage: 'add [Num 1] [Num 2] [Num 3]',
+                examples: ['add 12 25', 'add 2 2', 'add 1 1 9'],
+                description: 'Add numbers together.'
+            }
         });
     }
 

@@ -8,7 +8,11 @@ class DankMemeCommand extends Command {
     constructor() {
         super('dankmeme', {
            aliases: ['dankmeme'],
-           category: 'Images' 
+           category: 'Images',
+           description: {
+               usage: 'dankmeme',
+               description: 'Returns dankmeme.'
+           }
         });
     }
 

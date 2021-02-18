@@ -8,7 +8,11 @@ class WikiHowCommand extends Command {
     constructor() {
         super('wikihow', {
            aliases: ['wikihow'],
-           category: 'Images'
+           category: 'Images',
+           description: {
+               usage: 'wikihow',
+               description: 'Returns a wikihow image.'
+           }
         });
     }
 

@@ -8,7 +8,11 @@ class FacepalmCommand extends Command {
     constructor() {
         super('facepalm', {
            aliases: ['facepalm'],
-           category: 'Images'
+           category: 'Images',
+           description: {
+               usage: 'facepalm',
+               description: 'Returns a image you should facepalm at.'
+           }
         });
     }
 

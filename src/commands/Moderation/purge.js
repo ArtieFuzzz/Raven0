@@ -33,7 +33,7 @@ const { MessageEmbed } = require('discord.js');
         return message.util.send(
             new MessageEmbed()
                 .setColor(this.client.colors['defaultColor'])
-                .setDescription(`${this.client.emojis.get('660343594477027330')} Deleted: \`${deleted.size}/${args.purge}\` messages successfully`))
+                .setDescription(`✅ Deleted: \`${deleted.size}/${args.purge}\` messages successfully`))
             .then(m => m.delete({ timeout: 15000 }))
         }
     }

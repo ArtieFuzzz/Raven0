@@ -7,8 +7,12 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class HentaiCommand extends Command {
     constructor() {
         super('randnsfw', {
-           aliases: ['randnsfw'],
-           category: 'NSFW'
+           aliases: ['randnsfw', 'randomnsfw', 'rnsfw'],
+           category: 'NSFW',
+           description: {
+               usage: 'randnsfw',
+               description: 'Returns a nsfw image of a femboy.'
+           }
         });
     }
 
@@ -20,7 +24,7 @@ class HentaiCommand extends Command {
         }
 
         const { url, post } = await ksoft.images.nsfw();
-        const embed = new DiscordJS.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle(post.title)
         .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
         .setURL(post.link)
