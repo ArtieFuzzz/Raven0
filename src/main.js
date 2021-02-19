@@ -1,5 +1,6 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
-// const BotColors = require('./src/Util/colors')
+const BotColors = require('./Util/colors')
+
 require('dotenv').config()
 
 class KairoClient extends AkairoClient {
@@ -40,7 +41,7 @@ class KairoClient extends AkairoClient {
             directory: './src/Listeners/'
         });
 
-        // this.colours = BotColours;
+        this.colors = BotColors;
         this.util = new ClientUtil(this);
         this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
         this.commandHandler.useListenerHandler(this.listenerHandler);
@@ -54,7 +55,7 @@ class KairoClient extends AkairoClient {
         this.listenerHandler.loadAll();
     }
     async start() {
-        //require('./src/Extensions/message');
+        require('./Extensions/message');
 
         super.login(process.env.TOKEN)
     }
