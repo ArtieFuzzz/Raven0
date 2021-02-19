@@ -16,22 +16,6 @@ const verificationLevels = {
  VERY_HIGH: '┻━┻ ︵ヽ(`□´)ﾉ︵ ┻━┻'
 };
 
-const regions = {
-brazil: "Brazil",
-europe: "Europe",
-hongkong: "Hong Kong",
-india: "India",
-japan: "Japan",
-russia: "Russia",
-singapore: "Singapore",
-southafrica: "South Africa",
-sydeny: "Sydeny",
-'us-central': "US Central",
-'us-east': "US East",
-'us-west': "US West",
-'us-south': "US South"
-};
-
     class ServerInfoCommand extends Command {
         constructor() {
             super('serverinfo', {
@@ -59,18 +43,18 @@ sydeny: "Sydeny",
     .setDescription(`**Guild information for _${message.guild.name}_**`)
     .setColor(0xC76CF5)
     .setThumbnail(message.guild.iconURL({ dynamic: true}))
-    .addField('General', [
+    .addField('General:', [
        `** Name:** ${message.guild.name}`,
        `** ID:** ${message.guild.id}`,
        `** Owner:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
-       `** Region:** ${regions[message.guild.region]}`,
+       `** Region:** ${message.guild.region}`,
        `** Boost Tier:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
        `** Explicit Filter:** ${filterLevels[message.guild.explicitContentFilter]}`,
        `** Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
-       `** Time Created:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('Ll')} ${moment(message.guild.createdTimestamp).fromNow()}`,
+       `** Time Created:**${moment(message.guild.createdTimestamp).format('LT')} - ${moment(message.guild.createdTimestamp).format('L')} - ${moment(message.guild.createdTimestamp).fromNow()}`,
        '\u200b'
     ])
-    .addField('Statistics', [
+    .addField('Statistics:', [
        `** Roles:** ${roles.length}`,
        `** Emojis:** ${emojis.size}`,
        `** Regular Emojis:** ${emojis.filter(emoji => !emoji.animated).size}`,
@@ -83,7 +67,7 @@ sydeny: "Sydeny",
        `** Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`,
        
      ], true)
-     .addField('Presence',[
+     .addField('Presence:',[
      `** Online:** ${members.filter(member => member.presence.status === 'online').size}`,
      `** Idle:** ${members.filter(member => member.presence.status === 'idle').size}`,
      `** Do not Disturb:** ${members.filter(member => member.presence.status === 'dnd').size}`,
