@@ -23,7 +23,7 @@ class AddCommand extends Command {
                 }
             ],
             description: {
-                usage: 'add [Num 1] [Num 2] [Num 3]',
+                usage: 'add [Num 1] [Num 2] <Num 3>',
                 examples: ['add 12 25', 'add 2 2', 'add 1 1 9'],
                 description: 'Add numbers together.'
             }

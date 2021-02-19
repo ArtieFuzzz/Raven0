@@ -11,7 +11,7 @@ class DankMemeCommand extends Command {
            category: 'Images',
            description: {
                usage: 'fox',
-               examples: ['fox', 'foxx'],
+               examples: ['fox'],
                description: 'Returns fox image.'
            }
         });
