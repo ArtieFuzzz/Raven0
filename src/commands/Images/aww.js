@@ -8,6 +8,8 @@ class AwwCommand extends Command {
     constructor() {
         super('aww', {
            aliases: ['aww', 'awww'],
+           cooldown: 1000,
+           ratelimit: 3,
            category: 'Images',
            description: {
                usage: 'aww',
