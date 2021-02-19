@@ -6,6 +6,7 @@ class NsfwCommand extends Command {
            aliases: ['nsfw'],
            description: {
                usage: 'nsfw',
+               examples: ['nsfw'],
                description: 'Just a test command.'
            }
         });

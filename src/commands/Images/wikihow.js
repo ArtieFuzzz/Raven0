@@ -7,10 +7,11 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class WikiHowCommand extends Command {
     constructor() {
         super('wikihow', {
-           aliases: ['wikihow'],
+           aliases: ['wikihow', 'wh'],
            category: 'Images',
            description: {
                usage: 'wikihow',
+               examples: ['wikihow', 'wh'],
                description: 'Returns a wikihow image.'
            }
         });

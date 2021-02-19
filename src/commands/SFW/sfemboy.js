@@ -8,7 +8,9 @@ class SFWFemboyCommand extends Command {
     constructor() {
         super('sfemboy', {
            aliases: ['sfemboy'],
-           category: 'SFW' 
+           category: 'SFW',
+           examples: ['sfemboy'],
+           description: 'Returns a SFW image from r/femboy'
         });
     }
 

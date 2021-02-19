@@ -11,7 +11,8 @@ class HentaiCommand extends Command {
            category: 'NSFW',
            description: {
                usage: 'femboy',
-               description: 'Returns a nsfw image of a femboy.'
+               examples: ['femboy'],
+               description: 'Returns a NSFW image from r/FemBoys.'
            }
         });
     }

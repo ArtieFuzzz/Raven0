@@ -11,6 +11,7 @@ class DankMemeCommand extends Command {
            category: 'Images',
            description: {
                usage: 'meme',
+               examples: ['meme'],
                description: 'Returns a meme.'
            }
         });

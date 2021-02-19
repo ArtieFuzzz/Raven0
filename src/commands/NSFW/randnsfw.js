@@ -11,6 +11,7 @@ class HentaiCommand extends Command {
            category: 'NSFW',
            description: {
                usage: 'randnsfw',
+               examples: ['randnsfw', 'randomnsfw', 'rnsfw'],
                description: 'Returns a nsfw image of a femboy.'
            }
         });

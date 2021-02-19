@@ -7,7 +7,7 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class DankMemeCommand extends Command {
     constructor() {
         super('fox', {
-           aliases: ['fox'],
+           aliases: ['fox', 'foxx'],
            category: 'Images',
            description: {
                usage: 'fox',

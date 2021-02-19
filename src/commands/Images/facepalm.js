@@ -7,10 +7,11 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class FacepalmCommand extends Command {
     constructor() {
         super('facepalm', {
-           aliases: ['facepalm'],
+           aliases: ['facepalm', 'fp'],
            category: 'Images',
            description: {
                usage: 'facepalm',
+               examples: ['facepalm', 'fm'],
                description: 'Returns a image you should facepalm at.'
            }
         });

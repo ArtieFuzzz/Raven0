@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
-const { formatName } = require('../../Util/functions');
+const { formatName } = require('../../Util/Functions');
 
     class HelpCommand extends Command {
         constructor() {
@@ -12,7 +12,7 @@ const { formatName } = require('../../Util/functions');
                 }],
                 description: {
                     usage: 'help < command >',
-                    examples: ['help', 'commands', 'h'],
+                    examples: ['help', 'comands', 'h'],
                     description: 'Display\'s the commands of the bot'
                 },
                 category: 'Miscellaneous',

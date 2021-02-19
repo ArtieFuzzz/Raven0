@@ -7,7 +7,7 @@ class ChangelogCommand extends Command {
            aliases: ['changelog', 'cl', 'clog'],
            category: 'Miscellaneous',
            description: {
-               usage: 'changelog',
+               usage: ['changelog'],
                description: 'Bot replies back with the changelog.'
            }
         });

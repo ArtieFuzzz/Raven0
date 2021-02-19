@@ -11,6 +11,7 @@ class HentaiCommand extends Command {
            category: 'NSFW',
            description: {
                usage: 'helplesshentai',
+               examples: ['helplesshentai'],
                description: 'Returns a nsfw image of helplesshentai.'
            }
         });
