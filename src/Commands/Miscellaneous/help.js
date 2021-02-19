@@ -33,7 +33,7 @@ const { formatName } = require('../../Util/Functions');
                       ) mappedOut = '`No commands available..`'
 
                     embed.addField(`${dirSize.size} | **${category} Commands**`, mappedOut)
-                         .setColor('#C76CF5')
+                         .setColor(this.client.colors['defaultColor'])
                          .setAuthor(`Help Menu | ${message.guild.name}`, message.guild.iconURL())    
 
         });
@@ -43,7 +43,7 @@ const { formatName } = require('../../Util/Functions');
             } else if(command) {
                         const cmd = command;
                         const embed = new MessageEmbed()
-                            .setColor('#C76CF5')
+                            .setColor(this.client.colors['defaultColor'])
                             .setAuthor(`Help: ${formatName(cmd.aliases[0])} | ${message.guild.name}`, message.guild.iconURL())
                             .setDescription(`
                             **Command Name**: \`${cmd.aliases[0]}\`
