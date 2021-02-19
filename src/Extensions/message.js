@@ -12,4 +12,3 @@ const { Structures } = require('discord.js');
             });
         }
     });
-© 2021 GitHub, Inc.

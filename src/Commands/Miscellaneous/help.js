@@ -1,6 +1,5 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
-const { formatName } = require('../../Util/Functions');
 
     class HelpCommand extends Command {
         constructor() {
@@ -33,7 +32,7 @@ const { formatName } = require('../../Util/Functions');
                       ) mappedOut = '`No commands available..`'
 
                     embed.addField(`${dirSize.size} | **${category} Commands**`, mappedOut)
-                         .setColor(this.client.colors['defaultColor'])
+                         .setColor('#C76CF5')
                          .setAuthor(`Help Menu | ${message.guild.name}`, message.guild.iconURL())    
 
         });
@@ -43,7 +42,7 @@ const { formatName } = require('../../Util/Functions');
             } else if(command) {
                         const cmd = command;
                         const embed = new MessageEmbed()
-                            .setColor('RANDOM')
+                            .setColor('#C76CF5')
                             .setAuthor(`Help: ${formatName(cmd.aliases[0])} | ${message.guild.name}`, message.guild.iconURL())
                             .setDescription(`
                             **Command Name**: \`${cmd.aliases[0]}\`
