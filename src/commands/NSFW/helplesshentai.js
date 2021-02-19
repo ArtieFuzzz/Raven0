@@ -7,11 +7,11 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 class HentaiCommand extends Command {
     constructor() {
         super('helplesshentai', {
-           aliases: ['helplesshentai'],
+           aliases: ['helplesshentai', 'hhentai'],
            category: 'NSFW',
            description: {
                usage: 'helplesshentai',
-               examples: ['helplesshentai'],
+               examples: ['helplesshentai', 'hhentai'],
                description: 'Returns a nsfw image of helplesshentai.'
            }
         });
