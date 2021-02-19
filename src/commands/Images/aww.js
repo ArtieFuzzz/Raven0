@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo');
 const { KSoftClient } = require('@ksoft/api');
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
