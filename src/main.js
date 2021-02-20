@@ -1,11 +1,11 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
+const {AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 const BotColors = require('./Util/colors');
 require('dotenv').config();
 
 class KairoClient extends AkairoClient {
     constructor() {
         super({
-           ownerID: process.env.OWNERID,
+            ownerID: process.env.OWNERID,
         }, {
             disableMentions: 'everyone'
         });
@@ -27,11 +27,11 @@ class KairoClient extends AkairoClient {
                 },
                 otherwise: ""
             },
-                    ignoreCooldown: this.ownerID,
-                    ignorePermissions: this.ownerID,
-                    automateCategories: true,
-                    defaultCooldown: 2000,
-                    commandUtilLifetime: 300000,
+            ignoreCooldown: this.ownerID,
+            ignorePermissions: this.ownerID,
+            automateCategories: true,
+            defaultCooldown: 2000,
+            commandUtilLifetime: 300000,
         });
         this.inhibitorHandler = new InhibitorHandler(this, {
             directory: './src/Inhibitors/'
