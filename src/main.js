@@ -1,6 +1,9 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
+const chalk = require('chalk');
 const BotColors = require('./Util/colors');
 require('dotenv').config();
+
+console.log(chalk.green('[Starting] Please wait while I start up'));
 
 class KairoClient extends AkairoClient {
     constructor() {

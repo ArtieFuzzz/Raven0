@@ -1,4 +1,5 @@
 const { Listener } = require('discord-akairo');
+const chalk = require('chalk');
 
 class ReadyListener extends Listener {
     constructor() {
@@ -9,7 +10,7 @@ class ReadyListener extends Listener {
     }
 
     exec() {
-        console.log(`I\'m ready! Logged in as ${this.client.user.tag}`);
+        console.log(chalk.green(`[Ready] Logged in as ${this.client.user.tag}`));
         this.client.user.setActivity(`To Music | ${process.env.PREFIX}`, { type: 'LISTENING' })
     }
 }
