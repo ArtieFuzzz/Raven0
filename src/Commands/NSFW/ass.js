@@ -24,8 +24,9 @@ class AssCommand extends Command {
             return true;
         }
 
-    const { url, post } = await ksoft.images.random('ass', { nsfw: true });
+    const { url } = await ksoft.images.random('ass', { nsfw: true });
     const embed = new MessageEmbed()
+    .setTitle('Thicc?')
     .setFooter('Powered by api.ksoft.si')
     .setColor("RANDOM")
     .setTimestamp()

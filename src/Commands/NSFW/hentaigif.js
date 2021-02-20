@@ -26,6 +26,7 @@ class HentaiGifCommand extends Command {
 
     const { url } = await ksoft.images.random('hentai_gif', { nsfw: true });
     const embed = new MessageEmbed()
+    .setTitle('Hentai!!')
     .setFooter('Powered by api.ksoft.si')
     .setColor("RANDOM")
     .setTimestamp()

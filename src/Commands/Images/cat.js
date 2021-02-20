@@ -22,6 +22,7 @@ class CatCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('cat');
     const embed = new MessageEmbed()
+    .setTitle('Cats!')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

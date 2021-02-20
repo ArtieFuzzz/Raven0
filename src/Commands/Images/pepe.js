@@ -22,6 +22,7 @@ class PepeCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('pepe');
     const embed = new MessageEmbed()
+    .setTitle('Pepe the Frog')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)
