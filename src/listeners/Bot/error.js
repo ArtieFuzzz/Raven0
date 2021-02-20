@@ -9,7 +9,7 @@ const { Listener } = require('discord-akairo');
         }
 
         exec(err) {
-            console.error(err);
+            console.error(chalk.red(`[Error] ${err}`));
         }
     }
 
