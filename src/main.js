@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const BotColors = require('./Util/colors');
 require('dotenv').config();
 
-console.log(chalk.green('[Starting] Please wait while I start up'));
+console.log(chalk.yellow('[Starting] Please wait while I start up'));
 
 class KairoClient extends AkairoClient {
     constructor() {
@@ -12,6 +12,7 @@ class KairoClient extends AkairoClient {
         }, {
             disableMentions: 'everyone'
         });
+        console.log(chalk.yellow('[Starting] Loading Commands'))
         this.commandHandler = new CommandHandler(this, {
             directory: './src/Commands/',
             prefix: process.env.PREFIX,
@@ -36,9 +37,11 @@ class KairoClient extends AkairoClient {
             defaultCooldown: 2000,
             commandUtilLifetime: 300000,
         });
+        console.log(chalk.yellow('[Starting] Loading Inhibitors'))
         this.inhibitorHandler = new InhibitorHandler(this, {
             directory: './src/Inhibitors/'
         });
+        console.log(chalk.yellow('[Starting] Loading Listeners'))
         this.listenerHandler = new ListenerHandler(this, {
             directory: './src/Listeners/'
         });
