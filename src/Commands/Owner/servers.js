@@ -3,12 +3,12 @@ const { Command } = require('discord-akairo');
 class PingCommand extends Command {
     constructor() {
         super('servers', {
-           aliases: ['server', 'botserver'],
+           aliases: ['servers', 'botserver'],
            category: 'Owner',
            ownerOnly: true,
            description: {
-               usage: 'server',
-               examples: ['ping', 'p'],
+               usage: 'servers',
+               examples: ['servers', 'botserver'],
                description: 'Bot returns the servers it\'s in".'
            }
         });
