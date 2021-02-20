@@ -23,7 +23,7 @@ class EvalCommand extends Command {
 
 const args = message.content.slice(prefix.length).trim().split(/ +/g); args.shift()
 const query = args.join(' ')
-const code = (lang, code) => (`\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``).replace(this.client.token, "Uh oh! I can't do that!").replace(this.client.ksoft.token, "Uh oh! I can't do that!")
+const code = (lang, code) => (`\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``).replace(this.client.token, "Uh oh! I can't do that!")
 
 if (!query) message.channel.send('Please, write something so I can evaluate!')
 else {
