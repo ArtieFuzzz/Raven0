@@ -1,4 +1,4 @@
-const {AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
+const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 const BotColors = require('./Util/colors');
 require('dotenv').config();
 
