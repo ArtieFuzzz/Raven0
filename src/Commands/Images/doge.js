@@ -4,23 +4,23 @@ const { MessageEmbed } = require('discord.js')
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class FoxCommand extends Command {
+class DogeCommand extends Command {
     constructor() {
-        super('fox', {
-           aliases: ['fox', 'foxx'],
+        super('doge', {
+           aliases: ['doge'],
            category: 'Images',
            cooldown: 1000,
            ratelimit: 3,
            description: {
-               usage: 'fox',
-               examples: ['fox'],
-               description: 'Returns fox image.'
+               usage: 'doge',
+               examples: ['doge'],
+               description: 'Returns doge image.'
            }
         });
     }
 
    async exec(message) {
-    const { url } = await ksoft.images.random('fox');
+    const { url } = await ksoft.images.random('doge');
     const embed = new MessageEmbed()
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
@@ -30,4 +30,4 @@ class FoxCommand extends Command {
     }
 }
 
-module.exports = FoxCommand;
+module.exports = DogeCommand;
