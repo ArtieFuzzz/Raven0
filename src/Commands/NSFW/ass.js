@@ -4,15 +4,15 @@ const { MessageEmbed } = require('discord.js')
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class HentaiCommand extends Command {
+class AssCommand extends Command {
     constructor() {
-        super('hentai', {
-           aliases: ['hentai'],
+        super('ass', {
+           aliases: ['ass'],
            category: 'NSFW',
            description: {
-               usage: 'hentai',
-               examples: ['hentai'],
-               description: 'Returns a random NSFW image of hentai.'
+               usage: 'ass',
+               examples: ['ass'],
+               description: 'Returns a random NSFW ass image.'
            }
         });
     }
@@ -24,11 +24,9 @@ class HentaiCommand extends Command {
             return true;
         }
 
-    const { url, post } = await ksoft.images.reddit('hentai');
+    const { url, post } = await ksoft.images.random('ass', { nsfw: true });
     const embed = new MessageEmbed()
-    .setTitle(post.title)
-    .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
-    .setURL(post.link)
+    .setFooter('Powered by api.ksoft.si')
     .setColor("RANDOM")
     .setTimestamp()
     .setImage(url);
@@ -36,4 +34,4 @@ class HentaiCommand extends Command {
     }
 }
 
-module.exports = HentaiCommand;
+module.exports = AssCommand;

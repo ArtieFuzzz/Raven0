@@ -12,7 +12,7 @@ class HentaiCommand extends Command {
            description: {
                usage: 'helplesshentai',
                examples: ['helplesshentai', 'hhentai'],
-               description: 'Returns a nsfw image of helplesshentai.'
+               description: 'Returns a random NSFW image of helplesshentai.'
            }
         });
     }
