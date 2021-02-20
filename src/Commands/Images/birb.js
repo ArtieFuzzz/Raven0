@@ -22,6 +22,7 @@ class BirbCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('birb');
     const embed = new MessageEmbed()
+    .setTitle('Birds!')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

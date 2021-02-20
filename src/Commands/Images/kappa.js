@@ -22,6 +22,7 @@ class KappaCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('kappa');
     const embed = new MessageEmbed()
+    .setTitle('Kappa')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

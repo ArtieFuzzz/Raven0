@@ -22,6 +22,7 @@ class FoxCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('fox');
     const embed = new MessageEmbed()
+    .setTitle('Fox!')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

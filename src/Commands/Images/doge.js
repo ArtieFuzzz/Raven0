@@ -22,6 +22,7 @@ class DogeCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('doge');
     const embed = new MessageEmbed()
+    .setTitle('Doge! Wow')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

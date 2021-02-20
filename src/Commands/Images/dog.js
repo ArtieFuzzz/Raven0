@@ -22,6 +22,7 @@ class DogCommand extends Command {
    async exec(message) {
     const { url } = await ksoft.images.random('dog');
     const embed = new MessageEmbed()
+    .setTitle('Doggo\'s!')
     .setFooter(`Powered by api.ksoft.si`)
     .setTimestamp()
     .setImage(url)

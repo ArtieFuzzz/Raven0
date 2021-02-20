@@ -26,6 +26,7 @@ class NekoCommand extends Command {
 
     const { url } = await ksoft.images.random('neko', { nsfw: true });
     const embed = new MessageEmbed()
+    .setTitle('.w.')
     .setFooter('Powered by api.ksoft.si')
     .setColor("RANDOM")
     .setTimestamp()
