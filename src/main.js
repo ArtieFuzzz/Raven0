@@ -4,7 +4,7 @@ const BotColors = require('./Util/colors');
 require('dotenv').config();
 
 console.log(chalk.yellow('[Starting] Please wait while I start up'));
-console.log(chalk.yellow('[Starting] Kairo V2.2'))
+console.log(chalk.yellow('[Starting] Kairo V2.3'))
 
 class KairoClient extends AkairoClient {
     constructor() {

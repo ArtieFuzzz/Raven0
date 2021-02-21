@@ -24,6 +24,7 @@ class RandomNickCommand extends Command {
 
             let random = limit(5);
             memberexe.setNickname(random)
+            message.channel.send(`Random nickname set! (${random})`)
     }
 }
 
