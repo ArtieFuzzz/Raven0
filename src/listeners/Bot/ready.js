@@ -10,6 +10,7 @@ class ReadyListener extends Listener {
     }
 
     exec() {
+        console.log(chalk.blue('|--------------------------|'))
         console.log(chalk.yellow(`[Starting] Loaded ${this.client.commandHandler.modules.size} Commands`))
         console.log(chalk.yellow(`[Starting] Loaded ${this.client.inhibitorHandler.modules.size} Inhibitors`))
         console.log(chalk.yellow(`[Starting] Loaded ${this.client.listenerHandler.modules.size} Listeners`))
