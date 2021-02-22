@@ -1,4 +1,5 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
+const { Database } = require("quickmongo");
 const chalk = require('chalk');
 const BotColors = require('./Util/colors');
 require('dotenv').config();
@@ -47,6 +48,7 @@ class KairoClient extends AkairoClient {
             directory: './src/Listeners/'
         });
 
+        this.db = new Database(process.env.MONGO_URI);
         this.colors = BotColors;
         this.util = new ClientUtil(this);
         this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
