@@ -9,9 +9,15 @@ class HentaiCommand extends Command {
         super('hentai', {
            aliases: ['hentai'],
            category: 'NSFW',
+           args: [
+            {
+                id: 'span',
+                type: 'string',
+                default: 0
+            }],
            description: {
-               usage: 'hentai',
-               examples: ['hentai'],
+               usage: 'hentai <span>',
+               examples: ['hentai', 'hentai hour', 'hentai day', 'hentai all'],
                description: 'Returns a random NSFW image of hentai.'
            }
         });
@@ -24,7 +30,7 @@ class HentaiCommand extends Command {
             return true;
         }
 
-    const { url, post } = await ksoft.images.reddit('hentai');
+    const { url, post } = await ksoft.images.reddit('hentai', { span: `${args.span}`});
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
