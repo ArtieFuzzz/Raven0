@@ -22,7 +22,7 @@ let authorStatus = await this.client.db.fetch(`afk_${message.author.id}-${messag
     
     if (status) {
       const embed = new MessageEmbed()
-      .setColor(client.botcolor)
+      .setColor("RANDOM")
       .setDescription(`${mentioned.user.tag} is AFK: **${status}**`)
       message.channel.send(embed).then(i => i.delete({timeout: 5000}));
     }
