@@ -13,7 +13,7 @@ class HentaiCommand extends Command {
             {
                 id: 'span',
                 type: 'string',
-                default: 0
+                default: 'day'
             }],
            description: {
                usage: 'femboy <span>',
@@ -29,8 +29,7 @@ class HentaiCommand extends Command {
             message.util.send(`:x: This command only runs in NSFW channels. Did you mean ${process.env.PREFIX}sfemboy?`);
             return true;
         }
-
-    const { url, post } = await ksoft.images.reddit('FemBoys', { span: `${args.span}`});
+    const { url, post } = await ksoft.images.reddit('FemBoys', { span: args.span });
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)

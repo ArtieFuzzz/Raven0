@@ -13,11 +13,11 @@ class HentaiCommand extends Command {
             {
                 id: 'span',
                 type: 'string',
-                default: 0
+                default: 'day'
             }],
            description: {
                usage: 'hentai <span>',
-               examples: ['hentai', 'hentai hour', 'hentai day', 'hentai all'],
+               examples: ['hentai', 'hentai hour', 'hentai all'],
                description: 'Returns a random NSFW image of hentai.'
            }
         });
@@ -29,8 +29,7 @@ class HentaiCommand extends Command {
             message.util.send(':x: This command only runs in NSFW channels');
             return true;
         }
-
-    const { url, post } = await ksoft.images.reddit('hentai', { span: `${args.span}`});
+    const { url, post } = await ksoft.images.reddit('hentai', { span: args.span});
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
