@@ -8,6 +8,7 @@ class AFKCommand extends Command {
                 {
                     id: 'reason',
                     type: 'string',
+                    match: 'content',
                     prompt: {
                         start: 'What is the reason of you being afk?',
                         retry: 'Try again! What is the reason of you being afk?'
