@@ -9,22 +9,27 @@ class HentaiCommand extends Command {
         super('femboy', {
            aliases: ['femboy'],
            category: 'NSFW',
+           args: [
+            {
+                id: 'span',
+                type: 'string',
+                default: 'day'
+            }],
            description: {
-               usage: 'femboy',
-               examples: ['femboy'],
+               usage: 'femboy <span>',
+               examples: ['femboy', 'femboy hour', 'femboy month', 'femboy year'],
                description: 'Returns a random NSFW image from r/FemBoys.'
            }
         });
     }
 
-    async exec(message) {
+    async exec(message, args) {
     if (!message.guild) return true;
     if (!message.channel.nsfw) {
             message.util.send(`:x: This command only runs in NSFW channels. Did you mean ${process.env.PREFIX}sfemboy?`);
             return true;
         }
-
-    const { url, post } = await ksoft.images.reddit('FemBoys');
+    const { url, post } = await ksoft.images.reddit('FemBoys', { span: args.span });
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)

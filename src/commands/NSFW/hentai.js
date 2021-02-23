@@ -9,22 +9,27 @@ class HentaiCommand extends Command {
         super('hentai', {
            aliases: ['hentai'],
            category: 'NSFW',
+           args: [
+            {
+                id: 'span',
+                type: 'string',
+                default: 'day'
+            }],
            description: {
-               usage: 'hentai',
-               examples: ['hentai'],
+               usage: 'hentai <span>',
+               examples: ['hentai', 'hentai hour', 'hentai all'],
                description: 'Returns a random NSFW image of hentai.'
            }
         });
     }
 
-    async exec(message) {
+    async exec(message, args) {
     if (!message.guild) return true;
     if (!message.channel.nsfw) {
             message.util.send(':x: This command only runs in NSFW channels');
             return true;
         }
-
-    const { url, post } = await ksoft.images.reddit('hentai');
+    const { url, post } = await ksoft.images.reddit('hentai', { span: args.span});
     const embed = new MessageEmbed()
     .setTitle(post.title)
     .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
