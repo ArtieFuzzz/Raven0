@@ -10,6 +10,8 @@ const { MessageEmbed } = require('discord.js')
         }
 
         async exec(message) {
+            /*Credit to Azrail#4817 from: Dark Studio who originally created this command*/
+            /*Edit by: ArtieFuzzz#8298*/
 if (message.author.bot || message.channel.type === "dm") return; // Ignore if the user is a bot an the message was sent on DMs (direct messages).
    
 let authorStatus = await this.client.db.fetch(`afk_${message.author.id}-${message.guild.id}`),
