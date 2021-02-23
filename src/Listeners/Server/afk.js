@@ -1,0 +1,40 @@
+const { Listener } = require('discord-akairo');
+const { MessageEmbed } = require('discord.js')
+
+    class AFKListener extends Listener {
+        constructor() {
+            super('afk', {
+                emitter: 'client',
+                event: 'message'
+            })
+        }
+
+        async exec(message) {
+if (message.author.bot || message.channel.type === "dm") return; // Ignore if the user is a bot an the message was sent on DMs (direct messages).
+   
+let authorStatus = await this.client.db.fetch(`afk_${message.author.id}-${message.guild.id}`),
+      mentioned = message.mentions.members.first();
+  
+  if (mentioned) {
+    let status = await this.client.db.fetch(`afk_${mentioned.id}-${message.guild.id}`);
+    
+    if (status) {
+      const embed = new MessageEmbed()
+      .setColor(client.botcolor)
+      .setDescription(`${mentioned.user.tag} is AFK: **${status}**`)
+      message.channel.send(embed).then(i => i.delete({timeout: 5000}));
+    }
+  }
+    
+    if (authorStatus) {
+    const embed = new MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Welcome back! **${message.author.tag}** you are no longer AFK.`)
+    message.channel.send(embed).then(i => i.delete({timeout: 5000}));
+    this.client.db.delete(`afk_${message.author.id}-${message.guild.id}`)
+    message.member.setNickname(`${message.member.nickname ? message.member.nickname.split("[AFK]").join("") : message.author.username}`).catch(err => null)
+         }
+    }
+}
+
+module.exports = AFKListener;
