@@ -23,7 +23,7 @@ class HentaiCommand extends Command {
         });
     }
 
-    async exec(message) {
+    async exec(message, args) {
     if (!message.guild) return true;
     if (!message.channel.nsfw) {
             message.util.send(':x: This command only runs in NSFW channels');
