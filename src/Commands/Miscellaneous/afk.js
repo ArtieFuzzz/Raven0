@@ -18,6 +18,8 @@ class AFKCommand extends Command {
             description: {
                 description: 'Set yourself as afk to inform users that mentioned you!',
                 usage: 'afk <reason>',
+                examples: ['afk grabbing some chicken', 'afk Watching Thin Air'],
+                description: 'Mark yourself AFK!'
             },
         })
     }
