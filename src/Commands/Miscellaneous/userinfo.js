@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
+const moment = require('moment');
 
     class UserinfoCommand extends Command {
         constructor() {
@@ -25,17 +26,12 @@ const { MessageEmbed } = require('discord.js');
             let target = message.mentions.users.first() || message.author;
             
              let uEmbed = new MessageEmbed()
-               .setColor(0xC76CF5)
-                .setTitle("User Info")
+                .setTitle(`${target.tag} [${target.id}]`)
                 .setThumbnail(message.guild.iconURL({ format: 'jpg' }))
                 .setAuthor(`${target.username} Info`, target.displayAvatarURL({ format: 'jpg' }))
-                .addField("**Username:**", `${target.username}`, true)
-                .addField("**Discriminator:**", `${target.discriminator}`, true)
-                .addField("**ID:**", `${target.id}`, true)
-                .addField("**Status:**", `${target.presence.status}`, true)
-                .addField("**Created At:**", `${target.createdAt}`, true)
-                .addField("\u200b", `\u200b`, true)
-                .setFooter(`Kairo | Have a nice day!`);
+                .setDescription(`**Status:** ${target.presence.status}\n**Create At:** ${moment(target.createdAt).format('LT')} - ${moment(target.updatedAt).format('L')} - ${moment(target.createdAt).fromNow()}`)
+                .setColor(0xC76CF5)
+                .setFooter(`Sparrow | Have a nice day!`);
 
             message.channel.send(uEmbed);
           
