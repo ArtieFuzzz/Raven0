@@ -28,7 +28,7 @@ class MemebersCommand extends Command {
 
     const Embed = new MessageEmbed()
     .setColor("RANDOM")
-    .setTitle("Members Information!")
+    .setTitle("Member Stats")
     .setDescription(`Total - **${message.guild.memberCount}**\nHuman - **${Humans.size}**\nBots - **${Bots.size}**\nOnline - **${Online.size}** | Idle - **${Idle.size}** | Do Not Distrub - **${Dnd.size}** | Offline - **${Offline.size}**\nPlaying - **${Players.size}**\nDiscord In Website - **${Websites.size}** | Desktop - **${Desktop.size}** | Mobile - **${Mobile.size}**\nSame Discriminator - **${SameTag}**`)
     .setFooter(`Requested By ${message.author.username}`)
     .setTimestamp();
