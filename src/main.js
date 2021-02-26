@@ -7,7 +7,7 @@ require('dotenv').config();
 console.log(chalk.yellow('[Starting] Please wait while I start up'));
 console.log(chalk.yellow('[Starting] Sparrow V2.6'))
 
-class KairoClient extends AkairoClient {
+class SparrowClient extends AkairoClient {
     constructor() {
         super({
             ownerID: process.env.OWNERID,
@@ -69,5 +69,5 @@ class KairoClient extends AkairoClient {
     }
 }
 
-const client = new KairoClient();
+const client = new SparrowClient();
 client.start();
