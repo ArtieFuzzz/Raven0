@@ -5,31 +5,31 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class AwwCommand extends Command {
-    constructor() {
-        super('aww', {
-           aliases: ['aww', 'awww'],
-           cooldown: 1000,
-           ratelimit: 3,
-           category: 'Images',
-           description: {
-               usage: 'aww',
-               examples: ['aww', 'awww'],
-               description: 'Returns cute image.'
-           }
-        });
-    }
+	constructor() {
+		super('aww', {
+			aliases: ['aww', 'awww'],
+			cooldown: 1000,
+			ratelimit: 3,
+			category: 'Images',
+			description: {
+				usage: 'aww',
+				examples: ['aww', 'awww'],
+				description: 'Returns cute image.',
+			},
+		});
+	}
 
-    async exec(message) {
-    const { url, post } = await ksoft.images.aww();
-    const embed = new MessageEmbed()
-    .setTitle(post.title)
-    .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
-    .setURL(post.link)
-    .setTimestamp()
-    .setImage(url)
-    .setColor("RANDOM");
-    message.channel.send(embed);
-    }
+	async exec(message) {
+		const { url, post } = await ksoft.images.aww();
+		const embed = new MessageEmbed()
+			.setTitle(post.title)
+			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
+			.setURL(post.link)
+			.setTimestamp()
+			.setImage(url)
+			.setColor('RANDOM');
+		message.channel.send(embed);
+	}
 }
 
 module.exports = AwwCommand;
