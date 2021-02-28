@@ -23,6 +23,8 @@ class AFKCommand extends Command {
 		});
 	}
 	async exec(message, args) {
+		/* Credit to Azrail#4817 from: Dark Studio who originally created this command*/
+		/* Edit by: ArtieFuzzz#8298*/
 		const alrAfk = await this.client.db.fetch(`afk_${message.author.id}-${message.guild.id}`);
 
 		if(!alrAfk) {
