@@ -1,11 +1,12 @@
 {
   "name": "sparrow",
-  "version": "1.0.0",
+  "version": "2.6.0",
   "description": "Discord Bot",
   "main": "src/main.js",
   "dependencies": {
     "@codedipper/random-code": "^2.1.2",
     "@ksoft/api": "^3.1.9",
+    "@sapphire/stopwatch": "^1.0.5",
     "centra": "^2.4.2",
     "chalk": "^4.1.0",
     "discord-akairo": "^8.1.0",
