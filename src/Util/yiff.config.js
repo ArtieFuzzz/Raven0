@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-undef
-module.exports = config = {
+module.exports = {
 	creator: 'ArtieFuzzz#8298',
-	name: 'Sparrow Discord Bot',
+	name: 'Sparrow',
 	version: '2.8',
 };
