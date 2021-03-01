@@ -1,7 +1,7 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 const yiff = require('yiff');
-const config = require('../../Util/yiff.config.js');
+const config = require('../../Config/yiff.config.js');
 
 
 class E926Command extends Command {
