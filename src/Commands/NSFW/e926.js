@@ -8,7 +8,7 @@ class E926Command extends Command {
 	constructor() {
 		super('e926', {
 			aliases: ['e926'],
-			category: 'SFW',
+			category: 'NSFW',
 			args: [
 				{
 					id: 'tags',
@@ -24,6 +24,11 @@ class E926Command extends Command {
 	}
 
 	async exec(message, args) {
+		if (!message.guild) return true;
+		if (!message.channel.nsfw) {
+			message.util.send(':x: This command only runs in NSFW channels');
+			return true;
+		}
 		// eslint-disable-next-line prefer-const
 		let e9 = new yiff.e926(config);
 		if (!args.tags) return message.channel.send('No tags were specified');
