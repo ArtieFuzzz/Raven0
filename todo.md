@@ -2,7 +2,8 @@ Things I need to do
 
 ### Todo
 
-- [ ] Add E921 (SFW) command (E621 (NSFW) command Optional)
+- [ ] Add E926 (SFW) command
+- [ ] Add E621 (NSFW) command
 
 
 ### In Progress  

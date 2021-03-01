@@ -1,13 +1,13 @@
 const { Command } = require('discord-akairo');
 
-class E921Command extends Command {
+class E926Command extends Command {
 	constructor() {
-		super('e921', {
-			aliases: ['e921'],
+		super('e926', {
+			aliases: ['e926'],
 			category: 'SFW',
 			description: {
-				usage: 'e921',
-				examples: ['example', 'example2'],
+				usage: 'e926 [tags]',
+				examples: ['e926', 'example2'],
 				description: 'Example.',
 			},
 		});
@@ -18,4 +18,4 @@ class E921Command extends Command {
 	}
 }
 
-module.exports = E921Command;
+module.exports = E926Command;
