@@ -16,8 +16,8 @@ class E621Command extends Command {
 				}],
 			description: {
 				usage: 'e621 [Tag]',
-				examples: ['example', 'example2'],
-				description: 'Example.',
+				examples: ['e621 love gay', 'e621 cat'],
+				description: 'Get an image from E621.',
 			},
 		});
 	}

@@ -17,8 +17,8 @@ class E926Command extends Command {
 				}],
 			description: {
 				usage: 'e926 [tags]',
-				examples: ['e926', 'example2'],
-				description: 'Example.',
+				examples: ['e926 dog', 'e926 cat'],
+				description: 'Get an image from E926.',
 			},
 		});
 	}
