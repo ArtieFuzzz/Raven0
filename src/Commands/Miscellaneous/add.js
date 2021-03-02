@@ -31,6 +31,8 @@ class AddCommand extends Command {
 	}
 
 	exec(message, args) {
+		if (!args.length) return message.channel.send('Uh I\'ve got nothing to add together!');
+		if (!args.numTwo) return message.channel.send('You need 2 numbers');
 		const sum = args.numOne + args.numTwo + args.numThree;
 		return message.reply(`The sum is ${sum}!`);
 	}

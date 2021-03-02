@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class HentaiCommand extends Command {
+class BigTiddyCommand extends Command {
 	constructor() {
 		super('bigtiddy', {
 			aliases: ['bigtiddy'],
@@ -41,4 +41,4 @@ class HentaiCommand extends Command {
 	}
 }
 
-module.exports = HentaiCommand;
+module.exports = BigTiddyCommand;
