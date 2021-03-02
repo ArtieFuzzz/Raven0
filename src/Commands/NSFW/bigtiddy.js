@@ -4,27 +4,32 @@ const { MessageEmbed } = require('discord.js');
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class RandNSFWCommand extends Command {
+class BigTiddyCommand extends Command {
 	constructor() {
-		super('randnsfw', {
-			aliases: ['randnsfw', 'randomnsfw', 'rnsfw'],
+		super('bigtiddy', {
+			aliases: ['bigtiddy'],
 			category: 'NSFW',
+			args: [
+				{
+					id: 'span',
+					type: 'string',
+					default: 'day',
+				}],
 			description: {
-				usage: 'randnsfw',
-				examples: ['randnsfw', 'randomnsfw', 'rnsfw'],
-				description: 'Returns a random NSFW Image.',
+				usage: 'hentai <span>',
+				examples: ['bigtiddy', 'bigtiddy hour', 'bigtiddy all'],
+				description: 'Returns a random NSFW image of big tits.',
 			},
 		});
 	}
 
-	async exec(message) {
+	async exec(message, args) {
 		if (!message.guild) return true;
 		if (!message.channel.nsfw) {
 			message.util.send(':x: This command only runs in NSFW channels');
 			return true;
 		}
-
-		const { url, post } = await ksoft.images.nsfw();
+		const { url, post } = await ksoft.images.reddit('bigtiddygothgf', { span: args.span });
 		const embed = new MessageEmbed()
 			.setTitle(post.title)
 			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
@@ -36,4 +41,4 @@ class RandNSFWCommand extends Command {
 	}
 }
 
-module.exports = RandNSFWCommand;
+module.exports = BigTiddyCommand;

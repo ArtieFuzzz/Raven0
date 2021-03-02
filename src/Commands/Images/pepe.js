@@ -9,7 +9,7 @@ class PepeCommand extends Command {
 		super('pepe', {
 			aliases: ['pepe'],
 			category: 'Images',
-			cooldown: 1000,
+			cooldown: 3000,
 			ratelimit: 3,
 			description: {
 				usage: 'pepe',

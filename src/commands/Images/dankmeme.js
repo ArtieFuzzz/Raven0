@@ -8,7 +8,7 @@ class DankMemeCommand extends Command {
 	constructor() {
 		super('dankmeme', {
 			aliases: ['dankmeme', 'dkm'],
-			cooldown: 1000,
+			cooldown: 3000,
 			ratelimit: 3,
 			category: 'Images',
 			description: {
