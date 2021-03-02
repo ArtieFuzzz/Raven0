@@ -24,7 +24,7 @@
     "start": "node src/main"
   },
   "author": "ArtieFuzzz#8298",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArtieFuzzz/Sparrow"
