@@ -9,7 +9,7 @@ class KappaCommand extends Command {
 		super('kappa', {
 			aliases: ['kappa'],
 			category: 'Images',
-			cooldown: 1000,
+			cooldown: 3000,
 			ratelimit: 3,
 			description: {
 				usage: 'kappa',

@@ -9,7 +9,7 @@ class WikiHowCommand extends Command {
 		super('wikihow', {
 			aliases: ['wikihow', 'wh'],
 			category: 'Images',
-			cooldown: 1000,
+			cooldown: 3000,
 			ratelimit: 3,
 			description: {
 				usage: 'wikihow',
