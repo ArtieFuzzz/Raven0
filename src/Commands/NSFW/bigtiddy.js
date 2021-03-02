@@ -16,7 +16,7 @@ class BigTiddyCommand extends Command {
 					default: 'day',
 				}],
 			description: {
-				usage: 'hentai <span>',
+				usage: 'bigtiddy <span>',
 				examples: ['bigtiddy', 'bigtiddy hour', 'bigtiddy all'],
 				description: 'Returns a random NSFW image of big tits.',
 			},
