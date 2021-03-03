@@ -9,8 +9,6 @@ class BirbCommand extends Command {
 		super('birb', {
 			aliases: ['birb', 'bird'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'birb',
 				examples: ['birb', 'bird'],

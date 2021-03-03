@@ -2,5 +2,5 @@
 module.exports = {
 	creator: 'ArtieFuzzz#8298',
 	name: 'Sparrow',
-	version: '2.8',
+	version: '2.9',
 };

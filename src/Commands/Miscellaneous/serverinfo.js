@@ -26,8 +26,6 @@ class ServerInfoCommand extends Command {
 				examples: ['serverinfo'],
 				description: 'Display guild info',
 			},
-			cooldown: 2000,
-			ratelimit: 3,
 		});
 	}
 

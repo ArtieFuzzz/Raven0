@@ -8,9 +8,6 @@ class FoxCommand extends Command {
 	constructor() {
 		super('fox', {
 			aliases: ['fox', 'foxx'],
-			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'fox',
 				examples: ['fox'],

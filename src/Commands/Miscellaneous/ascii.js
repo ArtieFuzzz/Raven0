@@ -18,8 +18,6 @@ class AsciiArtCommand extends Command {
 				examples: ['ascii Hello, world!'],
 				description: 'Displays ascii art',
 			},
-			cooldown: 6000,
-			ratelimit: 2,
 		});
 	}
 

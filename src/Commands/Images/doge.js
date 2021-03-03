@@ -9,8 +9,6 @@ class DogeCommand extends Command {
 		super('doge', {
 			aliases: ['doge'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'doge',
 				examples: ['doge'],

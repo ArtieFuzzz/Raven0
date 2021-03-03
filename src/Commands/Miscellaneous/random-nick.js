@@ -11,8 +11,6 @@ class RandomNickCommand extends Command {
 				examples: ['random-nick @someone#0001', 'random-nickname'],
 				description: 'Give a random nickname to mentioned user or yourself.',
 			},
-			cooldown: 2000,
-			ratelimit: 3,
 			userPermissions: ['MANAGE_NICKNAMES'],
 			clientPermissions: ['MANAGE_NICKNAMES'],
 		});

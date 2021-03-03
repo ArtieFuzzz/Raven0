@@ -14,8 +14,6 @@ class AvatarCommand extends Command {
 				examples: ['avatar @host', 'avatar 123456789012345678', 'avatar host'],
 				description: 'Display\'s a users avatar',
 			},
-			cooldown: 3000,
-			ratelimit: 3,
 		});
 	}
 
