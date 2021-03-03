@@ -9,8 +9,6 @@ class FacepalmCommand extends Command {
 		super('facepalm', {
 			aliases: ['facepalm', 'fp'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'facepalm',
 				examples: ['facepalm', 'fm'],

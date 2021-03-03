@@ -9,8 +9,6 @@ class DankMemeCommand extends Command {
 		super('meme', {
 			aliases: ['meme'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'meme',
 				examples: ['meme'],

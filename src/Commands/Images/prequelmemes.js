@@ -9,8 +9,6 @@ class PrequelMemeCommand extends Command {
 		super('prequelmeme', {
 			aliases: ['prequelmeme', 'pmeme'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'meme',
 				examples: ['prequelmeme', 'pmeme'],

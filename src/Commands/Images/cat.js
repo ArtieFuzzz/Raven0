@@ -9,8 +9,6 @@ class CatCommand extends Command {
 		super('cat', {
 			aliases: ['cat'],
 			category: 'Images',
-			cooldown: 3000,
-			ratelimit: 3,
 			description: {
 				usage: 'cat',
 				examples: ['cat'],
