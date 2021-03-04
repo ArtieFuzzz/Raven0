@@ -28,7 +28,7 @@ class UserinfoCommand extends Command {
 			.setTitle(`${target.tag} [${target.id}]`)
 			.setThumbnail(message.guild.iconURL({ format: 'jpg' }))
 			.setAuthor(`${target.username} Info`, target.displayAvatarURL({ format: 'jpg' }))
-			.setDescription(`**Status:** ${target.presence.status}\n**Create At:** ${moment(target.createdAt).format('LT')} - ${moment(target.updatedAt).format('L')} - ${moment(target.createdAt).fromNow()}`)
+			.setDescription(`**Status:** ${target.presence.status}\n**Created At:** ${moment(target.createdAt).format('LT')} - ${moment(target.updatedAt).format('L')} - ${moment(target.createdAt).fromNow()}`)
 			.setColor(0xC76CF5)
 			.setFooter('Sparrow | Have a nice day!');
 
