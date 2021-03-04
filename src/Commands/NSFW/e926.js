@@ -20,6 +20,8 @@ class E926Command extends Command {
 				examples: ['e926 dog', 'e926 cat'],
 				description: 'Get an image from E926.',
 			},
+			ratelimit: '5',
+			cooldown: '5000',
 		});
 	}
 

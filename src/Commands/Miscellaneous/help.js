@@ -15,6 +15,8 @@ class HelpCommand extends Command {
 				examples: ['help', 'comands', 'h'],
 				description: 'Display\'s the commands of the bot',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

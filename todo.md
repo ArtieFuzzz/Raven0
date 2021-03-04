@@ -1,7 +1,7 @@
 Things I need to do
 
 ### Todo
-
+- [] More SFW commands (Suggestions are welcome!)
 ### In Progress  
 
 ### Done ✓

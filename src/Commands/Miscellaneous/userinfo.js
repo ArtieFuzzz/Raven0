@@ -15,6 +15,8 @@ class UserinfoCommand extends Command {
 				examples: ['userinfo @host', 'userinfo 123456789012345678', 'userinfo host'],
 				description: 'Display\'s user information',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

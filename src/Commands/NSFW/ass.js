@@ -14,6 +14,8 @@ class AssCommand extends Command {
 				examples: ['ass'],
 				description: 'Returns a random NSFW ass image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

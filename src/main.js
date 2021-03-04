@@ -5,7 +5,7 @@ const BotColors = require('./Util/colors');
 require('dotenv').config();
 
 console.log(chalk.yellow('[Starting] Please wait while I start up'));
-console.log(chalk.yellow('[Starting] Sparrow V2.9'));
+console.log(chalk.yellow('[Starting] Sparrow V3.0'));
 
 class SparrowClient extends AkairoClient {
 	constructor() {
@@ -36,7 +36,6 @@ class SparrowClient extends AkairoClient {
 			ignoreCooldown: this.ownerID,
 			ignorePermissions: this.ownerID,
 			automateCategories: true,
-			defaultCooldown: 2000,
 			commandUtilLifetime: 300000,
 		});
 		console.log(chalk.yellow('[Starting] Loading Inhibitors'));

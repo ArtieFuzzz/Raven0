@@ -4,21 +4,21 @@ const { MessageEmbed } = require('discord.js');
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-class BigTiddyCommand extends Command {
+class NoTrapsCommand extends Command {
 	constructor() {
-		super('bigtiddy', {
-			aliases: ['bigtiddy'],
+		super('notraps', {
+			aliases: ['notraps', 'notrap'],
 			category: 'NSFW',
 			args: [
 				{
 					id: 'span',
 					type: 'string',
-					default: 'day',
+					default: 'all',
 				}],
 			description: {
-				usage: 'bigtiddy <span>',
-				examples: ['bigtiddy', 'bigtiddy hour', 'bigtiddy all'],
-				description: 'Returns a random NSFW image of big tits.',
+				usage: 'notraps <span>',
+				examples: ['notraps', 'notraps hour', 'notraps all'],
+				description: 'Returns a random NSFW image of a NoTrap image.',
 			},
 			ratelimit: '3',
 			cooldown: '3000',
@@ -31,7 +31,7 @@ class BigTiddyCommand extends Command {
 			message.util.send(':x: This command only runs in NSFW channels');
 			return true;
 		}
-		const { url, post } = await ksoft.images.reddit('bigtiddygothgf', { span: args.span });
+		const { url, post } = await ksoft.images.reddit('NoTraps', { span: args.span });
 		const embed = new MessageEmbed()
 			.setTitle(post.title)
 			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
@@ -43,4 +43,4 @@ class BigTiddyCommand extends Command {
 	}
 }
 
-module.exports = BigTiddyCommand;
+module.exports = NoTrapsCommand;

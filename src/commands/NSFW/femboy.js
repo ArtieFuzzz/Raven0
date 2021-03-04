@@ -20,6 +20,8 @@ class FemboyCommand extends Command {
 				examples: ['femboy', 'femboy hour', 'femboy month', 'femboy year'],
 				description: 'Returns a random NSFW image from r/FemBoys.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

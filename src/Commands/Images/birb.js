@@ -14,6 +14,8 @@ class BirbCommand extends Command {
 				examples: ['birb', 'bird'],
 				description: 'Returns birb image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 
