@@ -14,6 +14,8 @@ class AwwCommand extends Command {
 				examples: ['aww', 'awww'],
 				description: 'Returns cute image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

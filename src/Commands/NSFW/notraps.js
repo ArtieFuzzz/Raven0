@@ -20,6 +20,8 @@ class NoTrapsCommand extends Command {
 				examples: ['notraps', 'notraps hour', 'notraps all'],
 				description: 'Returns a random NSFW image of a NoTrap image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

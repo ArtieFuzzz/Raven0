@@ -20,6 +20,8 @@ class HentaiCommand extends Command {
 				examples: ['hentai', 'hentai hour', 'hentai all'],
 				description: 'Returns a random NSFW image of hentai.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

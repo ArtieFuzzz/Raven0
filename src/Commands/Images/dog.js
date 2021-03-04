@@ -14,6 +14,8 @@ class DogCommand extends Command {
 				examples: ['doggo', 'dog'],
 				description: 'Returns dog image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

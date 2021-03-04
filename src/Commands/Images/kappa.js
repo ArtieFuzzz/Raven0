@@ -14,6 +14,8 @@ class KappaCommand extends Command {
 				examples: ['kappa'],
 				description: 'Returns kappa image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

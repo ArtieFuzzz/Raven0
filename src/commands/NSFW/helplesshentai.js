@@ -20,6 +20,8 @@ class HentaiHelplessCommand extends Command {
 				examples: ['helplesshentai', 'hhentai', 'hhentai year', 'hhentai month', 'hhentai all'],
 				description: 'Returns a random NSFW image of helplesshentai.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

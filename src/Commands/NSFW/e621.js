@@ -19,6 +19,8 @@ class E621Command extends Command {
 				examples: ['e621 love gay', 'e621 cat'],
 				description: 'Get an image from E621.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

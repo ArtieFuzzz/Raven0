@@ -14,6 +14,8 @@ class RandNSFWCommand extends Command {
 				examples: ['randnsfw', 'randomnsfw', 'rnsfw'],
 				description: 'Returns a random NSFW Image.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

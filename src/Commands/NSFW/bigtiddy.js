@@ -20,6 +20,8 @@ class BigTiddyCommand extends Command {
 				examples: ['bigtiddy', 'bigtiddy hour', 'bigtiddy all'],
 				description: 'Returns a random NSFW image of big tits.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 

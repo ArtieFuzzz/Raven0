@@ -14,6 +14,8 @@ class DankMemeCommand extends Command {
 				examples: ['meme'],
 				description: 'Returns a meme.',
 			},
+			ratelimit: '3',
+			cooldown: '3000',
 		});
 	}
 
