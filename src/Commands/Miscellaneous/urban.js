@@ -30,7 +30,7 @@ class UrbanCommand extends Command {
 				.setTitle(list[0].word)
 				.setDescription(list[0].definition)
 				.setURL(list[0].permalink)
-				.setFooter(`Author: ${list[0].author} | ID: ${list[0].defid} | Upvotes: ${list[0].thumbsup} | Downvotes: ${list[0].thumbsdown}`);
+				.setFooter(`Author: ${list[0].author} | ID: ${list[0].defid} | Upvotes: ${list[0].thumbs_up} | Downvotes: ${list[0].thumbs_down}`);
 			message.channel.send(embed);
 		}
 		catch (err) {
