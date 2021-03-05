@@ -1,5 +1,4 @@
 const { Command } = require('discord-akairo');
-const id = this.client.user.id;
 
 class InviteCommand extends Command {
 	constructor() {
@@ -17,6 +16,7 @@ class InviteCommand extends Command {
 	exec(message) {
 
 		const discord = require('discord.js');
+		const id = this.client.user.id;
 
 		const invEmbed = new discord.MessageEmbed()
 			.setTitle('**`Use this link to invite me!`**')
