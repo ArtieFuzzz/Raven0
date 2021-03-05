@@ -29,6 +29,7 @@ class UrbanCommand extends Command {
 			const embed = new MessageEmbed()
 				.setTitle(list[0].word)
 				.setDescription(list[0].definition)
+				.addField('Example', list[0].example)
 				.setURL(list[0].permalink)
 				.setFooter(`Author: ${list[0].author} | ID: ${list[0].defid} | Upvotes: ${list[0].thumbs_up} | Downvotes: ${list[0].thumbs_down}`);
 			message.channel.send(embed);
