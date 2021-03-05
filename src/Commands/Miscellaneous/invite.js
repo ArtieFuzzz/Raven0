@@ -1,4 +1,5 @@
 const { Command } = require('discord-akairo');
+const id = this.client.user.id;
 
 class InviteCommand extends Command {
 	constructor() {
@@ -20,7 +21,7 @@ class InviteCommand extends Command {
 		const invEmbed = new discord.MessageEmbed()
 			.setTitle('**`Use this link to invite me!`**')
 			// eslint-disable-next-line quotes, no-inline-comments
-			.setDescription(`[Click Here](https://discord.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=134728736)`).setColor('RANDOM').setFooter(`${message.author.tag}`); // .setImage('a banner? (optional)');
+			.setDescription(`[Click Here](https://discord.com/oauth2/authorize?client_id=${id}&scope=bot&permissions=134728736)`).setColor('RANDOM').setFooter(`${message.author.tag}`); // .setImage('a banner? (optional)');
 
 
 		message.channel.send({
