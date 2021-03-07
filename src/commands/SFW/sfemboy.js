@@ -5,12 +5,13 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class SFWFemboyCommand extends Command {
+
 	constructor() {
 		super('sfemboy', {
 			aliases: ['sfemboy'],
 			category: 'SFW',
 			examples: ['sfemboy'],
-			description: 'Returns a SFW image from r/femboy',
+			description: 'Returns a SFW image from r/femboy'
 		});
 	}
 
@@ -25,6 +26,7 @@ class SFWFemboyCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = SFWFemboyCommand;

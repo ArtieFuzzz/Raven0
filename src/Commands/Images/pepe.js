@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class PepeCommand extends Command {
+
 	constructor() {
 		super('pepe', {
 			aliases: ['pepe'],
@@ -12,10 +13,10 @@ class PepeCommand extends Command {
 			description: {
 				usage: 'pepe',
 				examples: ['pepe'],
-				description: 'Returns pepe image.',
+				description: 'Returns pepe image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class PepeCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = PepeCommand;

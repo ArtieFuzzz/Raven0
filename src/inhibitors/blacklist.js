@@ -1,10 +1,11 @@
 const { Inhibitor } = require('discord-akairo');
 
 class BlacklistInhibitor extends Inhibitor {
+
 	constructor() {
 		super('blacklist', {
 			reason: 'blacklist',
-			type: 'all',
+			type: 'all'
 		});
 	}
 
@@ -13,6 +14,7 @@ class BlacklistInhibitor extends Inhibitor {
 		const blacklist = ['81440962496172032'];
 		return blacklist.includes(message.author.id);
 	}
+
 }
 
 module.exports = BlacklistInhibitor;

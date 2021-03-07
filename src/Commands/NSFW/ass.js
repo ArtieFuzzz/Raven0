@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class AssCommand extends Command {
+
 	constructor() {
 		super('ass', {
 			aliases: ['ass'],
@@ -12,10 +13,10 @@ class AssCommand extends Command {
 			description: {
 				usage: 'ass',
 				examples: ['ass'],
-				description: 'Returns a random NSFW ass image.',
+				description: 'Returns a random NSFW ass image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -35,6 +36,7 @@ class AssCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = AssCommand;

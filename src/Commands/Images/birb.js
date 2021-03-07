@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class BirbCommand extends Command {
+
 	constructor() {
 		super('birb', {
 			aliases: ['birb', 'bird'],
@@ -12,10 +13,10 @@ class BirbCommand extends Command {
 			description: {
 				usage: 'birb',
 				examples: ['birb', 'bird'],
-				description: 'Returns birb image.',
+				description: 'Returns birb image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class BirbCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = BirbCommand;

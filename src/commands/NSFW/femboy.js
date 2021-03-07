@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class FemboyCommand extends Command {
+
 	constructor() {
 		super('femboy', {
 			aliases: ['femboy'],
@@ -13,15 +14,15 @@ class FemboyCommand extends Command {
 				{
 					id: 'span',
 					type: 'string',
-					default: 'day',
-				}],
+					default: 'day'
+				} ],
 			description: {
 				usage: 'femboy <span>',
 				examples: ['femboy', 'femboy hour', 'femboy month', 'femboy year'],
-				description: 'Returns a random NSFW image from r/FemBoys.',
+				description: 'Returns a random NSFW image from r/FemBoys.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -41,6 +42,7 @@ class FemboyCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = FemboyCommand;

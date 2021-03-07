@@ -4,6 +4,7 @@ const yiff = require('yiff');
 const config = require('../../Config/yiff.config.js');
 
 class E621Command extends Command {
+
 	constructor() {
 		super('e621', {
 			aliases: ['e621'],
@@ -12,15 +13,15 @@ class E621Command extends Command {
 				{
 					id: 'tags',
 					type: 'string',
-					match: 'content',
-				}],
+					match: 'content'
+				} ],
 			description: {
 				usage: 'e621 [Tag]',
 				examples: ['e621 love gay', 'e621 cat'],
-				description: 'Get an image from E621.',
+				description: 'Get an image from E621.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -31,7 +32,7 @@ class E621Command extends Command {
 			return true;
 		}
 		try {
-		// eslint-disable-next-line prefer-const
+		// eslint-disable-next-line prefer-const, new-cap
 			let e6 = new yiff.e621(config);
 			if (!args.tags) return message.channel.send('No tags were specified');
 			const { image, page, score, artist } = await e6.request(args.tags);
@@ -43,11 +44,11 @@ class E621Command extends Command {
 				.setImage(image)
 				.setColor('RANDOM');
 			message.channel.send(embed);
-		}
-		catch (e) {
+		} catch (e) {
 			return message.channel.send(e.message);
 		}
 	}
+
 }
 
 module.exports = E621Command;

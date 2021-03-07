@@ -5,7 +5,7 @@ const moment = require('moment');
 const filterLevels = {
 	DISABLED: 'Off',
 	MEMBERS_WITHOUT_ROLES: 'No Role',
-	ALL_MEMBERS: 'Everyone',
+	ALL_MEMBERS: 'Everyone'
 };
 
 const verificationLevels = {
@@ -13,10 +13,11 @@ const verificationLevels = {
 	LOW: 'Low',
 	MEDIUM: 'Medium',
 	HIGH: '(╯°□°）╯︵ ┻━┻',
-	VERY_HIGH: '┻━┻ ︵ヽ(`□´)ﾉ︵ ┻━┻',
+	VERY_HIGH: '┻━┻ ︵ヽ(`□´)ﾉ︵ ┻━┻'
 };
 
 class ServerInfoCommand extends Command {
+
 	constructor() {
 		super('serverinfo', {
 			aliases: ['serverinfo', 'server', 'guild', 'guildinfo'],
@@ -24,16 +25,15 @@ class ServerInfoCommand extends Command {
 			description: {
 				usage: 'serverinfo',
 				examples: ['serverinfo'],
-				description: 'Display guild info',
+				description: 'Display guild info'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
 	exec(message) {
-
-		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role=> role.toString());
+		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
 		const channels = message.guild.channels.cache;
 		const emojis = message.guild.emojis.cache;
@@ -41,7 +41,7 @@ class ServerInfoCommand extends Command {
 
 		const embed = new MessageEmbed()
 			.setDescription(`**Guild information for _${message.guild.name}_**`)
-			.setColor(0xC76CF5)
+			.setColor('0xC76CF5')
 			.setThumbnail(message.guild.iconURL({ dynamic: true }))
 			.addField('General:', [
 				`** Name:** ${message.guild.name}`,
@@ -52,7 +52,7 @@ class ServerInfoCommand extends Command {
 				`** Explicit Filter:** ${filterLevels[message.guild.explicitContentFilter]}`,
 				`** Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
 				`** Time Created:**${moment(message.guild.createdTimestamp).format('LT')} - ${moment(message.guild.createdTimestamp).format('L')} - ${moment(message.guild.createdTimestamp).fromNow()}`,
-				'\u200b',
+				'\u200b'
 			])
 			.addField('Statistics:', [
 				`** Roles:** ${roles.length}`,
@@ -64,28 +64,29 @@ class ServerInfoCommand extends Command {
 				`** Bots:** ${members.filter(member => member.user.bot).size}`,
 				`** Text Channels:** ${channels.filter(channel => channel.type === 'text').size}`,
 				`** Voice Channel:** ${channels.filter(channel => channel.type === 'voice').size}`,
-				`** Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`,
+				`** Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`
 
 			], true)
 			.addField('Presence:', [
 				`** Online:** ${members.filter(member => member.presence.status === 'online').size}`,
 				`** Idle:** ${members.filter(member => member.presence.status === 'idle').size}`,
 				`** Do not Disturb:** ${members.filter(member => member.presence.status === 'dnd').size}`,
-				`** Offline:** ${members.filter(member => member.presence.status === 'offline').size}`,
+				`** Offline:** ${members.filter(member => member.presence.status === 'offline').size}`
 			], true)
 
 			.addField(`Roles [${roles.length - 1}]`, roles.length < 10 ? roles.join(', ') : roles.length > 10 ? trimArray(roles) : 'None')
 			.setTimestamp();
 		message.channel.send(embed);
-
 	}
+
 }
 
 function trimArray(arr, maxLen = 10) {
-	if(arr.length > maxLen) {
+	if (arr.length > maxLen) {
 		const len = arr.length - maxLen;
+		// eslint-disable-next-line no-param-reassign
 		arr = arr.slice(0, maxLen);
-		arr.push(`${len} more...`) ;
+		arr.push(`${len} more...`);
 	}
 	return arr;
 }

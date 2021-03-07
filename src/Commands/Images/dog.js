@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DogCommand extends Command {
+
 	constructor() {
 		super('dog', {
 			aliases: ['dog', 'doggo'],
@@ -12,10 +13,10 @@ class DogCommand extends Command {
 			description: {
 				usage: 'dog',
 				examples: ['doggo', 'dog'],
-				description: 'Returns dog image.',
+				description: 'Returns dog image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class DogCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = DogCommand;

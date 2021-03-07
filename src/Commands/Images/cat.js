@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class CatCommand extends Command {
+
 	constructor() {
 		super('cat', {
 			aliases: ['cat'],
@@ -12,10 +13,10 @@ class CatCommand extends Command {
 			description: {
 				usage: 'cat',
 				examples: ['cat'],
-				description: 'Returns cat image.',
+				description: 'Returns cat image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class CatCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = CatCommand;

@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class KappaCommand extends Command {
+
 	constructor() {
 		super('kappa', {
 			aliases: ['kappa'],
@@ -12,10 +13,10 @@ class KappaCommand extends Command {
 			description: {
 				usage: 'kappa',
 				examples: ['kappa'],
-				description: 'Returns kappa image.',
+				description: 'Returns kappa image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class KappaCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = KappaCommand;

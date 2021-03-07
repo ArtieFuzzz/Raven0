@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class PrequelMemeCommand extends Command {
+
 	constructor() {
 		super('prequelmeme', {
 			aliases: ['prequelmeme', 'pmeme'],
@@ -12,10 +13,10 @@ class PrequelMemeCommand extends Command {
 			description: {
 				usage: 'meme',
 				examples: ['prequelmeme', 'pmeme'],
-				description: 'Returns a Star wars meme.',
+				description: 'Returns a Star wars meme.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -30,6 +31,7 @@ class PrequelMemeCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = PrequelMemeCommand;

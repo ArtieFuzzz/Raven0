@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class NoTrapsCommand extends Command {
+
 	constructor() {
 		super('notraps', {
 			aliases: ['notraps', 'notrap'],
@@ -13,15 +14,15 @@ class NoTrapsCommand extends Command {
 				{
 					id: 'span',
 					type: 'string',
-					default: 'all',
-				}],
+					default: 'all'
+				} ],
 			description: {
 				usage: 'notraps <span>',
 				examples: ['notraps', 'notraps hour', 'notraps all'],
-				description: 'Returns a random NSFW image of a NoTrap image.',
+				description: 'Returns a random NSFW image of a NoTrap image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -41,6 +42,7 @@ class NoTrapsCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = NoTrapsCommand;

@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class BigTiddyCommand extends Command {
+
 	constructor() {
 		super('bigtiddy', {
 			aliases: ['bigtiddy'],
@@ -13,15 +14,15 @@ class BigTiddyCommand extends Command {
 				{
 					id: 'span',
 					type: 'string',
-					default: 'day',
-				}],
+					default: 'day'
+				} ],
 			description: {
 				usage: 'bigtiddy <span>',
 				examples: ['bigtiddy', 'bigtiddy hour', 'bigtiddy all'],
-				description: 'Returns a random NSFW image of big tits.',
+				description: 'Returns a random NSFW image of big tits.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -41,6 +42,7 @@ class BigTiddyCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = BigTiddyCommand;

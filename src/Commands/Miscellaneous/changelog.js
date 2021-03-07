@@ -2,14 +2,15 @@ const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 
 class ChangelogCommand extends Command {
+
 	constructor() {
 		super('changelog', {
 			aliases: ['changelog', 'cl', 'clog'],
 			category: 'Miscellaneous',
 			description: {
 				usage: ['changelog'],
-				description: 'Bot replies back with the changelog.',
-			},
+				description: 'Bot replies back with the changelog.'
+			}
 		});
 	}
 
@@ -22,6 +23,7 @@ class ChangelogCommand extends Command {
 
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = ChangelogCommand;
