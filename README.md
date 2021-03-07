@@ -12,3 +12,7 @@ Step 3: All set! Now just run <code>npm start</code> or <code>node src/main</cod
 
 # Issues or bugs
 Open an issue and describe the bug / issue
+
+# Credits
+ESLint originally by: [PrincessRavy](https://github.com/PrincessRavy) | [Source](https://github.com/PrincessRavy/eslint-config-raven)
+Licensed under the MIT License.

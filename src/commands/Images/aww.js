@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class AwwCommand extends Command {
+
 	constructor() {
 		super('aww', {
 			aliases: ['aww', 'awww'],
@@ -12,10 +13,10 @@ class AwwCommand extends Command {
 			description: {
 				usage: 'aww',
 				examples: ['aww', 'awww'],
-				description: 'Returns cute image.',
+				description: 'Returns cute image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -30,6 +31,7 @@ class AwwCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = AwwCommand;

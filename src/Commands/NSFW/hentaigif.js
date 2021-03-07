@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class HentaiGifCommand extends Command {
+
 	constructor() {
 		super('hentaigif', {
 			aliases: ['hentaigif', 'hentaig'],
@@ -12,10 +13,10 @@ class HentaiGifCommand extends Command {
 			description: {
 				usage: 'hentaigif',
 				examples: ['hentaigif'],
-				description: 'Returns a random NSFW gif of hentai.',
+				description: 'Returns a random NSFW gif of hentai.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -35,6 +36,7 @@ class HentaiGifCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = HentaiGifCommand;

@@ -5,16 +5,17 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class FoxCommand extends Command {
+
 	constructor() {
 		super('fox', {
 			aliases: ['fox', 'foxx'],
 			description: {
 				usage: 'fox',
 				examples: ['fox'],
-				description: 'Returns fox image.',
+				description: 'Returns fox image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -28,6 +29,7 @@ class FoxCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = FoxCommand;

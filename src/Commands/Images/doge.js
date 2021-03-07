@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DogeCommand extends Command {
+
 	constructor() {
 		super('doge', {
 			aliases: ['doge'],
@@ -12,10 +13,10 @@ class DogeCommand extends Command {
 			description: {
 				usage: 'doge',
 				examples: ['doge'],
-				description: 'Returns doge image.',
+				description: 'Returns doge image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -29,6 +30,7 @@ class DogeCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = DogeCommand;

@@ -5,6 +5,7 @@ const config = require('../../Config/yiff.config.js');
 
 
 class E926Command extends Command {
+
 	constructor() {
 		super('e926', {
 			aliases: ['e926'],
@@ -13,15 +14,15 @@ class E926Command extends Command {
 				{
 					id: 'tags',
 					type: 'string',
-					match: 'content',
-				}],
+					match: 'content'
+				} ],
 			description: {
 				usage: 'e926 [tags]',
 				examples: ['e926 dog', 'e926 cat'],
-				description: 'Get an image from E926.',
+				description: 'Get an image from E926.'
 			},
 			ratelimit: '5',
-			cooldown: '5000',
+			cooldown: '5000'
 		});
 	}
 
@@ -32,7 +33,7 @@ class E926Command extends Command {
 			return true;
 		}
 		try {
-		// eslint-disable-next-line prefer-const
+		// eslint-disable-next-line prefer-const, new-cap
 			let e9 = new yiff.e926(config);
 			if (!args.tags) return message.channel.send('No tags were specified');
 			const { image, page, score, artist } = await e9.request(args.tags);
@@ -44,11 +45,11 @@ class E926Command extends Command {
 				.setImage(image)
 				.setColor('RANDOM');
 			message.channel.send(embed);
-		}
-		catch (e) {
+		} catch (e) {
 			return message.channel.send(e.message);
 		}
 	}
+
 }
 
 module.exports = E926Command;

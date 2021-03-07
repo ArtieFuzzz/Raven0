@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class NekoCommand extends Command {
+
 	constructor() {
 		super('neko', {
 			aliases: ['neko'],
@@ -12,10 +13,10 @@ class NekoCommand extends Command {
 			description: {
 				usage: 'neko',
 				examples: ['neko'],
-				description: 'Returns a random nsfw image of a neko. *Knock Knock Knock*',
+				description: 'Returns a random nsfw image of a neko. *Knock Knock Knock*'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -35,6 +36,7 @@ class NekoCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = NekoCommand;

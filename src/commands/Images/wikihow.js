@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class WikiHowCommand extends Command {
+
 	constructor() {
 		super('wikihow', {
 			aliases: ['wikihow', 'wh'],
@@ -12,10 +13,10 @@ class WikiHowCommand extends Command {
 			description: {
 				usage: 'wikihow',
 				examples: ['wikihow', 'wh'],
-				description: 'Returns a wikihow image.',
+				description: 'Returns a wikihow image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -30,6 +31,7 @@ class WikiHowCommand extends Command {
 			.setTimestamp();
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = WikiHowCommand;

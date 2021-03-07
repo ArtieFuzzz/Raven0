@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class RandNSFWCommand extends Command {
+
 	constructor() {
 		super('randnsfw', {
 			aliases: ['randnsfw', 'randomnsfw', 'rnsfw'],
@@ -12,10 +13,10 @@ class RandNSFWCommand extends Command {
 			description: {
 				usage: 'randnsfw',
 				examples: ['randnsfw', 'randomnsfw', 'rnsfw'],
-				description: 'Returns a random NSFW Image.',
+				description: 'Returns a random NSFW Image.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -36,6 +37,7 @@ class RandNSFWCommand extends Command {
 			.setImage(url);
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = RandNSFWCommand;

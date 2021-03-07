@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class FacepalmCommand extends Command {
+
 	constructor() {
 		super('facepalm', {
 			aliases: ['facepalm', 'fp'],
@@ -12,10 +13,10 @@ class FacepalmCommand extends Command {
 			description: {
 				usage: 'facepalm',
 				examples: ['facepalm', 'fm'],
-				description: 'Returns a image you should facepalm at.',
+				description: 'Returns a image you should facepalm at.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -30,6 +31,7 @@ class FacepalmCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = FacepalmCommand;

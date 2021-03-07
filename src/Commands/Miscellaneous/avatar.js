@@ -2,18 +2,17 @@ const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 
 class AvatarCommand extends Command {
+
 	constructor() {
 		super('avatar', {
 			aliases: ['avatar', 'av', 'pfp'],
 			category: 'Miscellaneous',
-			args: [{
-				id: 'member', type: 'member', default: _ => _.member,
-			}],
+			args: [ { id: 'member', type: 'member', default: _ => _.member } ],
 			description: {
 				usage: 'avatar < @Mention | id | username >',
 				examples: ['avatar @host', 'avatar 123456789012345678', 'avatar host'],
-				description: 'Display\'s a users avatar',
-			},
+				description: 'Display\'s a users avatar'
+			}
 		});
 	}
 
@@ -26,6 +25,7 @@ class AvatarCommand extends Command {
 
 		return message.util.send({ embed });
 	}
+
 }
 
 module.exports = AvatarCommand;

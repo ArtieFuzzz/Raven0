@@ -1,12 +1,15 @@
+/* eslint-disable complexity */
+/* eslint-disable handle-callback-err */
 /* eslint-disable no-inline-comments */
 const { Listener } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 
 class AFKListener extends Listener {
+
 	constructor() {
 		super('afk', {
 			emitter: 'client',
-			event: 'message',
+			event: 'message'
 		});
 	}
 
@@ -39,6 +42,7 @@ class AFKListener extends Listener {
 			message.member.setNickname(`${message.member.nickname ? message.member.nickname.split('[AFK]').join('') : message.author.username}`).catch(err => null);
 		}
 	}
+
 }
 
 module.exports = AFKListener;

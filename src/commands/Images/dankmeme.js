@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DankMemeCommand extends Command {
+
 	constructor() {
 		super('dankmeme', {
 			aliases: ['dankmeme', 'dkm'],
@@ -12,10 +13,10 @@ class DankMemeCommand extends Command {
 			description: {
 				usage: 'dankmeme',
 				examples: ['dankmeme', 'dkm'],
-				description: 'Returns dankmeme.',
+				description: 'Returns dankmeme.'
 			},
 			ratelimit: '3',
-			cooldown: '3000',
+			cooldown: '3000'
 		});
 	}
 
@@ -30,6 +31,7 @@ class DankMemeCommand extends Command {
 			.setColor('RANDOM');
 		message.channel.send(embed);
 	}
+
 }
 
 module.exports = DankMemeCommand;
