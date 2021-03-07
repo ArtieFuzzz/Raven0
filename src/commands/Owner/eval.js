@@ -11,7 +11,7 @@ class EvalCommand extends Command {
 
 	constructor() {
 		super('eval', {
-			aliases: ['eval', 'e', 'ev'],
+			aliases: ['eval', 'e', 'ev', 'evaluate'],
 			ownerOnly: true,
 			category: 'Owner',
 			description: {
