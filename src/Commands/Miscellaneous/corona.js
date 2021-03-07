@@ -25,6 +25,7 @@ class CoronaCommand extends Command {
 		api.settings({
 			baseUrl: 'https://disease.sh',
 		});
+
 		try {
 			if (!args.country) {
 				const res = await api.all();
@@ -44,7 +45,7 @@ class CoronaCommand extends Command {
 				message.channel.send(embed);
 			}
 			else if (args.country) {
-				const res = await api.continents({ continent:args.country });
+				const res = await api.countries({ country: args.country });
 				const embed = new MessageEmbed()
 					.setTitle(`${res.country} - COVID 19 Stats`)
 					.setImage(res.countryInfo.flag)

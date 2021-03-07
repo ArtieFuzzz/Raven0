@@ -1,6 +1,6 @@
 {
   "name": "sparrow",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Discord Bot",
   "main": "src/main.js",
   "dependencies": {
