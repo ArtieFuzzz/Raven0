@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const c = require('centra');
+const c = require('@aero/centra');
 const { MessageEmbed } = require('discord.js');
 
 class UrbanCommand extends Command {
