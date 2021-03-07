@@ -40,7 +40,7 @@ class CoronaCommand extends Command {
 						{ name: 'Recovered', value: res.recovered },
 						{ name: 'Today Recovered', value: res.todayRecovered },
 					)
-					.setFooter(`Source: ${api.settings.baseUrl}`);
+					.setFooter('Source: disease.sh');
 				message.channel.send(embed);
 			}
 			else if (args.country) {
@@ -58,7 +58,7 @@ class CoronaCommand extends Command {
 						{ name: 'Recovered', value: res.recovered },
 						{ name: 'Today Recovered', value: res.todayRecovered },
 					)
-					.setFooter(`Source: ${api.settings.baseUrl}`);
+					.setFooter('Source: disease.sh');
 				message.channel.send(embed);
 			}
 		}
