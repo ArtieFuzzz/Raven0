@@ -23,7 +23,7 @@ class RandomNickCommand extends Command {
 
 		const random = limit(5);
 		memberexe.setNickname(random);
-		message.channel.send(`Random nickname set! (${random})`);
+		message.channel.send(`Random nickname set! (${random})`).catch(err => message.channel.send(err.message));
 	}
 
 }
