@@ -1,6 +1,8 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 const dayjs = require('dayjs');
+const relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime);
 
 const filterLevels = {
 	DISABLED: 'Off',
@@ -51,7 +53,7 @@ class ServerInfoCommand extends Command {
 				`** Boost Tier:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
 				`** Explicit Filter:** ${filterLevels[message.guild.explicitContentFilter]}`,
 				`** Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
-				`** Time Created:**${dayjs(message.guild.createdTimestamp).format('LT')} - ${dayjs(message.guild.createdTimestamp).format('L')} - ${dayjs(message.guild.createdTimestamp).fromNow()}`,
+				`** Time Created:** ${dayjs(message.guild.createdTimestamp).format('hh:mm A')} - ${dayjs(message.guild.createdTimestamp).format('DD/MM/YY')} - ${dayjs(message.guild.createdTimestamp).fromNow(true)}`,
 				'\u200b'
 			])
 			.addField('Statistics:', [
