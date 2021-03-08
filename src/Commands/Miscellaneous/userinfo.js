@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
-const moment = require('moment');
+const dayjs = require('dayjs');
 
 class UserinfoCommand extends Command {
 
@@ -26,7 +26,7 @@ class UserinfoCommand extends Command {
 			.setTitle(`${target.tag} [${target.id}]`)
 			.setThumbnail(message.guild.iconURL({ format: 'jpg' }))
 			.setAuthor(`${target.username} Info`, target.displayAvatarURL({ format: 'jpg' }))
-			.setDescription(`**Status:** ${target.presence.status}\n**Created At:** ${moment(target.createdAt).format('LT')} - ${moment(target.updatedAt).format('L')} - ${moment(target.createdAt).fromNow()}`)
+			.setDescription(`**Status:** ${target.presence.status}\n**Created At:** ${dayjs(target.createdAt).format('LT')} - ${dayjs(target.updatedAt).format('L')} - ${dayjs(target.createdAt).fromNow()}`)
 			.setColor('0xC76CF5')
 			.setFooter('Sparrow | Have a nice day!');
 

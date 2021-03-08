@@ -9,6 +9,7 @@
     "@ksoft/api": "^3.1.9",
     "@sapphire/stopwatch": "^1.0.5",
     "chalk": "^4.1.0",
+    "dayjs": "^1.10.4",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
