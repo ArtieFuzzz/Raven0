@@ -38,7 +38,7 @@ class CoronaCommand extends Command {
 						{ name: 'Today Deaths', value: res.todayDeaths },
 						{ name: 'Recovered', value: res.recovered },
 						{ name: 'Today Recovered', value: res.todayRecovered })
-					.setFooter('Source: disease.sh');
+					.setFooter('Source: https://disease.sh');
 				message.channel.send(embed);
 			} else if (args.country) {
 				const res = await api.countries({ country: args.country });
@@ -53,7 +53,7 @@ class CoronaCommand extends Command {
 						{ name: 'Today Deaths', value: res.todayDeaths },
 						{ name: 'Recovered', value: res.recovered },
 						{ name: 'Today Recovered', value: res.todayRecovered })
-					.setFooter('Source: disease.sh');
+					.setFooter('Source: https://disease.sh');
 				message.channel.send(embed);
 			}
 		} catch (err) {
