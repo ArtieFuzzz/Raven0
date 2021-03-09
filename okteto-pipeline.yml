@@ -1,2 +1,2 @@
 deploy:
-  - okteto build
+  - okteto build -t okteto.dev:${OKTETO_GIT_COMMIT}
