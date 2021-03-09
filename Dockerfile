@@ -1,6 +1,6 @@
 FROM nikolaik/python-nodejs:latest
 
-WORKDIR /src
+WORKDIR /
 
 COPY package*.json ./
 
