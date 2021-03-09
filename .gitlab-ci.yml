@@ -1,24 +1,3 @@
-# GitLab CI configuration for Dependabot
-#
-# Usage:
-# * Set the required global variables required for dependabot-gitlab
-#   https://docs.gitlab.com/ee/ci/variables/#variables
-#
-#    SETTINGS__GITLAB_ACCESS_TOKEN = gitlab personal access token with api scope
-#    SETTINGS__GITHUB_ACCESS_TOKEN = github personal access token with repository read scope
-#
-# * Create a pipeline schedule for each managed repository, package manager and directory
-#   https://docs.gitlab.com/ee/user/project/pipelines/schedules.html
-#
-# * Set in the schedule required variables
-#
-#     PROJECT_PATH = group/repository
-#     PACKAGE_MANAGER_SET = bundler,composer,npm
-#     DIRECTORY = /
-#
-# https://gitlab.com/dependabot-gitlab/dependabot
-# https://docs.gitlab.com/ee/ci/yaml/
-
 .dependabot-gitlab:
   image:
     name: docker.io/andrcuns/dependabot-gitlab:latest
