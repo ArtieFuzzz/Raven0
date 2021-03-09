@@ -1,11 +1,9 @@
-FROM node:alpine
-
-ENV NODE_CONTAINER_VERSION=1.0.0
+FROM nikolaik/python-nodejs:latest
 
 WORKDIR /src
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --python=3.9
 
 CMD [ "node", "." ]
