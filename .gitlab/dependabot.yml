@@ -1,6 +1,5 @@
 version: 2
-update_configs:
-  # Keep package.json (& lockfiles) secure and up-to-date,
-  # batching pull requests daily
-  - PACKAGE_MANAGER_SET: "javascript"
-    DIRECTORY: "/"
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+
