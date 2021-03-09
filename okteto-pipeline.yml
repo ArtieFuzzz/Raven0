@@ -1,0 +1,4 @@
+deploy:
+  - okteto build -t okteto.dev/src:${OKTETO_GIT_COMMIT} src
+devs:
+  - src/okteto.yml
