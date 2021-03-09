@@ -5,7 +5,7 @@ class SnowFlakeCommand extends Command {
 
 	constructor() {
 		super('snowflake', {
-			aliases: ['snowflake', 'genflake', 'gensnowflake'],
+			aliases: ['snowflake', 'genflake', 'gensnowflake', 'gsf'],
 			category: 'Owner',
 			description: {
 				usage: 'snowflake',
@@ -19,6 +19,8 @@ class SnowFlakeCommand extends Command {
 	async exec(message) {
 		const Worker = new snowflakey.Worker({
 			name: 'Sparrow',
+
+			// Discord Epoch
 			epoch: 1420070400000,
 			workerId: process.env.CLUSTER_ID || 31,
 			// eslint-disable-next-line no-undefined
