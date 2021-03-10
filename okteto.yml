@@ -1,7 +1,7 @@
 name: sparrow
 autocreate: true
-image: okteto/node:12
-command: bash
+image: artiefuzzz/sparrow
+command: node .
 sync:
 - .:/usr/src/app
 forward:
