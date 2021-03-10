@@ -1,4 +1,6 @@
+## Local Files
 .env
 node_modules/
 .stignore
 okteto.yml
+Dockerfile
