@@ -1,4 +1,0 @@
-deploy:
-  - okteto build -t registry.cloud.okteto.net/artiefuzzz/sparrow
-devs:
-  - okteto.yml
