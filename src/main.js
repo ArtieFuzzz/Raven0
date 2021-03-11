@@ -2,7 +2,7 @@ const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command
 const { Database } = require('quickmongo');
 const chalk = require('chalk');
 const { version } = require('../package.json');
-const BotColors = require('./Util/colors');
+const BotColors = require('./Util/colors.js');
 require('dotenv').config();
 
 console.log(chalk.yellow('[Starting] Please wait while I start up'));
