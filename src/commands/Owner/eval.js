@@ -17,8 +17,8 @@ class EvalCommand extends Command {
 			description: {
 				usage: 'eval <code>',
 				examples: ['eval console.log(\'hello!\')', 'eval this.client.token'],
-				description: 'Evaluate javascript with the bot'
-			}
+				description: 'Evaluate javascript with the bot',
+			},
 		});
 	}
 
@@ -36,7 +36,8 @@ class EvalCommand extends Command {
 
 		if (!query) {
 			message.channel.send('Please, write something so I can evaluate!');
-		} else {
+		}
+		else {
 			try {
 				// eslint-disable-next-line no-eval
 				const evald = eval(query);
@@ -49,18 +50,21 @@ class EvalCommand extends Command {
 				stopwatch.stop();
 				if (!Boolean(res) || !Boolean(evald) && evald !== 0) {
 					embed.setColor('RED');
-				} else {
+				}
+				else {
 					embed
 						.addField('Type', code('css', typeof evald))
 						.addField('Time ⏱', time)
 						.setColor('GREEN');
 				}
-			} catch (error) {
+			}
+			catch (error) {
 				embed
 					.addField('Error', code('js', error))
 					.addField('Time ⏱', stopwatch.stop().toString())
 					.setColor('RED');
-			} finally {
+			}
+			finally {
 				message.channel.send(embed).catch(error => {
 					message.channel.send(`There was an error while displaying the eval result! ${error.message}`);
 				});

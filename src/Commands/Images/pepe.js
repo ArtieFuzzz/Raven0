@@ -13,10 +13,10 @@ class PepeCommand extends Command {
 			description: {
 				usage: 'pepe',
 				examples: ['pepe'],
-				description: 'Returns pepe image.'
+				description: 'Returns pepe image.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

@@ -13,10 +13,10 @@ class NekoCommand extends Command {
 			description: {
 				usage: 'neko',
 				examples: ['neko'],
-				description: 'Returns a random nsfw image of a neko. *Knock Knock Knock*'
+				description: 'Returns a random nsfw image of a neko. *Knock Knock Knock*',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

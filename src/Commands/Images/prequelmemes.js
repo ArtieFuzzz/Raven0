@@ -13,10 +13,10 @@ class PrequelMemeCommand extends Command {
 			description: {
 				usage: 'meme',
 				examples: ['prequelmeme', 'pmeme'],
-				description: 'Returns a Star wars meme.'
+				description: 'Returns a Star wars meme.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

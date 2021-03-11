@@ -14,10 +14,10 @@ class HelpCommand extends Command {
 			description: {
 				usage: 'help < command >',
 				examples: ['help', 'comands', 'h'],
-				description: 'Display\'s the commands of the bot'
+				description: 'Display\'s the commands of the bot',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 
@@ -37,7 +37,8 @@ class HelpCommand extends Command {
 			});
 
 			return message.util.send({ embed });
-		} else if (command) {
+		}
+		else if (command) {
 			const cmd = command;
 			const embed = new MessageEmbed()
 				.setColor(this.client.colors.defaultColor)

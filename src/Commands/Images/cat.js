@@ -13,10 +13,10 @@ class CatCommand extends Command {
 			description: {
 				usage: 'cat',
 				examples: ['cat'],
-				description: 'Returns cat image.'
+				description: 'Returns cat image.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

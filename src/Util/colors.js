@@ -14,5 +14,5 @@ module.exports = {
 	brown: '#4d4848',
 	grey: '#333131',
 	black: '#000000',
-	white: '#ffffff'
+	white: '#ffffff',
 };

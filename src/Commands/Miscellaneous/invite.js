@@ -13,8 +13,8 @@ class InviteCommand extends Command {
 			description: {
 				usage: 'invite',
 				examples: ['invite', 'inv'],
-				description: 'Get the bot invite.'
-			}
+				description: 'Get the bot invite.',
+			},
 		});
 	}
 
@@ -30,8 +30,8 @@ class InviteCommand extends Command {
 			embed: {
 				title: 'Where do you want me to send the invite to add me to your server?',
 				color: 'BLURPLE',
-				description: ':one: for DM\n :two: for me to send it here.'
-			}
+				description: ':one: for DM\n :two: for me to send it here.',
+			},
 		}).then(inviteMessage => {
 			inviteMessage.react('1️⃣');
 			inviteMessage.react('2️⃣');
@@ -41,7 +41,7 @@ class InviteCommand extends Command {
 			inviteMessage.awaitReactions(filter, {
 				max: 1,
 				time: 300000,
-				errors: ['time']
+				errors: ['time'],
 			}).then(collected => {
 				const reaction = collected.array()[collected.size - 1];
 
@@ -50,7 +50,8 @@ class InviteCommand extends Command {
 					// eslint-disable-next-line handle-callback-err, no-unused-vars
 					message.author.send(invEmbed).catch(err => message.reply('We had an error sending you the message! Are your dms turned off?'));
 					message.channel.send('You\'ve got mail!');
-				} else if (reaction.emoji.name === '2️⃣') {
+				}
+				else if (reaction.emoji.name === '2️⃣') {
 					inviteMessage.delete();
 					message.channel.send(invEmbed);
 				}

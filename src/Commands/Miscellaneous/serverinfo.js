@@ -7,7 +7,7 @@ dayjs.extend(relativeTime);
 const filterLevels = {
 	DISABLED: 'Off',
 	MEMBERS_WITHOUT_ROLES: 'No Role',
-	ALL_MEMBERS: 'Everyone'
+	ALL_MEMBERS: 'Everyone',
 };
 
 const verificationLevels = {
@@ -15,7 +15,7 @@ const verificationLevels = {
 	LOW: 'Low',
 	MEDIUM: 'Medium',
 	HIGH: '(╯°□°）╯︵ ┻━┻',
-	VERY_HIGH: '┻━┻ ︵ヽ(`□´)ﾉ︵ ┻━┻'
+	VERY_HIGH: '┻━┻ ︵ヽ(`□´)ﾉ︵ ┻━┻',
 };
 
 class ServerInfoCommand extends Command {
@@ -27,10 +27,10 @@ class ServerInfoCommand extends Command {
 			description: {
 				usage: 'serverinfo',
 				examples: ['serverinfo'],
-				description: 'Display guild info'
+				description: 'Display guild info',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 
@@ -54,7 +54,7 @@ class ServerInfoCommand extends Command {
 				`** Explicit Filter:** ${filterLevels[message.guild.explicitContentFilter]}`,
 				`** Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
 				`** Time Created:** ${dayjs(message.guild.createdTimestamp).format('hh:mm A')} - ${dayjs(message.guild.createdTimestamp).format('DD/MM/YY')} - ${dayjs(message.guild.createdTimestamp).fromNow(true)}`,
-				'\u200b'
+				'\u200b',
 			])
 			.addField('Statistics:', [
 				`** Roles:** ${roles.length}`,
@@ -66,14 +66,14 @@ class ServerInfoCommand extends Command {
 				`** Bots:** ${members.filter(member => member.user.bot).size}`,
 				`** Text Channels:** ${channels.filter(channel => channel.type === 'text').size}`,
 				`** Voice Channel:** ${channels.filter(channel => channel.type === 'voice').size}`,
-				`** Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`
+				`** Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`,
 
 			], true)
 			.addField('Presence:', [
 				`** Online:** ${members.filter(member => member.presence.status === 'online').size}`,
 				`** Idle:** ${members.filter(member => member.presence.status === 'idle').size}`,
 				`** Do not Disturb:** ${members.filter(member => member.presence.status === 'dnd').size}`,
-				`** Offline:** ${members.filter(member => member.presence.status === 'offline').size}`
+				`** Offline:** ${members.filter(member => member.presence.status === 'offline').size}`,
 			], true)
 
 			.addField(`Roles [${roles.length - 1}]`, roles.length < 10 ? roles.join(', ') : roles.length > 10 ? trimArray(roles) : 'None')

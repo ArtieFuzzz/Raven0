@@ -12,13 +12,13 @@ class CoronaCommand extends Command {
 				{
 					id: 'country',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'corona <Country>',
 				examples: ['corona usa', 'corona china'],
-				description: 'Get covid stats.'
-			}
+				description: 'Get covid stats.',
+			},
 		});
 	}
 
@@ -40,7 +40,8 @@ class CoronaCommand extends Command {
 						{ name: 'Today Recovered', value: res.todayRecovered })
 					.setFooter('Source: https://disease.sh');
 				message.channel.send(embed);
-			} else if (args.country) {
+			}
+			else if (args.country) {
 				const res = await api.countries({ country: args.country });
 				const embed = new MessageEmbed()
 					.setTitle(`${res.country} - COVID 19 Stats`)
@@ -56,7 +57,8 @@ class CoronaCommand extends Command {
 					.setFooter('Source: https://disease.sh');
 				message.channel.send(embed);
 			}
-		} catch (err) {
+		}
+		catch (err) {
 			message.channel.send(err.message);
 		}
 	}
