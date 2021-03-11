@@ -10,12 +10,8 @@ console.log(yellow('[Starting] Please wait while I start up'));
 console.log(yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version)));
 
 class SparrowClient extends AkairoClient {
-	constructor() {
-		super({
-			ownerID: process.env.OWNERID,
-		}, {
-			disableMentions: 'everyone',
-		});
+	constructor(...args) {
+		super(...args);
 		console.log(chalk.yellow('[Starting] Loading Commands'));
 		this.commandHandler = new CommandHandler(this, {
 			directory: './src/Commands/',
