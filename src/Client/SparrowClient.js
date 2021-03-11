@@ -64,7 +64,7 @@ class SparrowClient extends AkairoClient {
 		this.listenerHandler.loadAll();
 	}
 	async login() {
-		require('../Extensions/message');
+		require('../Extensions/message.js');
 
 		return super.login(process.env.TOKEN);
 	}
