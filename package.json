@@ -2,7 +2,7 @@
   "name": "sparrow",
   "version": "3.2.0",
   "description": "Discord Bot",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "dependencies": {
     "@aero/centra": "^1.0.6",
     "@codedipper/random-code": "^2.1.2",

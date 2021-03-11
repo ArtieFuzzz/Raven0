@@ -1,8 +1,8 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
-const { version } = require('../package.json');
-const BotColors = require('./Util/colors.js');
+const { version } = require('../../package.json');
+const BotColors = require('../Util/colors.js');
 const chalk = require('chalk');
 require('dotenv').config();
 
@@ -63,12 +63,11 @@ class SparrowClient extends AkairoClient {
 		});
 		this.listenerHandler.loadAll();
 	}
-	async start() {
-		require('./Extensions/message');
+	async login() {
+		require('../Extensions/message');
 
-		super.login(process.env.TOKEN);
+		return super.login(process.env.TOKEN);
 	}
 }
 
-const client = new SparrowClient();
-client.start();
+module.exports = SparrowClient;
