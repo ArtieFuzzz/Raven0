@@ -27,7 +27,8 @@
     "eslint": "^7.21.0"
   },
   "scripts": {
-    "start": "node src/main"
+    "start": "node src/main",
+    "lint": "eslint ."
   },
   "author": "ArtieFuzzz#8298",
   "license": "GPL-3.0",
