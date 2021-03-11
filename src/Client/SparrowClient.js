@@ -1,8 +1,8 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
-const { version } = require('../package.json');
-const BotColors = require('./Util/colors.js');
+const { version } = require('../../package.json');
+const BotColors = require('../Util/colors.js');
 const chalk = require('chalk');
 require('dotenv').config();
 
@@ -10,12 +10,8 @@ console.log(yellow('[Starting] Please wait while I start up'));
 console.log(yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version)));
 
 class SparrowClient extends AkairoClient {
-	constructor() {
-		super({
-			ownerID: process.env.OWNERID,
-		}, {
-			disableMentions: 'everyone',
-		});
+	constructor(...args) {
+		super(...args);
 		console.log(chalk.yellow('[Starting] Loading Commands'));
 		this.commandHandler = new CommandHandler(this, {
 			directory: './src/Commands/',
@@ -63,12 +59,11 @@ class SparrowClient extends AkairoClient {
 		});
 		this.listenerHandler.loadAll();
 	}
-	async start() {
-		require('./Extensions/message');
+	async login() {
+		require('../Extensions/message.js');
 
-		super.login(process.env.TOKEN);
+		return super.login(process.env.TOKEN);
 	}
 }
 
-const client = new SparrowClient();
-client.start();
+module.exports = SparrowClient;

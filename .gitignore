@@ -4,3 +4,4 @@ node_modules/
 .stignore
 okteto.yml
 Dockerfile
+*.env
