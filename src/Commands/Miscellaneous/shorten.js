@@ -26,7 +26,7 @@ class ShortenCommand extends Command {
 		try {
 			const shortlink = await sxcu.shortenLink(args.text);
 			const url = await shortlink.getUrl();
-			message.channel.send(url);
+			message.channel.send(`**Done!** ${url}`);
 		} catch (err) {
 			return message.channel.send(err.message);
 		}
