@@ -12,15 +12,15 @@ class AFKCommand extends Command {
 					match: 'content',
 					prompt: {
 						start: 'What is the reason of you being afk?',
-						retry: 'Try again! What is the reason of you being afk?'
-					}
-				}
+						retry: 'Try again! What is the reason of you being afk?',
+					},
+				},
 			],
 			description: {
 				description: 'Set yourself as afk to inform users that mentioned you!',
 				usage: 'afk <reason>',
-				examples: ['afk grabbing some chicken', 'afk Watching Thin Air']
-			}
+				examples: ['afk grabbing some chicken', 'afk Watching Thin Air'],
+			},
 		});
 	}
 	async exec(message, args) {

@@ -14,15 +14,15 @@ class E926Command extends Command {
 				{
 					id: 'tags',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'e926 [tags]',
 				examples: ['e926 dog', 'e926 cat'],
-				description: 'Get an image from E926.'
+				description: 'Get an image from E926.',
 			},
 			ratelimit: '5',
-			cooldown: '5000'
+			cooldown: '5000',
 		});
 	}
 
@@ -45,7 +45,8 @@ class E926Command extends Command {
 				.setImage(image)
 				.setColor('RANDOM');
 			message.channel.send(embed);
-		} catch (e) {
+		}
+		catch (e) {
 			return message.channel.send(e.message);
 		}
 	}

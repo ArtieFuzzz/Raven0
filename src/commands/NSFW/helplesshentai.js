@@ -14,15 +14,15 @@ class HentaiHelplessCommand extends Command {
 				{
 					id: 'span',
 					type: 'string',
-					default: 'day'
+					default: 'day',
 				} ],
 			description: {
 				usage: 'helplesshentai <span>',
 				examples: ['helplesshentai', 'hhentai', 'hhentai year', 'hhentai month', 'hhentai all'],
-				description: 'Returns a random NSFW image of helplesshentai.'
+				description: 'Returns a random NSFW image of helplesshentai.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

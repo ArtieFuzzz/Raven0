@@ -9,8 +9,8 @@ class PingCommand extends Command {
 			description: {
 				usage: 'ping',
 				examples: ['ping', 'p'],
-				description: 'Bot replies back with "Pong!".'
-			}
+				description: 'Bot replies back with "Pong!".',
+			},
 		});
 	}
 
@@ -20,7 +20,7 @@ class PingCommand extends Command {
 		return message.util.reply([
 			'Pong!',
 			`🔂 **RTT**: ${timeDiff} ms`,
-			`💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`
+			`💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`,
 		]);
 	}
 

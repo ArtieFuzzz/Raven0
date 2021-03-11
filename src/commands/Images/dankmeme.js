@@ -13,10 +13,10 @@ class DankMemeCommand extends Command {
 			description: {
 				usage: 'dankmeme',
 				examples: ['dankmeme', 'dkm'],
-				description: 'Returns dankmeme.'
+				description: 'Returns dankmeme.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

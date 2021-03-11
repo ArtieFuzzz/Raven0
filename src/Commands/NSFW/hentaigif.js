@@ -13,10 +13,10 @@ class HentaiGifCommand extends Command {
 			description: {
 				usage: 'hentaigif',
 				examples: ['hentaigif'],
-				description: 'Returns a random NSFW gif of hentai.'
+				description: 'Returns a random NSFW gif of hentai.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

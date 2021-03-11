@@ -11,7 +11,7 @@ class SFWFemboyCommand extends Command {
 			aliases: ['sfemboy'],
 			category: 'SFW',
 			examples: ['sfemboy'],
-			description: 'Returns a SFW image from r/femboy'
+			description: 'Returns a SFW image from r/femboy',
 		});
 	}
 

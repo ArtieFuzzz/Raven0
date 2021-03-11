@@ -6,7 +6,7 @@ class MissingPermissionsListener extends Listener {
 	constructor() {
 		super('missingPermissions', {
 			emitter: 'commandHandler',
-			event: 'missingPermissions'
+			event: 'missingPermissions',
 		});
 	}
 
@@ -19,7 +19,8 @@ class MissingPermissionsListener extends Listener {
 				.setDescription(`:x: I do not have the following permission(s): \`${result}\` for the command: \`${command}\`. Command execution has halted.`);
 			return message.channel.send({ embed });
 		// eslint-disable-next-line eqeqeq
-		} else if (type == 'user') {
+		}
+		else if (type == 'user') {
 			const result = missingPermissions(message.member, missing);
 			const embed = new MessageEmbed()
 				.setColor(this.client.colors.red)

@@ -5,7 +5,7 @@ class BlacklistInhibitor extends Inhibitor {
 	constructor() {
 		super('blacklist', {
 			reason: 'blacklist',
-			type: 'all'
+			type: 'all',
 		});
 	}
 

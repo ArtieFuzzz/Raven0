@@ -13,10 +13,10 @@ class FacepalmCommand extends Command {
 			description: {
 				usage: 'facepalm',
 				examples: ['facepalm', 'fm'],
-				description: 'Returns a image you should facepalm at.'
+				description: 'Returns a image you should facepalm at.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

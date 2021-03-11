@@ -13,10 +13,10 @@ class AwwCommand extends Command {
 			description: {
 				usage: 'aww',
 				examples: ['aww', 'awww'],
-				description: 'Returns cute image.'
+				description: 'Returns cute image.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

@@ -14,10 +14,10 @@ class UserinfoCommand extends Command {
 			description: {
 				usage: 'userinfo < @Mention | id | username >',
 				examples: ['userinfo @host', 'userinfo 123456789012345678', 'userinfo host'],
-				description: 'Display\'s user information'
+				description: 'Display\'s user information',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 

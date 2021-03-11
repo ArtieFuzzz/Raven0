@@ -13,15 +13,15 @@ class E621Command extends Command {
 				{
 					id: 'tags',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'e621 [Tag]',
 				examples: ['e621 love gay', 'e621 cat'],
-				description: 'Get an image from E621.'
+				description: 'Get an image from E621.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 
@@ -44,7 +44,8 @@ class E621Command extends Command {
 				.setImage(image)
 				.setColor('RANDOM');
 			message.channel.send(embed);
-		} catch (e) {
+		}
+		catch (e) {
 			return message.channel.send(e.message);
 		}
 	}

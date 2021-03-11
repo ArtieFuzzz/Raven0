@@ -11,13 +11,13 @@ class PasteCommand extends Command {
 				{
 					id: 'text',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'paste [Text]',
 				examples: ['paste code here', 'cancer code here'],
-				description: 'Like hastebin.'
-			}
+				description: 'Like hastebin.',
+			},
 		});
 	}
 
@@ -27,7 +27,8 @@ class PasteCommand extends Command {
 			const paste = await sxcu.createPaste(args.text);
 			const url = await paste.getUrl();
 			message.channel.send(`Created: ${url}`);
-		} catch (err) {
+		}
+		catch (err) {
 			return message.channel.send(err.message);
 		}
 	}

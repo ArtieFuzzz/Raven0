@@ -11,13 +11,13 @@ class ShortenCommand extends Command {
 				{
 					id: 'text',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'shorten [link]',
 				examples: ['shorten https://duckduckgo.com', 'shorturl http://questionable-site.com'],
-				description: 'Like hastebin.'
-			}
+				description: 'Like hastebin.',
+			},
 		});
 	}
 
@@ -27,7 +27,8 @@ class ShortenCommand extends Command {
 			const shortlink = await sxcu.shortenLink(args.text);
 			const url = await shortlink.getUrl();
 			message.channel.send(`**Done!** ${url}`);
-		} catch (err) {
+		}
+		catch (err) {
 			return message.channel.send(err.message);
 		}
 	}

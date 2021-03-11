@@ -10,9 +10,9 @@ class SnowFlakeCommand extends Command {
 			description: {
 				usage: 'snowflake',
 				examples: ['snowflake', 'genflake', 'gensnowflake'],
-				description: 'Generates a snowflake (Not a discord snowflake).'
+				description: 'Generates a snowflake (Not a discord snowflake).',
 			},
-			ownerOnly: true
+			ownerOnly: true,
 		});
 	}
 
@@ -27,12 +27,13 @@ class SnowFlakeCommand extends Command {
 			processId: process.pid || undefined,
 			workerBits: 8,
 			processBits: 0,
-			incrementBits: 14
+			incrementBits: 14,
 		});
 		try {
 			const flake = Worker.generate();
 			message.channel.send(`Created Snowflake ${flake}\nCreation Date: ${snowflakey.lookup(flake, Worker.options.epoch)}\nDeconstructed: ${Worker.deconstruct(flake).timestamp.valueOf()}`);
-		} catch (err) {
+		}
+		catch (err) {
 			return message.channel.send(err.message);
 		}
 	}

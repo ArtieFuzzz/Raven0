@@ -10,8 +10,8 @@ class PingCommand extends Command {
 			description: {
 				usage: 'servers',
 				examples: ['servers', 'botserver'],
-				description: 'Bot returns the servers it\'s in".'
-			}
+				description: 'Bot returns the servers it\'s in".',
+			},
 		});
 	}
 

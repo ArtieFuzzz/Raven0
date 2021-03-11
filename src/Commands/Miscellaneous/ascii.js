@@ -14,14 +14,14 @@ class AsciiArtCommand extends Command {
 				default: null,
 				prompt: {
 					start: 'Please provide some art to draw',
-					retry: 'Please provide some art to draw'
-				}
+					retry: 'Please provide some art to draw',
+				},
 			} ],
 			description: {
 				usage: 'ascii [ phrase ]',
 				examples: ['ascii Hello, world!'],
-				description: 'Displays ascii art'
-			}
+				description: 'Displays ascii art',
+			},
 		});
 	}
 

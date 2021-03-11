@@ -12,13 +12,13 @@ class UrbanCommand extends Command {
 				{
 					id: 'word',
 					type: 'string',
-					match: 'content'
+					match: 'content',
 				} ],
 			description: {
 				usage: 'urban [Word to search]',
 				examples: ['urban Femboy', 'ud simp'],
-				description: 'Search a word up on Urban Dictionary.'
-			}
+				description: 'Search a word up on Urban Dictionary.',
+			},
 		});
 	}
 
@@ -34,7 +34,8 @@ class UrbanCommand extends Command {
 				.setURL(list[0].permalink)
 				.setFooter(`Author: ${list[0].author} | ID: ${list[0].defid} | Upvotes: ${list[0].thumbs_up} | Downvotes: ${list[0].thumbs_down}`);
 			message.channel.send(embed);
-		} catch (err) {
+		}
+		catch (err) {
 			return message.channel.send(err.message);
 		}
 	}

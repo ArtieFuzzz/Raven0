@@ -9,7 +9,7 @@ class AFKListener extends Listener {
 	constructor() {
 		super('afk', {
 			emitter: 'client',
-			event: 'message'
+			event: 'message',
 		});
 	}
 

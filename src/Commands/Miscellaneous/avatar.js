@@ -11,8 +11,8 @@ class AvatarCommand extends Command {
 			description: {
 				usage: 'avatar < @Mention | id | username >',
 				examples: ['avatar @host', 'avatar 123456789012345678', 'avatar host'],
-				description: 'Display\'s a users avatar'
-			}
+				description: 'Display\'s a users avatar',
+			},
 		});
 	}
 

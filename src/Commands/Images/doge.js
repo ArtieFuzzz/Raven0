@@ -13,10 +13,10 @@ class DogeCommand extends Command {
 			description: {
 				usage: 'doge',
 				examples: ['doge'],
-				description: 'Returns doge image.'
+				description: 'Returns doge image.',
 			},
 			ratelimit: '3',
-			cooldown: '3000'
+			cooldown: '3000',
 		});
 	}
 
