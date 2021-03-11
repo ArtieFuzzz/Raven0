@@ -1,12 +1,13 @@
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
 const { Database } = require('quickmongo');
-const chalk = require('chalk');
+const { yellow } = require('chalk');
 const { version } = require('../package.json');
 const BotColors = require('./Util/colors.js');
+const chalk = require('chalk');
 require('dotenv').config();
 
-console.log(chalk.yellow('[Starting] Please wait while I start up'));
-console.log(chalk.yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version)));
+console.log(yellow('[Starting] Please wait while I start up'));
+console.log(yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version)));
 
 class SparrowClient extends AkairoClient {
 	constructor() {
