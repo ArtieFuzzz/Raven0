@@ -19,11 +19,9 @@ class InviteCommand extends Command {
 	}
 
 	exec(message) {
-		const { id } = this.client.user;
-
 		const invEmbed = new discord.MessageEmbed()
 			.setTitle('**`Use this link to invite me!`**')
-			.setDescription(`[Click Here](https://discord.com/oauth2/authorize?client_id=${id}&scope=bot&permissions=134728736)`)
+			.setDescription(`[Click Here](https://discord.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=134728736)`)
 			.setColor('RANDOM')
 			.setFooter(`${message.author.tag}`); // .setImage('a banner? (optional)');
 
