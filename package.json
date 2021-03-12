@@ -25,7 +25,7 @@
     "yiff": "^2.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.21.0"
+    "eslint": "^7.22.0"
   },
   "scripts": {
     "start": "node src/main",
