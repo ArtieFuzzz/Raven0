@@ -3,6 +3,7 @@ const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
 const { version } = require('../../package.json');
 const BotColors = require('../Util/colors.js');
+const SparrowClientUtil = require('./KurapikaClientUtil.js');
 const chalk = require('chalk');
 require('dotenv').config();
 
@@ -47,7 +48,7 @@ class SparrowClient extends AkairoClient {
 
 		this.db = new Database(process.env.MONGO_URI);
 		this.colors = BotColors;
-		this.util = new ClientUtil(this);
+		this.util = new SparrowClientUtil(this);
 		this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
 		this.commandHandler.useListenerHandler(this.listenerHandler);
 		this.commandHandler.loadAll();
