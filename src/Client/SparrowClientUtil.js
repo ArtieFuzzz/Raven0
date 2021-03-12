@@ -1,13 +1,13 @@
 const { ClientUtil } = require('discord-akairo');
 const { MessageEmbed } = require('discord.js');
 
+/* Original https://github.com/Syrup/kurapika/blob/master/core/KurapikaClient.js Licensed Under The MIT License.*/
 class SparrowClientUtil extends ClientUtil {
 	constructor(client) {
 		super(client);
 
 		// eslint-disable-next-line no-self-assign
 		this.getMember = this.getMember;
-		this.emojis = require('./emojis.json');
 	}
 
 	embed() {

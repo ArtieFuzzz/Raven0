@@ -3,7 +3,7 @@ const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
 const { version } = require('../../package.json');
 const BotColors = require('../Util/colors.js');
-const SparrowClientUtil = require('./KurapikaClientUtil.js');
+const SparrowClientUtil = require('./SparrowClientUtil.js');
 const chalk = require('chalk');
 require('dotenv').config();
 
