@@ -16,7 +16,7 @@ class TopicCommand extends Command {
 
 	async exec(message) {
 		// eslint-disable-next-line no-undef
-		const Data = await Random.GetTopic({ Color: Color });
+		const Data = await Random.GetTopic({ Color: 'RANDOM' });
 		return message.channel.send(Data);
 	}
 }
