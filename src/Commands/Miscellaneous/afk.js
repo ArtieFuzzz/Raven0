@@ -5,6 +5,7 @@ class AFKCommand extends Command {
 	constructor() {
 		super('afk', {
 			aliases: ['afk', 'away'],
+			category: 'Miscellaneous',
 			args: [
 				{
 					id: 'reason',

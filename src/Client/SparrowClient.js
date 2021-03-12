@@ -12,7 +12,7 @@ console.log(yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version))
 class SparrowClient extends AkairoClient {
 	constructor(...args) {
 		super(...args);
-		console.log(chalk.yellow('[Starting] Loading Commands'));
+		console.log(yellow('[Starting] Loading Commands'));
 		this.commandHandler = new CommandHandler(this, {
 			directory: './src/Commands/',
 			prefix: process.env.PREFIX,
@@ -36,11 +36,11 @@ class SparrowClient extends AkairoClient {
 			automateCategories: true,
 			commandUtilLifetime: 300000,
 		});
-		console.log(chalk.yellow('[Starting] Loading Inhibitors'));
+		console.log(yellow('[Starting] Loading Inhibitors'));
 		this.inhibitorHandler = new InhibitorHandler(this, {
 			directory: './src/Inhibitors/',
 		});
-		console.log(chalk.yellow('[Starting] Loading Listeners'));
+		console.log(yellow('[Starting] Loading Listeners'));
 		this.listenerHandler = new ListenerHandler(this, {
 			directory: './src/Listeners/',
 		});
