@@ -27,7 +27,7 @@ class SnowFlakeCommand extends Command {
 				.setTitle('SnowFlake Generated!')
 				.addFields(
 					{ name: 'SnowFlake', value: flake.id },
-					{ name: 'Created', value: dayjs(1615594104887).format('dddd - MMMM - YYYY') },
+					{ name: 'Created', value: dayjs(flake.timestamp).format('dddd - MMMM - YYYY') },
 					{ name: 'WorkerID', value: flake.workerID },
 					{ name: 'ProcessID', value: flake.processID },
 					{ name: 'Epoch', value: flake.epoch },
