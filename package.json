@@ -32,7 +32,8 @@
     "start": "node src/index.js",
     "lint": "eslint .",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate",
+    "contributors": "all-contributors"
   },
   "author": "ArtieFuzzz#8298",
   "license": "GPL-3.0",
