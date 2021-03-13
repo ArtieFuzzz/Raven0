@@ -1,6 +1,6 @@
 # Sparrow
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord Bots](https://top.gg/api/widget/609269728455688193.svg)](https://top.gg/bot/609269728455688193)
 
@@ -25,8 +25,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/all-contributors/all-contributors-bot"><img src="https://avatars.githubusercontent.com/u/46843839?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://gitlab.com/ArtieFuzzz/Sparrow/commits/master" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/all-contributors/all-contributors-bot"><img src="https://avatars.githubusercontent.com/u/46843839?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Documentation">📖</a></td>
     <td align="center"><a href="https://gitlab.com/dependabot"><img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/3281756/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#maintenance-dependabot" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://gitlab.com/ArtieFuzzz"><img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/6321672/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>Artie Fuzzz</b></sub></a><br /><a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Code">💻</a> <a href="#content-ArtieFuzzz" title="Content">🖋</a></td>
   </tr>
 </table>
 
