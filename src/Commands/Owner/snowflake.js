@@ -1,7 +1,7 @@
+/* eslint-disable no-undef */
 const { Command } = require('discord-akairo');
 const { DiscordSnowflake } = require('@sapphire/snowflake');
 const { MessageEmbed } = require('discord.js');
-const dayjs = require('dayjs');
 
 class SnowFlakeCommand extends Command {
 
@@ -19,24 +19,20 @@ class SnowFlakeCommand extends Command {
 	}
 
 	async exec(message) {
-		try {
-			const snowflake = DiscordSnowflake.generate();
-			const flake = DiscordSnowflake.deconstruct(snowflake);
+		const snowflake = DiscordSnowflake.generate();
+		const flake = DiscordSnowflake.deconstruct(snowflake);
 
-			const embed = new MessageEmbed()
-				.setTitle('SnowFlake Generated!')
-				.addFields(
-					{ name: 'SnowFlake', value: flake.id },
-					{ name: 'Created', value: dayjs(flake.timestamp).format('dddd - MMMM - YYYY') },
-					{ name: 'WorkerID', value: flake.workerID },
-					{ name: 'ProcessID', value: flake.processID },
-					{ name: 'Epoch', value: flake.epoch },
-				);
-			message.channel.send(embed);
-		}
-		catch (err) {
-			return message.channel.send(err.message);
-		}
+		const embed = new MessageEmbed()
+			.setTitle('SnowFlake Generated!')
+			.addFields(
+				{ name: 'SnowFlake', value: flake.id },
+				{ name: 'Timestamp', value: flake.timestamp },
+				{ name: 'WorkerID', value: flake.workerID },
+				{ name: 'ProcessID', value: flake.processID },
+				{ name: 'Epoch', value: flake.epoch },
+			)
+			.setFooter('Use this to convert your Timestamp: https://www.epochconverter.com/');
+		message.channel.send(embed);
 	}
 
 }
