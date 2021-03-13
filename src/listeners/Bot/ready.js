@@ -17,7 +17,7 @@ class ReadyListener extends Listener {
 		console.log(chalk.yellow(`[Starting] Loaded ${this.client.inhibitorHandler.modules.size} Inhibitors`));
 		console.log(chalk.yellow(`[Starting] Loaded ${this.client.listenerHandler.modules.size} Listeners`));
 		console.log(chalk.green(`[Ready] Logged in as ${this.client.user.tag}!`));
-		this.client.user.setActivity(`To Music | ${process.env.PREFIX}`, { type: 'LISTENING' });
+		this.client.user.setActivity(`Spotify | ${process.env.PREFIX}`, { type: 'LISTENING' });
 	}
 
 }
