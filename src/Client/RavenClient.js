@@ -1,14 +1,14 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command, ClientUtil } = require('discord-akairo');
+const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command } = require('discord-akairo');
 const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
 const { version } = require('../../package.json');
 const BotColors = require('../Util/colors.js');
-const SparrowClientUtil = require('./SparrowClientUtil.js');
+const RavenClientUtil = require('./RavenClientUtil.js');
 const chalk = require('chalk');
 require('dotenv').config();
 
 console.log(yellow('[Starting] Please wait while I start up'));
-console.log(yellow('[Starting] Sparrow ' + 'V ' + chalk.hex('#5e62ff')(version)));
+console.log(yellow('[Starting] Raven ' + 'V ' + chalk.hex('#5e62ff')(version)));
 
 class SparrowClient extends AkairoClient {
 	constructor(...args) {
@@ -48,7 +48,7 @@ class SparrowClient extends AkairoClient {
 
 		this.db = new Database(process.env.MONGO_URI);
 		this.colors = BotColors;
-		this.util = new SparrowClientUtil(this);
+		this.util = new RavenClientUtil(this);
 		this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
 		this.commandHandler.useListenerHandler(this.listenerHandler);
 		this.commandHandler.loadAll();
