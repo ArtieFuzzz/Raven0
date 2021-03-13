@@ -18,15 +18,6 @@
       "contributions": [
         "doc"
       ]
-    },
-    {
-      "login": "dependabot",
-      "name": "Dependabot",
-      "avatar_url": "https://assets.gitlab-static.net/uploads/-/system/user/avatar/3281756/avatar.png",
-      "profile": "https://gitlab.com/dependabot",
-      "contributions": [
-        "maintenance"
-      ]
     }
   ],
   "contributorsPerLine": 7
