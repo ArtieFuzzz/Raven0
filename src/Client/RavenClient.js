@@ -1,4 +1,4 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, Command } = require('discord-akairo');
+const { AkairoClient, CommandHandler, ListenerHandler, Command } = require('discord-akairo');
 const { Database } = require('quickmongo');
 const { yellow } = require('chalk');
 const { version } = require('../../package.json');
@@ -37,10 +37,6 @@ class SparrowClient extends AkairoClient {
 			automateCategories: true,
 			commandUtilLifetime: 300000,
 		});
-		console.log(yellow('[Starting] Loading Inhibitors'));
-		this.inhibitorHandler = new InhibitorHandler(this, {
-			directory: './src/Inhibitors/',
-		});
 		console.log(yellow('[Starting] Loading Listeners'));
 		this.listenerHandler = new ListenerHandler(this, {
 			directory: './src/Listeners/',
@@ -49,10 +45,8 @@ class SparrowClient extends AkairoClient {
 		this.db = new Database(process.env.MONGO_URI);
 		this.colors = BotColors;
 		this.util = new RavenClientUtil(this);
-		this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
 		this.commandHandler.useListenerHandler(this.listenerHandler);
 		this.commandHandler.loadAll();
-		this.inhibitorHandler.loadAll();
 		this.listenerHandler.setEmitters({
 			commandHandler: this.commandHandler,
 			listenerHandler: this.listenerHandler,
