@@ -27,16 +27,6 @@
       "contributions": [
         "maintenance"
       ]
-    },
-    {
-      "login": "ArtieFuzzz",
-      "name": "Artie Fuzzz",
-      "avatar_url": "https://assets.gitlab-static.net/uploads/-/system/user/avatar/6321672/avatar.png",
-      "profile": "https://gitlab.com/ArtieFuzzz",
-      "contributions": [
-        "code",
-        "content"
-      ]
     }
   ],
   "contributorsPerLine": 7
