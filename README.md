@@ -25,8 +25,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/all-contributors/all-contributors-bot"><img src="https://avatars.githubusercontent.com/u/46843839?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://github.com/ArtieFuzzz/Sparrow/commits?author=allcontributors" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://depfu.com/"><img src="https://avatars.githubusercontent.com/u/21121772?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Depfu</b></sub></a><br /><a href="#maintenance-depfu" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/all-contributors/all-contributors-bot"><img src="https://avatars.githubusercontent.com/u/46843839?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://gitlab.com/ArtieFuzzz/Sparrow/commits/master" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://gitlab.com/dependabot"><img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/3281756/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>Dependabot</b></sub></a><br /><a href="#maintenance-dependabot" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 

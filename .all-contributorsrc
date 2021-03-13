@@ -1,8 +1,8 @@
 {
   "projectName": "Sparrow",
   "projectOwner": "ArtieFuzzz",
-  "repoType": "github",
-  "repoHost": "https://github.com",
+  "repoType": "gitlab",
+  "repoHost": "https://gitlab.com",
   "files": [
     "README.md"
   ],
@@ -20,10 +20,10 @@
       ]
     },
     {
-      "login": "depfu",
-      "name": "Depfu",
-      "avatar_url": "https://avatars.githubusercontent.com/u/21121772?v=4",
-      "profile": "https://depfu.com/",
+      "login": "dependabot",
+      "name": "Dependabot",
+      "avatar_url": "https://assets.gitlab-static.net/uploads/-/system/user/avatar/3281756/avatar.png",
+      "profile": "https://gitlab.com/dependabot",
       "contributions": [
         "maintenance"
       ]
