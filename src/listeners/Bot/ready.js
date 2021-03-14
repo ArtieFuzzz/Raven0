@@ -14,7 +14,6 @@ class ReadyListener extends Listener {
 	exec() {
 		console.log(chalk.blue('|--------------------------|'));
 		console.log(chalk.yellow(`[Starting] Loaded ${this.client.commandHandler.modules.size} Commands`));
-		console.log(chalk.yellow(`[Starting] Loaded ${this.client.inhibitorHandler.modules.size} Inhibitors`));
 		console.log(chalk.yellow(`[Starting] Loaded ${this.client.listenerHandler.modules.size} Listeners`));
 		console.log(chalk.green(`[Ready] Logged in as ${this.client.user.tag}!`));
 		this.client.user.setActivity(`Spotify | ${process.env.PREFIX}`, { type: 'LISTENING' });
