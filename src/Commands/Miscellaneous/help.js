@@ -29,7 +29,7 @@ class HelpCommand extends Command {
 				let mappedOut = cm.map(x => `\`${x}\``).join(', ');
 				if (category === 'Owner' && !this.client.ownerID.includes(message.author.id)
                         || category === 'Moderation' && !message.member.permissions.has('MANAGE_MESSAGES') || category === 'NSFW' && !message.channel.nsfw
-				) mappedOut = '`Not available`';
+				) mappedOut = '`Not available here / to you`';
 
 				embed.addField(`${dirSize.size} | **${category} Commands**`, mappedOut)
 					.setColor(this.client.colors.defaultColor)

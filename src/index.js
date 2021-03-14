@@ -1,4 +1,4 @@
-const SparrowClient = require('./Client/SparrowClient.js');
+const SparrowClient = require('./Client/RavenClient.js');
 
-const client = new SparrowClient({ ownerID: process.env.OWNERID }, { disableMentions: 'everyone', disableEveryone: true });
+const client = new SparrowClient({ ownerID: process.env.OWNERID }, { disableMentions: 'everyone', disableEveryone: true, fetchAllMembers: true });
 client.login();
