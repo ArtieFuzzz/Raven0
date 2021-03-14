@@ -2,6 +2,7 @@
 const { Command } = require('discord-akairo');
 const StringCrypto = require('string-crypto');
 const { MessageEmbed } = require('discord.js');
+const { createLog } = require('txt-logs');
 
 class StringCryptCommand extends Command {
 	constructor() {
@@ -44,6 +45,7 @@ class StringCryptCommand extends Command {
 				.setDescription(`Original: ${args.string}\nEncrypted: ${CryptedString}`);
 			message.author.send(embed);
 			message.channel.send('Look in your DM\'s!').then(i => i.delete({ timeout: 5000 }));
+			createLog('raven0', `[StringCrypt] - (${message.author.tag} | ${message.author.id}) ${args.string} | ${CryptedString}`); // Log potentially malious things
 		}
 	}
 }

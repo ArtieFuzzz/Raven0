@@ -1,5 +1,5 @@
 {
-  "name": "sparrow",
+  "name": "raven0",
   "version": "3.5.1",
   "description": "Discord Bot",
   "main": "src/index.js",
@@ -23,6 +23,7 @@
     "srod-v2": "^1.0.2",
     "string-crypto": "^2.0.1",
     "sxcu.js": "^1.0.1",
+    "txt-logs": "^1.1.2",
     "yiff": "^2.0.3"
   },
   "devDependencies": {
@@ -40,6 +41,6 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArtieFuzzz/Sparrow"
+    "url": "git+https://github.com/raven-studio/Raven"
   }
 }
