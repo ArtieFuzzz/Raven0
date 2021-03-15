@@ -17,7 +17,7 @@ class LogsCommand extends Command {
 	}
 
 	async exec(message) {
-		fs.readFile('.env', (err, data) => {
+		fs.readFile('raven0.log', (err, data) => {
 			if (err) console.log(err);
 			if (!data) return message.channel.send('No data was in the logs');
 
