@@ -2,7 +2,7 @@
 const { Command } = require('discord-akairo');
 const StringCrypto = require('string-crypto');
 const { MessageEmbed } = require('discord.js');
-const { createLog } = require('txt-logs');
+const { createLog } = require('@raven-studio/logs');
 
 class StringCryptCommand extends Command {
 	constructor() {

@@ -7,6 +7,7 @@
     "@aero/centra": "^1.0.6",
     "@codedipper/random-code": "^2.1.2",
     "@ksoft/api": "^3.1.9",
+    "@raven-studio/logs": "^1.0.4",
     "@sapphire/snowflake": "^1.2.5",
     "@sapphire/stopwatch": "^1.0.5",
     "chalk": "^4.1.0",
@@ -23,7 +24,6 @@
     "srod-v2": "^1.0.2",
     "string-crypto": "^2.0.1",
     "sxcu.js": "^1.0.1",
-    "txt-logs": "^1.1.2",
     "yiff": "^2.0.3"
   },
   "devDependencies": {
