@@ -10,7 +10,7 @@ class LogsCommand extends Command {
 			ownerOnly: true,
 			description: {
 				usage: 'logs',
-				examples: ['gogs'],
+				examples: ['logs'],
 				description: 'Bot returns logs.',
 			},
 		});
