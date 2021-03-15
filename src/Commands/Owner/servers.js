@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo');
 
-class PingCommand extends Command {
+class ServersCommand extends Command {
 
 	constructor() {
 		super('servers', {
@@ -10,7 +10,7 @@ class PingCommand extends Command {
 			description: {
 				usage: 'servers',
 				examples: ['servers', 'botserver'],
-				description: 'Bot returns the servers it\'s in".',
+				description: 'Bot returns the servers it\'s in.',
 			},
 		});
 	}
@@ -22,4 +22,4 @@ class PingCommand extends Command {
 
 }
 
-module.exports = PingCommand;
+module.exports = ServersCommand;

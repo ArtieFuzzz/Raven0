@@ -21,7 +21,7 @@ class BallCommand extends Command {
 	}
 	/* Credit to Dark Studio for a part of the code. Line 24 - 33. Line 24, 26 and 28 Edited */
 	exec(message, args) {
-		const Responses = ['Yes', 'No', 'Maybe', 'Probably', 'Not Sure', 'Definitely', 'Certainly', 'Definitely not', 'Certainly not'], Random = Responses[Math.floor(Math.random () * Responses.length)];
+		const Responses = ['Yes', 'No', 'Maybe', 'Probably', 'Not Sure', 'Definitely', 'Certainly', 'Definitely not', 'Certainly not', 'Sure', 'Nope!'], Random = Responses[Math.floor(Math.random () * Responses.length)];
 
 		if (!args.question) return message.channel.send('Please Give Your Question!');
 		const Embed = new MessageEmbed()
