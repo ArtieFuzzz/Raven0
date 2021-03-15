@@ -6,4 +6,4 @@ okteto.yml
 Dockerfile
 *.env
 ## Local logs
-raven0.txt
+raven0.log
