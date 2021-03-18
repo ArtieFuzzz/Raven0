@@ -7,7 +7,7 @@ class BallCommand extends Command {
 			aliases: ['8ball'],
 			category: 'Miscellaneous',
 			description: {
-				usage: '8ball <Question>',
+				usage: '8ball [Question]',
 				examples: ['8ball Do you love me?', '8ball Is my code crap?'],
 				description: 'Let the 8ball decide your fate.',
 			},

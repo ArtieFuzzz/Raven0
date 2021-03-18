@@ -10,7 +10,7 @@ class StringCryptCommand extends Command {
 			aliases: ['stringcrypt'],
 			category: 'Miscellaneous',
 			description: {
-				usage: 'stringcrypt blah blah blah',
+				usage: 'stringcrypt [Text to encrypt]',
 				examples: ['stringcrypt holy moly this works?'],
 				description: 'Encrypts a string.',
 			},
