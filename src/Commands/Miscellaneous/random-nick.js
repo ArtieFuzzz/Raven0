@@ -10,7 +10,7 @@ class RandomNickCommand extends Command {
 			description: {
 				usage: 'random-nick <@user>',
 				examples: ['random-nick @someone#0001', 'random-nickname'],
-				description: 'Give a random nickname to mentioned user or yourself.',
+				description: 'Give a random nickname to a mentioned user.',
 			},
 			userPermissions: ['MANAGE_NICKNAMES'],
 			clientPermissions: ['MANAGE_NICKNAMES'],
