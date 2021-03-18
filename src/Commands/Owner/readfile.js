@@ -27,7 +27,7 @@ class LogsCommand extends Command {
 
 		fs.readFile(args.pathtofile, (err, data) => {
 			if (err) console.log(err);
-			if (!data) return message.channel.send('No data was in the file or doesn\'t exist');
+			if (!data) return message.channel.send('No data was in the file or doesn\'t exist **YET**');
 
 			message.author.send(data.toString());
 			message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
