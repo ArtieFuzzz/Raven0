@@ -9,7 +9,7 @@ class StringCryptCommand extends Command {
 			aliases: ['stringdecrypt'],
 			category: 'Miscellaneous',
 			description: {
-				usage: 'stringcrypt <encrypted string>',
+				usage: 'stringcrypt [encrypted string]',
 				examples: ['stringcrypt -Numbers and letters-'],
 				description: 'Decrypts a encrypted string.',
 			},
