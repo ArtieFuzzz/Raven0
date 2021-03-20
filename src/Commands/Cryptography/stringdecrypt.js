@@ -2,17 +2,16 @@
 const { Command } = require('discord-akairo');
 const StringCrypto = require('string-crypto');
 const { MessageEmbed } = require('discord.js');
-const { createLog } = require('@raven-studio/logs');
 
 class StringCryptCommand extends Command {
 	constructor() {
-		super('stringcrypt', {
-			aliases: ['stringcrypt'],
-			category: 'Miscellaneous',
+		super('stringdecrypt', {
+			aliases: ['stringdecrypt'],
+			category: 'Cryptography',
 			description: {
-				usage: 'stringcrypt [Text to encrypt]',
-				examples: ['stringcrypt holy moly this works?'],
-				description: 'Encrypts a string.',
+				usage: 'stringcrypt [encrypted string]',
+				examples: ['stringcrypt -Numbers and letters-'],
+				description: 'Decrypts a encrypted string.',
 			},
 			args: [
 				{
@@ -31,21 +30,20 @@ class StringCryptCommand extends Command {
 		};
 
 		const {
-			encryptString: saferEncrypt,
+			decryptString: saferDecrypt,
 		} = new StringCrypto(options);
 
 		if (!args.string) {
-			return message.channel.send('No string was provided to encrypt');
+			return message.channel.send('No string was provided to decrypt');
 		}
 		else if (args.string) {
 			message.delete();
-			const CryptedString = saferEncrypt(args.string, options.salt);
+			const CryptedString = saferDecrypt(args.string, options.salt);
 			const embed = new MessageEmbed()
-				.setTitle('String Encrypted!')
-				.setDescription(`Original: ${args.string}\nEncrypted: ${CryptedString}`);
+				.setTitle('String Decrypted!')
+				.setDescription(`Decrypted: ${CryptedString}`);
 			message.author.send(embed);
 			message.channel.send('Look in your DM\'s!').then(i => i.delete({ timeout: 5000 }));
-			createLog('raven0', `[StringCrypt] - (${message.author.tag} | ${message.author.id}) ${args.string} | ${CryptedString}`); // Log potentially malious things
 		}
 	}
 }

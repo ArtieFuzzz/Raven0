@@ -1,12 +1,13 @@
 {
   "name": "raven0",
-  "version": "3.5.4",
+  "version": "3.5.5",
   "description": "Discord Bot",
   "main": "src/index.js",
   "dependencies": {
     "@aero/centra": "^1.0.6",
     "@codedipper/random-code": "^2.1.2",
     "@ksoft/api": "^3.1.9",
+    "@raven-studio/blu": "^1.4.5",
     "@raven-studio/logs": "^1.1.4",
     "@sapphire/snowflake": "^1.2.5",
     "@sapphire/stopwatch": "^1.0.6",

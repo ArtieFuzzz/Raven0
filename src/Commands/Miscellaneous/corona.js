@@ -23,6 +23,7 @@ class CoronaCommand extends Command {
 	}
 
 	async exec(message, args) {
+
 		api.settings({ baseUrl: 'https://disease.sh' });
 
 		try {
