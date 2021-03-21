@@ -9,7 +9,13 @@ Open source discord bot made with [discord-akairo](https://discord-akairo.github
 To view the list of command use the help command: [prefix]help
 
 # Setup.
-Step 1: Rename .env.example to .env and fill out all the fields and change the prefix! <br>
+Step 1: Rename .env.example to .env and fill out all the fields and change the prefix! <br> 
+Important Notes for .env: 
+- The SALT variable can be a random string 
+- The PRIVATE_KEY variable has to be generated from the keyGen.js file | will start with: ed25519
+- The PUBLIC_KEY variable has to be generated from the keyGen.js file | will start with: ed25519
+- The KEY variable has to be generated from the keyGen.js file | will start with: symmetric
+
 Step 2: Install the packages <code>npm install</code> <br>
 Step 3: All set! Now just run <code>npm start</code> or <code>node src/main</code> <br>
 

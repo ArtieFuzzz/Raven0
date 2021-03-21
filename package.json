@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "3.5.5",
+  "version": "3.5.7",
   "description": "Discord Bot",
   "main": "src/index.js",
   "dependencies": {
