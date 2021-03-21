@@ -22,7 +22,6 @@ class FoxHashCommand extends Command {
 	}
 
 	async exec(message, args) {
-
 		if (!process.env.KEY) {
 			message.channel.send('Err! No key in .env to use to hash!');
 			return console.log('No KEY in .env a key is required to use foxhash');
