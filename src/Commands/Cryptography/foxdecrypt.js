@@ -29,6 +29,7 @@ class FoxCryptCommand extends Command {
 		else if (!args.string) {
 			return message.channel.send('No string to decrypt');
 		}
+		if (!message.channel.type === 'dm') message.delete();
 		const key = await blu.fox.keyringLoad(process.env.KEY);
 		message.delete();
 
