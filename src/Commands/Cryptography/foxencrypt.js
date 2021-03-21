@@ -1,6 +1,7 @@
 const { Command } = require('discord-akairo');
 const blu = require('@raven-studio/blu');
 const { MessageEmbed } = require('discord.js');
+const { createLog } = require('@raven-studio/logs');
 
 class FoxCryptCommand extends Command {
 	constructor() {
@@ -40,6 +41,8 @@ class FoxCryptCommand extends Command {
 			.setFooter('It is recommended that you use this command in a DM instead with the Bot');
 		message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
 		message.author.send(embed);
+		// Log
+		createLog('raven0', `[FoxCrypt] - (${message.author.tag} | ${message.author.id}) ${args.string} | ${encrypted}`);
 	}
 }
 
