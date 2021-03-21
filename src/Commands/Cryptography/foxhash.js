@@ -39,7 +39,7 @@ class FoxHashCommand extends Command {
 			.setTitle('Hashed!')
 			.addField('Un-hashed', args.string)
 			.addField('Hashed', hashed)
-			.setFooter('It is recommended that you use this command in a DM instead with the Bot');
+			.setFooter('It is recommended that you use this command in this DM instead');
 		message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
 		message.author.send(embed);
 	}
