@@ -36,7 +36,8 @@ class FoxCryptCommand extends Command {
 		const embed = new MessageEmbed()
 			.setTitle('Encrypted!')
 			.addField('Unencrypted', args.string)
-			.addField('Encrypted', encrypted);
+			.addField('Encrypted', encrypted)
+			.setFooter('It is recommended that you use this command in a DM instead with the Bot');
 		message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
 		message.author.send(embed);
 	}
