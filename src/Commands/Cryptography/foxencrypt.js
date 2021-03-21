@@ -30,15 +30,15 @@ class FoxCryptCommand extends Command {
 		else if (!args.string) {
 			return message.channel.send('No string to encrypt');
 		}
+		if (!message.channel.type === 'dm') message.delete();
 		const key = await blu.fox.keyringLoad(process.env.KEY);
-		message.delete();
 
 		const encrypted = await blu.fox.encrypt(args.string, key);
 		const embed = new MessageEmbed()
 			.setTitle('Encrypted!')
 			.addField('Unencrypted', args.string)
 			.addField('Encrypted', encrypted)
-			.setFooter('It is recommended that you use this command in a DM instead with the Bot');
+			.setFooter('It is recommended that you use this command in this DM instead');
 		message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
 		message.author.send(embed);
 		// Log
