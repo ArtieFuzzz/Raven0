@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const blu = require('@raven-studio/blu');
+const ati = require('ati.js');
 const { MessageEmbed } = require('discord.js');
 
 class FoxHashCommand extends Command {
@@ -30,10 +30,10 @@ class FoxHashCommand extends Command {
 			return message.channel.send('No string to hash!');
 		}
 		if (!message.channel.type === 'dm') message.delete();
-		const key = await blu.fox.keyringLoad(process.env.KEY);
+		const key = await ati.fox.keyringLoad(process.env.KEY);
 		message.delete();
 
-		const hashed = blu.fox.hash(args.string, key);
+		const hashed = ati.fox.hash(args.string, key);
 		const embed = new MessageEmbed()
 			.setTitle('Hashed!')
 			.addField('Un-hashed', args.string)

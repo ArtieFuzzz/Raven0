@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const blu = require('@raven-studio/blu');
+const ati = require('ati.js');
 const { MessageEmbed } = require('discord.js');
 
 class FoxCryptCommand extends Command {
@@ -30,10 +30,10 @@ class FoxCryptCommand extends Command {
 			return message.channel.send('No string to decrypt');
 		}
 		if (!message.channel.type === 'dm') message.delete();
-		const key = await blu.fox.keyringLoad(process.env.KEY);
+		const key = await ati.fox.keyringLoad(process.env.KEY);
 		message.delete();
 
-		const decrypted = await blu.fox.decrypt(args.string, key);
+		const decrypted = await ati.fox.decrypt(args.string, key);
 		const embed = new MessageEmbed()
 			.setTitle('Decrypted!')
 			.addField('Encrypted', args.string)
