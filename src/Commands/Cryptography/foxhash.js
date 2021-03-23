@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo');
-const blu = require('@raven-studio/blu');
+const ati = require('ati.js');
 const { MessageEmbed } = require('discord.js');
 
 class FoxHashCommand extends Command {
@@ -22,7 +22,6 @@ class FoxHashCommand extends Command {
 	}
 
 	async exec(message, args) {
-
 		if (!process.env.KEY) {
 			message.channel.send('Err! No key in .env to use to hash!');
 			return console.log('No KEY in .env a key is required to use foxhash');
@@ -30,15 +29,16 @@ class FoxHashCommand extends Command {
 		else if (!args.string) {
 			return message.channel.send('No string to hash!');
 		}
-		const key = await blu.fox.keyringLoad(process.env.KEY);
+		if (!message.channel.type === 'dm') message.delete();
+		const key = await ati.fox.keyringLoad(process.env.KEY);
 		message.delete();
 
-		const hashed = blu.fox.hash(args.string, key);
+		const hashed = ati.fox.hash(args.string, key);
 		const embed = new MessageEmbed()
 			.setTitle('Hashed!')
 			.addField('Un-hashed', args.string)
 			.addField('Hashed', hashed)
-			.setFooter('It is recommended that you use this command in a DM instead with the Bot');
+			.setFooter('It is recommended that you use this command in this DM instead');
 		message.channel.send('You\'ve got mail!').then(i => i.delete({ timeout: 5000 }));
 		message.author.send(embed);
 	}
