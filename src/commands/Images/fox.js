@@ -14,8 +14,8 @@ class FoxCommand extends Command {
 				examples: ['fox'],
 				description: 'Returns fox image.',
 			},
-			ratelimit: '3',
-			cooldown: '3000',
+			ratelimit: 2,
+			cooldown: 1000,
 		});
 	}
 

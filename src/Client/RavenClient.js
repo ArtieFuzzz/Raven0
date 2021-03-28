@@ -36,6 +36,8 @@ class SparrowClient extends AkairoClient {
 			ignorePermissions: this.ownerID,
 			automateCategories: true,
 			commandUtilLifetime: 300000,
+			defaultCooldown: 2000,
+			ratelimit: 2,
 		});
 		console.log(yellow('[Starting] Loading Listeners'));
 		this.listenerHandler = new ListenerHandler(this, {

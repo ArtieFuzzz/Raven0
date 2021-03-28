@@ -15,8 +15,8 @@ class PepeCommand extends Command {
 				examples: ['pepe'],
 				description: 'Returns pepe image.',
 			},
-			ratelimit: '3',
-			cooldown: '3000',
+			ratelimit: 2,
+			cooldown: 1000,
 		});
 	}
 

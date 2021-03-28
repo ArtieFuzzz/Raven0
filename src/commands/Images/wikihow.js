@@ -15,8 +15,8 @@ class WikiHowCommand extends Command {
 				examples: ['wikihow', 'wh'],
 				description: 'Returns a wikihow image.',
 			},
-			ratelimit: '3',
-			cooldown: '3000',
+			ratelimit: 2,
+			cooldown: 1000,
 		});
 	}
 
