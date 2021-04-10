@@ -2,7 +2,6 @@ const { Command } = require('klasa');
 const ati = require('ati.js');
 const { MessageEmbed } = require('discord.js');
 const { createLog } = require('@raven-studio/logs');
-const util = require('@sapphire/discord.js-utilities');
 
 class FoxCryptCommand extends Command {
 	constructor(...args) {
@@ -20,9 +19,7 @@ class FoxCryptCommand extends Command {
 		else if (string) {
 			return message.channel.send('No string to encrypt');
 		}
-		if (!util.isDMChannel) {
-			message.delete();
-		}
+		message.delete();
 
 		const key = await ati.fox.keyringLoad(process.env.KEY);
 
