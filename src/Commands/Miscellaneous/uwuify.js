@@ -1,30 +1,15 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const ati = require('ati.js');
 
 class UwUifyCommand extends Command {
-	constructor() {
-		super('uwuify', {
-			aliases: ['uwuify', 'uwu'],
-			category: 'Miscellaneous',
-			description: {
-				usage: 'uwuify Hello how may I help?',
-				examples: ['uwuify Hi!', 'uwu That\'s not right'],
-				description: 'Uwuify your text.',
-			},
-			args: [
-				{
-					id: 'text',
-					type: 'string',
-					match: 'content',
-				} ],
+	constructor(...args) {
+		super(...args, {
+			usage: '[text:string]',
 		});
 	}
 
-	exec(message, args) {
-		if (!args.text) {
-			return message.channel.send('Nothing but air to uwuify...');
-		}
-		const uwuified = ati.uwuify(args.text);
+	run(message, [text]) {
+		const uwuified = ati.uwuify(text);
 		message.channel.send(uwuified);
 	}
 }

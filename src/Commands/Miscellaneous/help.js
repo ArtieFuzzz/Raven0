@@ -1,62 +1,74 @@
-/* eslint-disable no-mixed-operators */
-/* eslint-disable complexity */
-const { Command } = require('discord-akairo');
-const { MessageEmbed } = require('discord.js');
-const { formatName } = require('../../Util/functions');
+/*
+Example from https://github.com/dirigeants/klasa/tree/master/src/commands
+Licensed under the MIT License
+*/
+const { Command, util: { isFunction } } = require('klasa');
+const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 
-class HelpCommand extends Command {
+module.exports = class extends Command {
 
-	constructor() {
-		super('help', {
-			aliases: ['help', 'h', 'halp', 'commands'],
-			category: 'Miscellaneous',
-			args: [ { id: 'command', type: 'commandAlias', match: 'content', default: null } ],
-			description: {
-				usage: 'help < command >',
-				examples: ['help', 'comands', 'h'],
-				description: 'Display\'s the commands of the bot',
-			},
-			ratelimit: '3',
-			cooldown: '3000',
+	constructor(...args) {
+		super(...args, {
+			aliases: ['commands'],
+			guarded: true,
+			description: language => language.get('COMMAND_HELP_DESCRIPTION'),
+			usage: '(Command:command)',
+			runIn: ['text'],
+		});
+
+		this.createCustomResolver('command', (arg, possible, message) => {
+			if (!arg || arg === '') return undefined;
+			return this.client.arguments.get('command').run(arg, possible, message);
 		});
 	}
 
-	async exec(message, { command }) {
-		if (!command) {
-			const embed = new MessageEmbed();
-			this.handler.categories.forEach((cm, category) => {
-				const dirSize = cm.filter(cmd => cmd.category === cm);
-				let mappedOut = cm.map(x => `\`${x}\``).join(', ');
-				if (category === 'Owner' && !this.client.ownerID.includes(message.author.id)
-                        || category === 'Moderation' && !message.member.permissions.has('MANAGE_MESSAGES') || category === 'NSFW' && !message.channel.nsfw
-				) mappedOut = '`Not available here / to you`';
-
-				embed.addField(`${dirSize.size} | **${category} Commands**`, mappedOut)
-					.setColor(this.client.colors.defaultColor)
-					.setAuthor(`Help Menu | ${message.guild.name}`, message.guild.iconURL());
-			});
-
-			return message.util.send({ embed });
+	async run(message, [command]) {
+		if (command) {
+			const info = [
+				`= ${command.name} = `,
+				isFunction(command.description) ? command.description(message.language) : command.description,
+				message.language.get('COMMAND_HELP_USAGE', command.usage.fullUsage(message)),
+				message.language.get('COMMAND_HELP_EXTENDED'),
+				isFunction(command.extendedHelp) ? command.extendedHelp(message.language) : command.extendedHelp,
+			].join('\n');
+			return message.sendMessage(info, { code: 'asciidoc' });
 		}
-		else if (command) {
-			const cmd = command;
-			const embed = new MessageEmbed()
-				.setColor(this.client.colors.defaultColor)
-				.setAuthor(`Help: ${formatName(cmd.aliases[0])} | ${message.guild.name}`, message.guild.iconURL())
-				.setDescription(`
-                            **Command Name**: \`${cmd.aliases[0]}\`
-                            **Command Aliases**: ${`${cmd.aliases.map(x => `\`${x}\``).join(', ') || 'No Alias'}`}
-                            **Command Cooldown**: \`${`${cmd.cooldown / 1000 }s` || 0}\`
-                            **Command Ratelimit**: \`${cmd.ratelimit || 0}\`
-                            **Owner Only**: \`${cmd.ownerOnly ? 'Yes' : 'No' || 'No'}\`
-                            **Command Description**: ${cmd.description.description || 'A command'}
-                            **Command Usage**: \`${cmd.description.usage || cmd.alises[0]}\`
-                            **Command Examples**:\n\`\`\`${cmd.description.examples.join('\n') || cmd.aliases[0]}\`\`\``)
-				.setFooter('Syntax: [required] : <optional>');
-			return message.util.send({ embed });
+		const help = await this.buildHelp(message);
+		const categories = Object.keys(help);
+		const helpMessage = [];
+		for (let cat = 0; cat < categories.length; cat++) {
+			helpMessage.push(`**${categories[cat]} Commands**:`, '```asciidoc');
+			const subCategories = Object.keys(help[categories[cat]]);
+			for (let subCat = 0; subCat < subCategories.length; subCat++) helpMessage.push(`= ${subCategories[subCat]} =`, `${help[categories[cat]][subCategories[subCat]].join('\n')}\n`);
+			helpMessage.push('```', '\u200b');
 		}
+
+		return message.author.send(helpMessage, { split: { char: '\u200b' } })
+			.then(() => { if (message.channel.type !== 'dm') message.sendLocale('COMMAND_HELP_DM'); })
+			.catch(() => { if (message.channel.type !== 'dm') message.sendLocale('COMMAND_HELP_NODM'); });
 	}
 
-}
+	async buildHelp(message) {
+		const help = {};
 
-module.exports = HelpCommand;
+		const prefix = message.guildSettings.get('prefix');
+		const commandNames = [...this.client.commands.keys()];
+		const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
+
+		await Promise.all(this.client.commands.map((command) =>
+			this.client.inhibitors.run(message, command, true)
+				.then(() => {
+					if (!has(help, command.category)) help[command.category] = {};
+					if (!has(help[command.category], command.subCategory)) help[command.category][command.subCategory] = [];
+					const description = isFunction(command.description) ? command.description(message.language) : command.description;
+					help[command.category][command.subCategory].push(`${prefix}${command.name.padEnd(longest)} :: ${description}`);
+				})
+				.catch(() => {
+					// noop
+				}),
+		));
+
+		return help;
+	}
+
+};

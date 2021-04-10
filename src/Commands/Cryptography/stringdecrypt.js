@@ -1,28 +1,16 @@
 /* eslint-disable no-inline-comments */
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const StringCrypto = require('string-crypto');
 const { MessageEmbed } = require('discord.js');
 
 class StringCryptCommand extends Command {
-	constructor() {
-		super('stringdecrypt', {
-			aliases: ['stringdecrypt'],
-			category: 'Cryptography',
-			description: {
-				usage: 'stringcrypt [encrypted string]',
-				examples: ['stringcrypt -Numbers and letters-'],
-				description: 'Decrypts a encrypted string.',
-			},
-			args: [
-				{
-					id: 'string',
-					type: 'string',
-					match: 'content',
-				}],
+	constructor(...args) {
+		super(...args, {
+			usage: '[string:string]',
 		});
 	}
 
-	exec(message, args) {
+	run(message, [string]) {
 		const options = {
 			salt: process.env.SALT,
 			iterations: 5,
@@ -33,12 +21,12 @@ class StringCryptCommand extends Command {
 			decryptString: saferDecrypt,
 		} = new StringCrypto(options);
 
-		if (!args.string) {
+		if (!string) {
 			return message.channel.send('No string was provided to decrypt');
 		}
-		else if (args.string) {
+		else if (string) {
 			message.delete();
-			const CryptedString = saferDecrypt(args.string, options.salt);
+			const CryptedString = saferDecrypt(string, options.salt);
 			const embed = new MessageEmbed()
 				.setTitle('String Decrypted!')
 				.setDescription(`Decrypted: ${CryptedString}`);

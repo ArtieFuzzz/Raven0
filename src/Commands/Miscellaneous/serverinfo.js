@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 const dayjs = require('dayjs');
 const relativeTime = require('dayjs/plugin/relativeTime');
@@ -20,21 +20,15 @@ const verificationLevels = {
 
 class ServerInfoCommand extends Command {
 
-	constructor() {
-		super('serverinfo', {
-			aliases: ['serverinfo', 'server', 'guild', 'guildinfo'],
-			category: 'Miscellaneous',
-			description: {
-				usage: 'serverinfo',
-				examples: ['serverinfo'],
-				description: 'Display guild info',
-			},
-			ratelimit: '3',
-			cooldown: '3000',
+	constructor(...args) {
+		super(...args, {
+			aliases: ['server', 'guild', 'guildinfo'],
+			bucket: 3,
+			cooldown: 3,
 		});
 	}
 
-	exec(message) {
+	run(message) {
 		const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
 		const channels = message.guild.channels.cache;

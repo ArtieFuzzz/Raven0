@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,26 +6,15 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class RandNSFWCommand extends Command {
 
-	constructor() {
-		super('randnsfw', {
-			aliases: ['randnsfw', 'randomnsfw', 'rnsfw'],
-			category: 'NSFW',
-			description: {
-				usage: 'randnsfw',
-				examples: ['randnsfw', 'randomnsfw', 'rnsfw'],
-				description: 'Returns a random NSFW Image.',
-			},
-			ratelimit: '3',
-			cooldown: '3000',
+	constructor(...args) {
+		super(...args, {
+			ratelimit: 2,
+			cooldown: 1,
+			nsfw: true,
 		});
 	}
 
-	async exec(message) {
-		if (!message.guild) return true;
-		if (!message.channel.nsfw) {
-			message.util.send(':x: This command only runs in NSFW channels');
-			return true;
-		}
+	async run(message) {
 
 		const { url, post } = await ksoft.images.nsfw();
 		const embed = new MessageEmbed()

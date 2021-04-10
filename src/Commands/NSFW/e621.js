@@ -1,41 +1,25 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 const yiff = require('yiff');
 const config = require('../../Config/yiff.config.js');
 
 class E621Command extends Command {
 
-	constructor() {
-		super('e621', {
-			aliases: ['e621'],
-			category: 'NSFW',
-			args: [
-				{
-					id: 'tags',
-					type: 'string',
-					match: 'content',
-				} ],
-			description: {
-				usage: 'e621 [Tag]',
-				examples: ['e621 love gay', 'e621 cat'],
-				description: 'Get an image from E621.',
-			},
-			ratelimit: '3',
-			cooldown: '3000',
+	constructor(...args) {
+		super(...args, {
+			usage: '[tags:string]',
+			bucket: 3,
+			cooldown: 5,
+			nsfw: true,
 		});
 	}
 
-	async exec(message, args) {
-		if (!message.guild) return true;
-		if (!message.channel.nsfw) {
-			message.util.send(':x: This command only runs in NSFW channels');
-			return true;
-		}
+	async run(message, [tags]) {
+
 		try {
 		// eslint-disable-next-line prefer-const, new-cap
 			let e6 = new yiff.e621(config);
-			if (!args.tags) return message.channel.send('No tags were specified');
-			const { image, page, score, artist } = await e6.request(args.tags);
+			const { image, page, score, artist } = await e6.request(tags);
 
 			const embed = new MessageEmbed()
 				.setTitle('Source')

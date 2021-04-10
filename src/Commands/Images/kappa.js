@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,14 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class KappaCommand extends Command {
 
-	constructor() {
-		super('kappa', {
-			aliases: ['kappa'],
-			category: 'Images',
-			description: {
-				usage: 'kappa',
-				examples: ['kappa'],
-				description: 'Returns kappa image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url } = await ksoft.images.random('kappa');
 		const embed = new MessageEmbed()
 			.setTitle('Kappa')

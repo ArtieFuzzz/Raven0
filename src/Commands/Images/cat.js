@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,14 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class CatCommand extends Command {
 
-	constructor() {
-		super('cat', {
-			aliases: ['cat'],
-			category: 'Images',
-			description: {
-				usage: 'cat',
-				examples: ['cat'],
-				description: 'Returns cat image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url } = await ksoft.images.random('cat');
 		const embed = new MessageEmbed()
 			.setTitle('Cats!')

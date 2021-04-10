@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,15 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DogCommand extends Command {
 
-	constructor() {
-		super('dog', {
-			aliases: ['dog', 'doggo'],
-			category: 'Images',
-			description: {
-				usage: 'dog',
-				examples: ['doggo', 'dog'],
-				description: 'Returns dog image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			aliases: ['doggo'],
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url } = await ksoft.images.random('dog');
 		const embed = new MessageEmbed()
 			.setTitle('Doggo\'s!')

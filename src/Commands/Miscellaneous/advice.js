@@ -1,20 +1,14 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const random = require('srod-v2');
 
 class AdviceCommand extends Command {
-	constructor() {
-		super('advice', {
-			aliases: ['advice', 'vice'],
-			category: 'Miscellaneous',
-			description: {
-				usage: 'something',
-				examples: ['example', 'example2'],
-				description: 'Example.',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['vice'],
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const Data = await random.GetAdvice({ Color: 'RANDOM' });
 		return message.channel.send(Data);
 	}

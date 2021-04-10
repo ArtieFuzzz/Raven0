@@ -1,19 +1,13 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 
 class SourceCommand extends Command {
-	constructor() {
-		super('source', {
-			aliases: ['source', 'src'],
-			category: 'Miscellaneous',
-			description: {
-				usage: 'source',
-				examples: ['source', 'src'],
-				description: 'Bot returns source.',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['src'],
 		});
 	}
 
-	exec(message) {
+	run(message) {
 		message.channel.send('Here you go!\nhttps://gitlab.com/raven-studio/Raven');
 	}
 }

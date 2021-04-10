@@ -1,4 +1,14 @@
-const SparrowClient = require('./Client/RavenClient.js');
+const RavenClient = require('./lib/RavenClient.js');
+require('dotenv').config();
 
-const client = new SparrowClient({ ownerID: process.env.OWNERID }, { disableMentions: 'everyone', disableEveryone: true, fetchAllMembers: true });
+const client = new RavenClient({
+	fetchAllMembers: false,
+	prefix: process.env.PREFIX,
+	createPiecesFolders: false,
+},
+{
+	disableMentions: 'everyone',
+	disableEveryone: true,
+	fetchAllMembers: true });
+
 client.login();

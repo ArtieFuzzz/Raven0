@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,15 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class AwwCommand extends Command {
 
-	constructor() {
-		super('aww', {
-			aliases: ['aww', 'awww'],
-			category: 'Images',
-			description: {
-				usage: 'aww',
-				examples: ['aww', 'awww'],
-				description: 'Returns cute image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			aliases: ['awww'],
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url, post } = await ksoft.images.aww();
 		const embed = new MessageEmbed()
 			.setTitle(post.title)

@@ -1,29 +1,17 @@
 /* eslint-disable no-inline-comments */
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const StringCrypto = require('string-crypto');
 const { MessageEmbed } = require('discord.js');
 const { createLog } = require('@raven-studio/logs');
 
 class StringCryptCommand extends Command {
-	constructor() {
-		super('stringcrypt', {
-			aliases: ['stringcrypt'],
-			category: 'Cryptography',
-			description: {
-				usage: 'stringcrypt [Text to encrypt]',
-				examples: ['stringcrypt holy moly this works?'],
-				description: 'Encrypts a string.',
-			},
-			args: [
-				{
-					id: 'string',
-					type: 'string',
-					match: 'content',
-				}],
+	constructor(...args) {
+		super(...args, {
+			usage: '[string:str]',
 		});
 	}
 
-	exec(message, args) {
+	run(message, [string]) {
 		const options = {
 			salt: process.env.SALT,
 			iterations: 5,
@@ -34,18 +22,18 @@ class StringCryptCommand extends Command {
 			encryptString: saferEncrypt,
 		} = new StringCrypto(options);
 
-		if (!args.string) {
+		if (!string) {
 			return message.channel.send('No string was provided to encrypt');
 		}
-		else if (args.string) {
+		else if (string) {
 			message.delete();
-			const CryptedString = saferEncrypt(args.string, options.salt);
+			const CryptedString = saferEncrypt(string, options.salt);
 			const embed = new MessageEmbed()
 				.setTitle('String Encrypted!')
-				.setDescription(`Original: ${args.string}\nEncrypted: ${CryptedString}`);
+				.setDescription(`Original: ${string}\nEncrypted: ${CryptedString}`);
 			message.author.send(embed);
 			message.channel.send('Look in your DM\'s!').then(i => i.delete({ timeout: 5000 }));
-			createLog('raven0', `[StringCrypt] - (${message.author.tag} | ${message.author.id}) ${args.string} | ${CryptedString}`); // Log potentially malious things
+			createLog('raven0', `[StringCrypt] - (${message.author.tag} | ${message.author.id}) ${string} | ${CryptedString}`); // Log potentially malious things
 		}
 	}
 }
