@@ -1,27 +1,21 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 
 class AvatarCommand extends Command {
 
-	constructor() {
-		super('avatar', {
-			aliases: ['avatar', 'av', 'pfp'],
-			category: 'Miscellaneous',
-			args: [ { id: 'member', type: 'member', default: _ => _.member } ],
-			description: {
-				usage: 'avatar < @Mention | id | username >',
-				examples: ['avatar @host', 'avatar 123456789012345678', 'avatar host'],
-				description: 'Display\'s a users avatar',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['av', 'pfp'],
+			usage: '[user:username]',
 		});
 	}
 
-	exec(message, { member }) {
+	run(message, [user = message.author]) {
 		const embed = new MessageEmbed()
 			.setColor('RANDOM')
-			.setTitle(`${member.id === message.author.id ? 'Your' : `${member.user.tag}'s`} Profile Picture`)
-			.setURL(member.user.displayAvatarURL())
-			.setImage(member.user.displayAvatarURL({ size: 2048 }));
+			.setTitle(`${user.id === message.author.id ? 'Your' : `${user.user.tag}'s`} Profile Picture`)
+			.setURL(user.user.displayAvatarURL())
+			.setImage(user.user.displayAvatarURL({ size: 2048 }));
 
 		return message.util.send({ embed });
 	}

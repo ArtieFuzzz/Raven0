@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,15 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class DankMemeCommand extends Command {
 
-	constructor() {
-		super('dankmeme', {
-			aliases: ['dankmeme', 'dkm'],
-			category: 'Images',
-			description: {
-				usage: 'dankmeme',
-				examples: ['dankmeme', 'dkm'],
-				description: 'Returns dankmeme.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			aliases: ['dkm'],
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url, post } = await ksoft.images.reddit('dankmemes');
 		const embed = new MessageEmbed()
 			.setTitle(post.title)

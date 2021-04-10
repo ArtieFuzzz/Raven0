@@ -1,77 +1,89 @@
-/* eslint-disable complexity */
-/* eslint-disable no-extra-boolean-cast */
-/* eslint-disable no-mixed-operators */
-const { Command } = require('discord-akairo');
-const { MessageEmbed } = require('discord.js');
+/*
+Example from https://github.com/dirigeants/klasa/tree/master/src/commands
+Licensed under the MIT License
+*/
+const { Command, Stopwatch, Type, util } = require('klasa');
 const { inspect } = require('util');
-const { Stopwatch } = require('@sapphire/stopwatch');
-const prefix = process.env.PREFIX;
 
-class EvalCommand extends Command {
+module.exports = class extends Command {
 
-	constructor() {
-		super('eval', {
-			aliases: ['eval', 'e', 'ev', 'evaluate'],
-			ownerOnly: true,
-			category: 'Owner',
-			description: {
-				usage: 'eval <code>',
-				examples: ['eval console.log(\'hello!\')', 'eval this.client.token'],
-				description: 'Evaluate javascript with the bot',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['ev'],
+			permissionLevel: 10,
+			guarded: true,
+			description: language => language.get('COMMAND_EVAL_DESCRIPTION'),
+			extendedHelp: language => language.get('COMMAND_EVAL_EXTENDEDHELP'),
+			usage: '<expression:str>',
+			usageDelim: null,
 		});
 	}
 
-	exec(message) {
-		const embed = new MessageEmbed()
-			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }));
+	async run(message, [code]) {
+		const { success, result, time, type } = await this.eval(message, code);
+		const footer = util.codeBlock('ts', type);
+		const output = message.language.get(success ? 'COMMAND_EVAL_OUTPUT' : 'COMMAND_EVAL_ERROR',
+			time, util.codeBlock('js', result), footer);
 
-		const args = message.content.slice(prefix.length).trim()
-			// eslint-disable-next-line require-unicode-regexp
-			.split(/ +/g); args.shift();
-		const query = args.join(' ');
-		// eslint-disable-next-line no-shadow
-		const code = (lang, code) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!');
-		const stopwatch = new Stopwatch();
+		if ('silent' in message.flagArgs) return null;
 
-		if (!query) {
-			message.channel.send('Please, write something so I can evaluate!');
+		// Handle too-long-messages
+		if (output.length > 2000) {
+			if (message.guild && message.channel.attachable) {
+				return message.channel.sendFile(Buffer.from(result), 'output.txt', message.language.get('COMMAND_EVAL_SENDFILE', time, footer));
+			}
+			this.client.emit('log', result);
+			return message.sendLocale('COMMAND_EVAL_SENDCONSOLE', [time, footer]);
 		}
-		else {
-			try {
-				// eslint-disable-next-line no-eval
-				const time = stopwatch.toString();
-				const evald = eval(query);
-				const res = typeof evald === 'string' ? evald : inspect(evald, { depth: 0 });
 
-				embed.addField('Result', code('js', res));
-
-
-				stopwatch.stop();
-				embed.addField('Time ⏱', time);
-				if (!Boolean(res) || !Boolean(evald) && evald !== 0) {
-					embed.setColor('RED');
-				}
-				else {
-					embed
-						.addField('Type', code('css', typeof evald))
-						.setColor('GREEN');
-				}
-			}
-			catch (error) {
-				embed
-					.addField('Error', code('js', error))
-					.addField('Time ⏱', stopwatch.stop().toString())
-					.setColor('RED');
-			}
-			finally {
-				message.channel.send(embed).catch(error => {
-					message.channel.send(`There was an error while displaying the eval result! ${error.message}`);
-				});
-			}
-		}
+		// If it's a message that can be sent correctly, send it
+		return message.sendMessage(output);
 	}
 
-}
+	// Eval the input
+	async eval(message, code) {
+		// eslint-disable-next-line no-unused-vars
+		const msg = message;
+		const { flagArgs: flags } = message;
+		code = code.replace(/[“”]/g, '"').replace(/[‘’]/g, '\'');
+		const stopwatch = new Stopwatch();
+		let success, syncTime, asyncTime, result;
+		let thenable = false;
+		let type;
+		try {
+			if (flags.async) code = `(async () => {\n${code}\n})();`;
+			result = eval(code);
+			syncTime = stopwatch.toString();
+			type = new Type(result);
+			if (util.isThenable(result)) {
+				thenable = true;
+				stopwatch.restart();
+				result = await result;
+				asyncTime = stopwatch.toString();
+			}
+			success = true;
+		}
+		catch (error) {
+			if (!syncTime) syncTime = stopwatch.toString();
+			if (!type) type = new Type(error);
+			if (thenable && !asyncTime) asyncTime = stopwatch.toString();
+			if (error && error.stack) this.client.emit('error', error.stack);
+			result = error;
+			success = false;
+		}
 
-module.exports = EvalCommand;
+		stopwatch.stop();
+		if (typeof result !== 'string') {
+			result = inspect(result, {
+				depth: flags.depth ? parseInt(flags.depth) || 0 : 0,
+				showHidden: Boolean(flags.showHidden),
+			});
+		}
+		return { success, type, time: this.formatTime(syncTime, asyncTime), result: util.clean(result) };
+	}
+
+	formatTime(syncTime, asyncTime) {
+		return asyncTime ? `⏱ ${asyncTime}<${syncTime}>` : `⏱ ${syncTime}`;
+	}
+
+};

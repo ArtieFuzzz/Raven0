@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,16 +6,12 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class SFWFemboyCommand extends Command {
 
-	constructor() {
-		super('sfemboy', {
-			aliases: ['sfemboy'],
-			category: 'SFW',
-			examples: ['sfemboy'],
-			description: 'Returns a SFW image from r/femboy',
+	constructor(...args) {
+		super(...args, {
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url, post } = await ksoft.images.reddit('femboy');
 		const embed = new MessageEmbed()
 			.setTitle(post.title)

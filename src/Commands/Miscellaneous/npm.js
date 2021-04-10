@@ -1,34 +1,24 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 const c = require('@aero/centra');
 // Original version is in the Dark Studio discord. This edit is to suit Raven0's needs
 
 class NPMCommand extends Command {
-	constructor() {
-		super('npm', {
+	constructor(...args) {
+		super(...args, {
 			aliases: ['npm', 'package'],
 			category: 'Miscellaneous',
 			description: {
-				usage: 'npm [package]',
+				usage: '<package:string>',
 				examples: ['npm json-server', 'npm npm'],
 				description: '.',
 			},
-			args: [
-				{
-					id: 'package',
-					type: 'string',
-					match: 'content',
-				} ],
 		});
 	}
 
-	async exec(message, args) {
+	async run(message, [pack]) {
 
-		if (!args.package) {
-			return message.channel.send('No package to find! Try again');
-		}
-
-		const request = c(`https://registry.npmjs.org/${args.package}`);
+		const request = c(`https://registry.npmjs.org/${pack}`);
 		const { error, name, maintainers, author, keywords, license } = await request.json();
 
 		if (error) {

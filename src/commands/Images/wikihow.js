@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,15 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class WikiHowCommand extends Command {
 
-	constructor() {
-		super('wikihow', {
-			aliases: ['wikihow', 'wh'],
-			category: 'Images',
-			description: {
-				usage: 'wikihow',
-				examples: ['wikihow', 'wh'],
-				description: 'Returns a wikihow image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			aliases: ['wh'],
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { article, url } = await ksoft.images.wikihow();
 		const embed = new MessageEmbed()
 			.setTitle(article.title)

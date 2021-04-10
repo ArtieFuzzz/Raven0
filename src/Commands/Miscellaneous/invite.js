@@ -1,24 +1,18 @@
 /* eslint-disable no-inline-comments */
 /* eslint-disable line-comment-position */
 
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const discord = require('discord.js');
 
 class InviteCommand extends Command {
 
-	constructor() {
-		super('invite', {
-			aliases: ['invite', 'inv'],
-			category: 'Miscellaneous',
-			description: {
-				usage: 'invite',
-				examples: ['invite', 'inv'],
-				description: 'Get the bot invite.',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['inv'],
 		});
 	}
 
-	exec(message) {
+	run(message) {
 		const invEmbed = new discord.MessageEmbed()
 			.setTitle('**`Use this link to invite me!`**')
 			.setDescription(`[Click Here](https://discord.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=134728736)`)

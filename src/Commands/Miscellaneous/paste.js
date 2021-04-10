@@ -1,30 +1,19 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const sxcu = require('sxcu.js');
 
 class PasteCommand extends Command {
 
-	constructor() {
-		super('paste', {
-			aliases: ['paste', 'cancer', 'code'],
-			category: 'Miscellaneous',
-			args: [
-				{
-					id: 'text',
-					type: 'string',
-					match: 'content',
-				} ],
-			description: {
-				usage: 'paste [Text]',
-				examples: ['paste code here', 'cancer code here'],
-				description: 'Like hastebin.',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['cancer', 'code'],
+			usage: '<text:string>',
 		});
 	}
 
-	async exec(message, args) {
-		if (!args.text) return message.channel.send('Can\'t create a paste from thin air!');
+	async run(message, [text]) {
+		if (!text) return message.channel.send('Can\'t create a paste from thin air!');
 		try {
-			const paste = await sxcu.createPaste(args.text);
+			const paste = await sxcu.createPaste(text);
 			const url = await paste.getUrl();
 			message.channel.send(`Created: ${url}`);
 		}

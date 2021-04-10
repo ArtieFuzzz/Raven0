@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
 
@@ -6,21 +6,14 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class BirbCommand extends Command {
 
-	constructor() {
-		super('birb', {
-			aliases: ['birb', 'bird'],
-			category: 'Images',
-			description: {
-				usage: 'birb',
-				examples: ['birb', 'bird'],
-				description: 'Returns birb image.',
-			},
-			ratelimit: 2,
-			cooldown: 1000,
+	constructor(...args) {
+		super(...args, {
+			bucket: 2,
+			cooldown: 1,
 		});
 	}
 
-	async exec(message) {
+	async run(message) {
 		const { url } = await ksoft.images.random('birb');
 		const embed = new MessageEmbed()
 			.setTitle('Birds!')

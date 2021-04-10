@@ -1,30 +1,18 @@
-const { Command } = require('discord-akairo');
+const { Command } = require('klasa');
 const sxcu = require('sxcu.js');
 
 class ShortenCommand extends Command {
 
-	constructor() {
-		super('shorten', {
-			aliases: ['shorten', 'shortenurl', 'shorturl'],
-			category: 'Miscellaneous',
-			args: [
-				{
-					id: 'text',
-					type: 'string',
-					match: 'content',
-				} ],
-			description: {
-				usage: 'shorten [link]',
-				examples: ['shorten https://duckduckgo.com', 'shorturl http://questionable-site.com'],
-				description: 'Like hastebin.',
-			},
+	constructor(...args) {
+		super(...args, {
+			aliases: ['shortenurl', 'shorturl'],
+			usage: '[url:string]',
 		});
 	}
 
-	async exec(message, args) {
-		if (!args.text) return message.channel.send('Can\'t create a paste from thin air!');
+	async run(message, [link]) {
 		try {
-			const shortlink = await sxcu.shortenLink(args.text);
+			const shortlink = await sxcu.shortenLink(link);
 			const url = await shortlink.getUrl();
 			message.channel.send(`**Done!** ${url}`);
 		}
