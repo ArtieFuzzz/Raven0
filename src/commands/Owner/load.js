@@ -15,7 +15,7 @@ module.exports = class extends Command {
 			guarded: true,
 			description: language => language.get('COMMAND_LOAD_DESCRIPTION'),
 			usage: '[core] <Store:store> <path:...string>',
-			usageDelim: ' '
+			usageDelim: ' ',
 		});
 		this.regExp = /\\\\?|\//g;
 	}
@@ -37,7 +37,8 @@ module.exports = class extends Command {
 				`);
 			}
 			return message.sendLocale('COMMAND_LOAD', [timer.stop(), store.name, piece.name]);
-		} catch (error) {
+		}
+		catch (error) {
 			timer.stop();
 			throw message.language.get('COMMAND_LOAD_ERROR', store.name, piece ? piece.name : path.join('/'), error);
 		}

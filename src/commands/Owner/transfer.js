@@ -13,7 +13,7 @@ module.exports = class extends Command {
 			permissionLevel: 10,
 			guarded: true,
 			description: language => language.get('COMMAND_TRANSFER_DESCRIPTION'),
-			usage: '<Piece:piece>'
+			usage: '<Piece:piece>',
 		});
 	}
 
@@ -30,7 +30,8 @@ module.exports = class extends Command {
 				`);
 			}
 			return message.sendLocale('COMMAND_TRANSFER_SUCCESS', [piece.type, piece.name]);
-		} catch (err) {
+		}
+		catch (err) {
 			this.client.emit('error', err.stack);
 			return message.sendLocale('COMMAND_TRANSFER_FAILED', [piece.type, piece.name]);
 		}

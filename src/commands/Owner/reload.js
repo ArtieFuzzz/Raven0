@@ -12,7 +12,7 @@ module.exports = class extends Command {
 			permissionLevel: 10,
 			guarded: true,
 			description: language => language.get('COMMAND_RELOAD_DESCRIPTION'),
-			usage: '<Store:store|Piece:piece|everything:default>'
+			usage: '<Store:store|Piece:piece|everything:default>',
 		});
 	}
 
@@ -39,7 +39,8 @@ module.exports = class extends Command {
 				`);
 			}
 			return message.sendLocale('COMMAND_RELOAD', [itm.type, itm.name, timer.stop()]);
-		} catch (err) {
+		}
+		catch (err) {
 			piece.store.set(piece);
 			return message.sendLocale('COMMAND_RELOAD_FAILED', [piece.type, piece.name]);
 		}

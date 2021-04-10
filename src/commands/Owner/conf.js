@@ -14,7 +14,7 @@ module.exports = class extends Command {
 			subcommands: true,
 			description: language => language.get('COMMAND_CONF_SERVER_DESCRIPTION'),
 			usage: '<set|show|remove|reset> (key:key) (value:value) [...]',
-			usageDelim: ' '
+			usageDelim: ' ',
 		});
 
 		this
@@ -34,7 +34,7 @@ module.exports = class extends Command {
 		if (path.piece.type === 'Folder') {
 			return message.sendLocale('COMMAND_CONF_SERVER', [
 				key ? `: ${key.split('.').map(toTitleCase).join('/')}` : '',
-				codeBlock('asciidoc', message.guild.settings.list(message, path.piece))
+				codeBlock('asciidoc', message.guild.settings.list(message, path.piece)),
 			]);
 		}
 		return message.sendLocale('COMMAND_CONF_GET', [path.piece.path, message.guild.settings.resolveString(message, path.piece)]);
