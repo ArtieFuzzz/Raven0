@@ -6,13 +6,8 @@ const c = require('@aero/centra');
 class NPMCommand extends Command {
 	constructor(...args) {
 		super(...args, {
-			aliases: ['npm', 'package'],
-			category: 'Miscellaneous',
-			description: {
-				usage: '<package:string>',
-				examples: ['npm json-server', 'npm npm'],
-				description: '.',
-			},
+			aliases: ['package'],
+			usage: '<package:string>',
 		});
 	}
 
