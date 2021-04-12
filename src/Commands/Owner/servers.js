@@ -12,7 +12,7 @@ module.exports = class extends Command {
 
 	async run(message) {
 		this.client.guilds.forEach(guild => {
-			return message.sendLocale(`${guild.name} | ${guild.id}`);
+			return message.channel.send(`${guild.name} | ${guild.id}`);
 		});
 	}
 
