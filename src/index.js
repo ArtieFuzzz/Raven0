@@ -10,6 +10,7 @@ const customClientOptions = {
 	prefix: process.env.PREFIX,
 	createPiecesFolders: false,
 	disableMentions: 'everyone',
+	disabledCorePieces: ['commands'],
 	production: true,
 };
 

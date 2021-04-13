@@ -1,4 +1,5 @@
 const { Event } = require('klasa');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class extends Event {
 
@@ -12,7 +13,16 @@ module.exports = class extends Event {
 		});
 	}
 
-	run(shardID) {
+	async run(shardID) {
 		this.client.console.log(`[Shards] Shard ${shardID + 1} reconnecting`);
+
+		const hook = await this.client.shardHook.send;
+		if (hook) {
+			const embed = new MessageEmbed()
+				.setTitle('[Reconnecting]')
+				.setDescription(`Shard ${shardID + 1} is reconnecting!`)
+				.setTimestamp();
+			hook.send(embed);
+		}
 	}
 };
