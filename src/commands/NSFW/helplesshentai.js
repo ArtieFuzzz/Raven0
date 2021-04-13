@@ -9,7 +9,7 @@ class HentaiHelplessCommand extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: ['hhentai'],
-			usage: '<span:string>',
+			usage: '[span:string]',
 			bucket: 2,
 			cooldown: 1,
 			nsfw: true,

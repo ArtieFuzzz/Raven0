@@ -1,25 +1,19 @@
 const { Command } = require('klasa');
 
-class ServersCommand extends Command {
+module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['servers', 'botserver'],
-			category: 'Owner',
-			ownerOnly: true,
-			description: {
-				usage: 'servers',
-				examples: ['servers', 'botserver'],
-				description: 'Bot returns the servers it\'s in.',
-			},
+			aliases: ['u'],
+			permissionLevel: 10,
+			guarded: true,
 		});
 	}
 
 	async run(message) {
-		const guilds = this.client.guilds.cache.map(r => `${r.name} (${r.id})`);
-		message.channel.send(guilds);
+		this.client.guilds.forEach(guild => {
+			return message.channel.send(`${guild.name} | ${guild.id}`);
+		});
 	}
 
-}
-
-module.exports = ServersCommand;
+};

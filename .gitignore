@@ -5,5 +5,6 @@ node_modules/
 okteto.yml
 Dockerfile
 *.env
+src/bwd
 ## Local logs
 raven0.log

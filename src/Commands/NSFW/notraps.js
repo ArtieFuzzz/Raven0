@@ -8,7 +8,8 @@ class NoTrapsCommand extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			usage: '<span:string>',
+			aliases: ['notrap'],
+			usage: '[span:string]',
 			bucket: 2,
 			cooldown: 1,
 			nsfw: true,

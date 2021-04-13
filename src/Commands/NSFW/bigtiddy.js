@@ -8,7 +8,7 @@ class BigTiddyCommand extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			usage: '<span:string>',
+			usage: '[span:string]',
 			bucket: 2,
 			cooldown: 1,
 			nsfw: true,
