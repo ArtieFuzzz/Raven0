@@ -167,7 +167,7 @@ module.exports = class extends Language {
 				`• Klasa        :: v${klasaVersion}`,
 				`• Discord.js   :: v${discordVersion}`,
 				`• Node.js      :: ${processVersion}`,
-				`• Shard        :: ${(message.guild ? message.guild.shardID : 0) + 1} / ${this.client.options.totalShardCount}`,
+				`• Shard        :: ${(message.guild ? message.guild.shardID : 0) + 1} / ${this.client.shard.shardCount}`,
 			],
 			COMMAND_STATS_DESCRIPTION: 'ボットの詳細と、統計情報を表示します。',
 			MESSAGE_PROMPT_TIMEOUT: 'プロンプトがタイムアウトしました。',
