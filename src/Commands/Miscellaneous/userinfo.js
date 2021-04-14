@@ -1,33 +1,35 @@
-const { Command } = require('klasa');
+// Copyright (c) 2017-2019 dirigeants. All rights reserved. MIT license.
+const { Command, Timestamp } = require('klasa');
 const { MessageEmbed } = require('discord.js');
-const dayjs = require('dayjs');
-const relativeTime = require('dayjs/plugin/relativeTime');
-dayjs.extend(relativeTime);
 
-class UserinfoCommand extends Command {
+module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			aliases: ['user', 'whois'],
-			usage: '[member:user]',
-			bucket: 3,
-			cooldown: 3000,
+			description: 'Get information on a mentioned user.',
+			usage: '[Member:member]',
 		});
+		this.statuses = {
+			online: '💚 Online',
+			idle: '💛 Idle',
+			dnd: '❤ Do Not Disturb',
+			offline: '💔 Offline',
+		};
+		this.timestamp = new Timestamp('d MMMM YYYY');
 	}
 
-	async run(message, [member]) {
-		const target = await member;
-
-		const uEmbed = new MessageEmbed()
-			.setTitle(`${target.user.tag} [${target.user.id}]`)
-			.setThumbnail(message.guild.iconURL({ format: 'jpg' }))
-			.setFooter(`Author: ${target.user.username}`, target.user.displayAvatarURL({ format: 'jpg' }))
-			.setDescription(`**Status:** ${target.presence.status}\n**Created At:** ${dayjs(target.createdAt).format('hh:mm A')} - ${dayjs(target.createdAt).format('DD/MM/YY')}`)
-			.setColor('0xC76CF5');
-
-		message.channel.send(uEmbed);
+	run(msg, [member = msg.member]) {
+		return msg.sendEmbed(new MessageEmbed()
+			.setColor(member.displayHexColor || 0xFFFFFF)
+			.setThumbnail(member.user.displayAvatarURL())
+			.addField('❯ Name', member.user.tag, true)
+			.addField('❯ ID', member.id, true)
+			.addField('❯ Discord Join Date', this.timestamp.display(member.user.createdAt), true)
+			.addField('❯ Server Join Date', this.timestamp.display(member.joinedTimestamp), true)
+			.addField('❯ Status', this.statuses[member.presence.status], true)
+			.addField('❯ Playing', member.presence.activity ? member.presence.activity.name : 'N/A', true)
+			.addField('❯ Highest Role', member.roles.size > 1 ? member.roles.highest.name : 'None', true)
+			.addField('❯ Hoist Role', member.roles.hoist ? member.roles.hoist.name : 'None', true));
 	}
 
-}
-
-module.exports = UserinfoCommand;
+};
