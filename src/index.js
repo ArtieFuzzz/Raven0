@@ -18,7 +18,7 @@ const sharderOptions = {
 	clientOptions: Util.mergeDefault(Constants.DefaultOptions, customClientOptions),
 	client: RavenClient,
 	timeout: 90000,
-	shardCount: process.env.SPAWN_SHARDS,
+	shardCount: process.env.SPAWN_SHARDS || 1,
 	token,
 };
 

@@ -8,3 +8,4 @@ Dockerfile
 src/bwd
 ## Local logs
 raven0.log
+package-lock.json
