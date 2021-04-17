@@ -9,6 +9,23 @@ class RavenClient extends Client {
 		super(...args);
 		this.colors = BotColors;
 		this.shardHook = new WebhookClient(process.env.HOOK_ID, process.env.HOOK_TOKEN);
+
+		Client.defaultGuildSchema.add('antilink', 'boolean', {
+			default: false,
+			configurable: false,
+		});
+		Client.defaultGuildSchema.add('exp_status', 'boolean', {
+			default: false,
+			configurable: false,
+		});
+		Client.defaultUserSchema.add('exp', 'Integer', {
+			default: 0,
+			configurable: false,
+		});
+		Client.defaultUserSchema.add('level', 'Integer', {
+			default: 0,
+			configurable: false,
+		});
 	}
 	async login() {
 		require('../Extensions/message.js');
