@@ -4,7 +4,7 @@ const { KSoftClient } = require('@ksoft/api');
 
 const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
-module.exports = class extends Task {
+class AutoMemeTask extends Task {
 
 	async run({ channel }) {
 		const _channel = this.client.channels.get(channel);
@@ -20,4 +20,6 @@ module.exports = class extends Task {
 
 	}
 
-};
+}
+
+module.exports = AutoMemeTask;
