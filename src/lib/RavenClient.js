@@ -1,6 +1,7 @@
 const { Client } = require('klasa');
 const BotColors = require('./util/colors.js');
 const { WebhookClient } = require('discord.js');
+const { KSoftClient } = require('@ksoft/api');
 require('dotenv').config();
 
 class RavenClient extends Client {
@@ -9,6 +10,7 @@ class RavenClient extends Client {
 		super(...args);
 		this.colors = BotColors;
 		this.shardHook = new WebhookClient(process.env.HOOK_ID, process.env.HOOK_TOKEN);
+		this.ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 		Client.defaultGuildSchema.add('anti_invite', 'boolean', {
 			default: false,

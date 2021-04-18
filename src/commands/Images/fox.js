@@ -1,8 +1,5 @@
 const { Command } = require('klasa');
-const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
-
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class FoxCommand extends Command {
 
@@ -15,7 +12,7 @@ class FoxCommand extends Command {
 	}
 
 	async run(message) {
-		const { url } = await ksoft.images.random('fox');
+		const { url } = await this.client.ksoft.images.random('fox');
 		const embed = new MessageEmbed()
 			.setTitle('Fox!')
 			.setFooter('Powered by api.ksoft.si')

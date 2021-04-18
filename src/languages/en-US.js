@@ -177,6 +177,13 @@ module.exports = class extends Language {
 			COMMAND_STATS_DESCRIPTION: 'Provides some details about the bot and stats.',
 			MESSAGE_PROMPT_TIMEOUT: 'The prompt has timed out.',
 			TEXT_PROMPT_ABORT_OPTIONS: ['abort', 'stop', 'cancel'],
+			COMMAND_ANTI_INVITE: 'Enable or disable Anti Invite.',
+			COMMAND_AUTO_MEME: 'Set the current channel as a automeme channel or remove it.',
+			COMMAND_FOX_DECRYPT: 'Decrypt a string encrypted from this bot.',
+			COMMAND_FOX_ENCRYPT: 'Ecrypt a string.',
+			COMMAND_FOX_HASH: 'Hash a string.',
+			COMMAND_STRING_CRYPT: 'Encrypt a string.',
+			COMMAND_STRING_DECRYPT: 'Decrypt string.',
 		};
 	}
 

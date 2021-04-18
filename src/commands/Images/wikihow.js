@@ -1,8 +1,5 @@
 const { Command } = require('klasa');
-const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
-
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class WikiHowCommand extends Command {
 
@@ -15,7 +12,7 @@ class WikiHowCommand extends Command {
 	}
 
 	async run(message) {
-		const { article, url } = await ksoft.images.wikihow();
+		const { article, url } = await this.client.ksoft.images.wikihow();
 		const embed = new MessageEmbed()
 			.setTitle(article.title)
 			.setFooter('Powered by api.ksoft.si')

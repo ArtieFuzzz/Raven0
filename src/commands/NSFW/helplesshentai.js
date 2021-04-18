@@ -1,8 +1,5 @@
 const { Command } = require('klasa');
-const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
-
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class HentaiHelplessCommand extends Command {
 
@@ -18,7 +15,7 @@ class HentaiHelplessCommand extends Command {
 
 	async run(message, [span = 'day']) {
 
-		const { url, post } = await ksoft.images.reddit('helplesshentai', { span: span });
+		const { url, post } = await this.client.ksoft.images.reddit('helplesshentai', { span: span });
 		const embed = new MessageEmbed()
 			.setTitle(post.title)
 			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)

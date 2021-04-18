@@ -1,8 +1,5 @@
 const { Command } = require('klasa');
-const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
-
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class CatCommand extends Command {
 
@@ -14,7 +11,7 @@ class CatCommand extends Command {
 	}
 
 	async run(message) {
-		const { url } = await ksoft.images.random('cat');
+		const { url } = await this.client.ksoft.images.random('cat');
 		const embed = new MessageEmbed()
 			.setTitle('Cats!')
 			.setFooter('Powered by api.ksoft.si')

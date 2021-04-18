@@ -1,8 +1,5 @@
 const { Command } = require('klasa');
-const { KSoftClient } = require('@ksoft/api');
 const { MessageEmbed } = require('discord.js');
-
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 
 class RandNSFWCommand extends Command {
 
@@ -16,7 +13,7 @@ class RandNSFWCommand extends Command {
 
 	async run(message) {
 
-		const { url, post } = await ksoft.images.nsfw();
+		const { url, post } = await this.client.ksoft.images.nsfw();
 		const embed = new MessageEmbed()
 			.setTitle(post.title)
 			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
