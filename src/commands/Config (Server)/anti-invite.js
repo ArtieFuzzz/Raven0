@@ -1,9 +1,9 @@
 const { Command } = require('klasa');
 
-class AntiLinkCommand extends Command {
+class AntiInviteCommand extends Command {
 	constructor(...args) {
 		super(...args, {
-			aliases: ['nolink'],
+			aliases: ['noinvite'],
 			permissionLevel: 6,
 			usage: '<status:boolean>',
 		});
@@ -13,7 +13,7 @@ class AntiLinkCommand extends Command {
 		const serverconf = message.guild.settings;
 
 		try {
-			serverconf.update('antilink', status);
+			serverconf.update('anti_invite', status);
 			message.channel.send(`Set to ${status}`);
 		}
 		catch (err) {
@@ -22,4 +22,4 @@ class AntiLinkCommand extends Command {
 	}
 }
 
-module.exports = AntiLinkCommand;
+module.exports = AntiInviteCommand;

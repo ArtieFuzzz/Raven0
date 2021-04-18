@@ -10,11 +10,11 @@ class RavenClient extends Client {
 		this.colors = BotColors;
 		this.shardHook = new WebhookClient(process.env.HOOK_ID, process.env.HOOK_TOKEN);
 
-		Client.defaultGuildSchema.add('antilink', 'boolean', {
+		Client.defaultGuildSchema.add('anti_invite', 'boolean', {
 			default: false,
 			configurable: false,
 		});
-		Client.defaultGuildSchema.add('exp_status', 'boolean', {
+		Client.defaultGuildSchema.add('social_status', 'boolean', {
 			default: false,
 			configurable: false,
 		});
