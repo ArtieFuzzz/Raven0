@@ -1,5 +1,4 @@
 const { Command } = require('klasa');
-const random = require('srod-v2');
 
 class AdviceCommand extends Command {
 	constructor(...args) {
@@ -9,7 +8,7 @@ class AdviceCommand extends Command {
 	}
 
 	async run(message) {
-		const Data = await random.GetAdvice({ Color: 'RANDOM' });
+		const Data = await this.client.srod.GetAdvice({ Color: 'RANDOM' });
 		return message.channel.send(Data);
 	}
 }

@@ -11,6 +11,7 @@ class RavenClient extends Client {
 		this.colors = BotColors;
 		this.shardHook = new WebhookClient(process.env.HOOK_ID, process.env.HOOK_TOKEN);
 		this.ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
+		this.srod = require('srod-v2');
 
 		Client.defaultGuildSchema.add('anti_invite', 'boolean', {
 			default: false,
