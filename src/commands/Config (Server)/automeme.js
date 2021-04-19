@@ -31,7 +31,7 @@ module.exports = class extends Command {
 			}
 		}
 		catch (err) {
-			message.channel.send('An error occurred!');
+			message.channel.send('An error occurred! Don\'t worry we sent the error to the developers.');
 			console.error(err);
 		}
 	}
