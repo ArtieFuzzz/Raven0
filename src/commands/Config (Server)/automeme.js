@@ -12,7 +12,7 @@ module.exports = class extends Command {
 
 	async run(message) {
 		try {
-			const check_channel = this.client.schedule.get(message.channel.id);
+			const check_channel = this.client.schedule.get(`${message.guild.id}_${message.channel.id}`);
 			if (check_channel) {
 				this.client.schedule.delete(`${message.guild.id}_${message.channel.id}`).catch(err => {
 					console.log(err);
