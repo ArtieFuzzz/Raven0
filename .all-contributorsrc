@@ -18,6 +18,25 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "ArtieFuzzz",
+      "name": "ArtieFuzzz",
+      "avatar_url": "https://assets.gitlab-static.net/uploads/-/system/user/avatar/6321672/avatar.png",
+      "profile": "https://gitlab.com/ArtieFuzzz",
+      "contributions": [
+        "bug",
+        "code",
+        "design",
+        "doc",
+        "ideas",
+        "infra",
+        "maintenance",
+        "plugin",
+        "projectManagement",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7
