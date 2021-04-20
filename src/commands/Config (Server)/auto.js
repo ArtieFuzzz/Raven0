@@ -6,7 +6,7 @@ class AutoCommand extends Command {
 		super(...args, {
 			runIn: ['text'],
 			guarded: true,
-			usage: '<meme|aww> <status:status>',
+			usage: '<meme|aww> <enable|disable>',
 			usageDelim: ',',
 			subcommands: true,
 			permissionLevel: 6,
