@@ -6,19 +6,16 @@ class AutoCommand extends Command {
 		super(...args, {
 			runIn: ['text'],
 			guarded: true,
-			usage: '<meme|aww>',
+			usage: '<meme|aww> <status:status>',
 			subcommands: true,
 			permissionLevel: 6,
 		});
 	}
 
-	meme(message) {
+	meme(message, [status]) {
 		try {
-			const check_channel = this.client.schedule.get(`${message.guild.id}_${message.channel.id}_auto_meme`);
-			if (check_channel) {
-				this.client.schedule.delete(`${message.guild.id}_${message.channel.id}_auto_meme`).catch(err => {
-					console.log(err);
-				});
+			if (status === 'disable') {
+				this.client.schedule.delete(`${message.guild.id}_${message.channel.id}_auto_meme`);
 				message.channel.send('Disabled!');
 			}
 			else {
@@ -37,13 +34,10 @@ class AutoCommand extends Command {
 			console.error(err);
 		}
 	}
-	aww(message) {
+	aww(message, [status]) {
 		try {
-			const check_channel = this.client.schedule.get(`${message.guild.id}_${message.channel.id}_auto_aww`);
-			if (check_channel) {
-				this.client.schedule.delete(`${message.guild.id}_${message.channel.id}_auto_aww`).catch(err => {
-					console.log(err);
-				});
+			if (status === 'disable') {
+				this.client.schedule.delete(`${message.guild.id}_${message.channel.id}_auto_aww`);
 				message.channel.send('Disabled!');
 			}
 			else {
@@ -54,7 +48,7 @@ class AutoCommand extends Command {
 					id: `${message.guild.id}_${message.channel.id}_auto_aww`,
 					catchUp: true,
 				});
-				message.channel.send('I\'ve set this channel as the Auto Meme channel. To disable run this command in the same channel again');
+				message.channel.send('I\'ve set this channel as the Auto Aww channel. To disable run this command in the same channel again');
 			}
 		}
 		catch (err) {
