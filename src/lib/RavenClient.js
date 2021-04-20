@@ -17,6 +17,18 @@ class RavenClient extends Client {
 			default: false,
 			configurable: false,
 		});
+		Client.defaultGuildSchema.add('social', 'boolean', {
+			default: false,
+			configurable: false,
+		});
+		Client.defaultGuildSchema.add('points', 'Integer', {
+			default: 0,
+			configurable: false,
+		});
+		Client.defaultGuildSchema.add('level', 'Integer', {
+			default: 0,
+			configurable: false,
+		});
 	}
 	async login() {
 		require('../Extensions/message.js');

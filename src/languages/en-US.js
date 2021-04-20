@@ -184,6 +184,9 @@ module.exports = class extends Language {
 			COMMAND_FOX_HASH: 'Hash a string.',
 			COMMAND_STRING_CRYPT: 'Encrypt a string.',
 			COMMAND_STRING_DECRYPT: 'Decrypt string.',
+
+			LEVEL_MESSAGES,
+
 		};
 	}
 
@@ -192,3 +195,12 @@ module.exports = class extends Language {
 	}
 
 };
+
+// Credit goes to [ravy](https://ravy.pink) from [The Aero Team](https://aero.bot)
+const LEVEL_MESSAGES = [
+	'Hey, **{user}**, you leveled up! You\'re now level {level}!',
+	'You\'ve been doing excellent, **{user}**. Here\'s a level up! You\'re now level {level}!',
+	'Oh come on, you\'re not hacking, are you **{user}**? You\'re level {level} already!',
+	'Oh, how time flies, **{user}**. You\'re already level {level}!',
+	'It\'s a bird! No, it\'s a plane! No, it\'s a level up! **{user}**, you\'re now level {level}!',
+];
