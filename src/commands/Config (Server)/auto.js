@@ -7,6 +7,7 @@ class AutoCommand extends Command {
 			runIn: ['text'],
 			guarded: true,
 			usage: '<meme|aww> <status:status>',
+			usageDelim: ',',
 			subcommands: true,
 			permissionLevel: 6,
 		});
