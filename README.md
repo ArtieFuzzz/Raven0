@@ -16,7 +16,7 @@ Important Notes for .env:
 - The PUBLIC_KEY variable has to be generated from the keyGen.js file | will start with: ed25519pk
 - The KEY variable has to be generated from the keyGen.js file | will start with: symmetric
 
-Step 2: Install the packages <code>npm install</code> <br>
+Step 2: Install the packages <code>npm install</code> You may need to add --force <br>
 Step 3: All set! Now just run <code>npm start</code> or <code>node src/main</code> <br>
 
 # Issues or bugs
