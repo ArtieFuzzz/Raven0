@@ -27,7 +27,7 @@ class AutoCommand extends Command {
 					id: `${message.guild.id}_${message.channel.id}_auto_meme`,
 					catchUp: true,
 				});
-				message.channel.send('I\'ve set this channel as the Auto Meme channel. To disable run this command in the same channel again');
+				message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${this.client.prefix}auto meme, disable`);
 			}
 		}
 		catch (err) {
@@ -49,7 +49,7 @@ class AutoCommand extends Command {
 					id: `${message.guild.id}_${message.channel.id}_auto_aww`,
 					catchUp: true,
 				});
-				message.channel.send('I\'ve set this channel as the Auto Aww channel. To disable run this command in the same channel again');
+				message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${this.client.prefix}auto aww, disable`);
 			}
 		}
 		catch (err) {
