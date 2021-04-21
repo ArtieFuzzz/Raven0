@@ -25,21 +25,21 @@ module.exports = class extends Monitor {
 
 		// generate new xp
 		const increment = util.random(3, 8);
-		const newXP = msg.member.settings.get('points') + increment;
-		const newLevel = msg.member.settings.get('level') + 1;
+		const newXP = msg.author.settings.get('points') + increment;
+		const newLevel = msg.author.settings.get('level') + 1;
 		const xpNeeded = this.xpNeeded(newLevel);
 
-		await msg.member.settings.sync();
+		await msg.author.settings.sync();
 
 		if (newXP >= xpNeeded) {
-			await msg.member.settings.update([['points', newXP - xpNeeded], ['level', newLevel]]);
+			await msg.author.settings.update([['points', newXP - xpNeeded], ['level', newLevel]]);
 			if (msg.guild.settings.get('social.levelupMessages')) {
 				await msg.channel.send(util.randomArray(msg.language.get('LEVEL_MESSAGES'))
 					.replace(/{level}/g, newLevel).replace(/{user}/g, msg.author.username));
 			}
 		}
 		else {
-			await msg.member.settings.update('points', newXP);
+			await msg.author.settings.update('points', newXP);
 		}
 	}
 

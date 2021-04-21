@@ -12,6 +12,7 @@ class RavenClient extends Client {
 		this.shardHook = new WebhookClient(process.env.HOOK_ID, process.env.HOOK_TOKEN);
 		this.ksoft = new KSoftClient(process.env.KSOFT_TOKEN);
 		this.srod = require('srod-v2');
+		this.cache = new Set();
 
 		Client.defaultGuildSchema.add('anti_invite', 'boolean', {
 			default: false,
@@ -21,11 +22,11 @@ class RavenClient extends Client {
 			default: false,
 			configurable: false,
 		});
-		Client.defaultGuildSchema.add('points', 'Integer', {
+		Client.defaultUserSchema.add('points', 'Integer', {
 			default: 0,
 			configurable: false,
 		});
-		Client.defaultGuildSchema.add('level', 'Integer', {
+		Client.defaultUserSchema.add('level', 'Integer', {
 			default: 0,
 			configurable: false,
 		});
