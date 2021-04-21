@@ -17,10 +17,10 @@ class AutoCommand extends Command {
 		try {
 			if (status === 'disable') {
 				this.client.schedule.delete(`${message.guild.id}_auto_meme`);
-				message.channel.send('Disabled!');
+				return message.channel.send('Disabled!');
 			}
 			else {
-				if (this.client.schedule.has(`${message.guild.id}_auto_meme`)) return message.channel.send('It\'s already enabled!');
+				if (this.client.schedule.get(`${message.guild.id}_auto_meme`)) return message.channel.send('It\'s already enabled!');
 				this.client.schedule.create('automeme', '*/5 * * * *', {
 					data: {
 						channel: message.channel.id,
@@ -28,7 +28,7 @@ class AutoCommand extends Command {
 					id: `${message.guild.id}_auto_meme`,
 					catchUp: true,
 				});
-				message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${message.guild.settings.get('prefix')} auto meme, disable`);
+				message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${message.guild.settings.get('prefix')}auto meme, disable`);
 			}
 		}
 		catch (err) {
@@ -40,10 +40,10 @@ class AutoCommand extends Command {
 		try {
 			if (status === 'disable') {
 				this.client.schedule.delete(`${message.guild.id}_auto_aww`);
-				message.channel.send('Disabled!');
+				return message.channel.send('Disabled!');
 			}
 			else {
-				if (this.client.schedule.has(`${message.guild.id}_auto_aww`)) return message.channel.send('It\'s already enabled!');
+				if (this.client.schedule.get(`${message.guild.id}_auto_aww`)) return message.channel.send('It\'s already enabled!');
 				this.client.schedule.create('autoaww', '*/5 * * * *', {
 					data: {
 						channel: message.channel.id,
@@ -52,7 +52,7 @@ class AutoCommand extends Command {
 					catchUp: true,
 				});
 			}
-			message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${message.guild.settings.get('prefix')} auto aww, disable`);
+			message.channel.send(`I've set this channel as the Auto Meme channel. To disable: ${message.guild.settings.get('prefix')}auto aww, disable`);
 		}
 		catch (err) {
 			message.channel.send('An error occurred! Don\'t worry we sent the error to the developers.');
