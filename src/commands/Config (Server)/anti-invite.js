@@ -5,7 +5,7 @@ class AntiInviteCommand extends Command {
 		super(...args, {
 			aliases: ['noinvite'],
 			permissionLevel: 6,
-			usage: '<status:boolean>',
+			usage: '<enable|disable>',
 		});
 	}
 
@@ -13,8 +13,14 @@ class AntiInviteCommand extends Command {
 		const serverconf = message.guild.settings;
 
 		try {
-			serverconf.update('anti_invite', status);
-			message.channel.send(`Set to ${status}`);
+			if (status === 'enable') {
+				serverconf.update('anti_invite', true);
+				return message.channel.send('Enabled!');
+			}
+			if (status === 'disable') {
+				serverconf.update('anti_invite', false);
+				return message.channel.send('Disabled!');
+			}
 		}
 		catch (err) {
 			message.channel.send('An error happened!').then(console.log(err));

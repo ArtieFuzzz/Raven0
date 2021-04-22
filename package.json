@@ -35,7 +35,7 @@
     "eslint": "^7.22.0"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "pm2 start . --name=\"Raven0\"",
     "lint": "eslint .",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
