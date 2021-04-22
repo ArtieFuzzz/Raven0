@@ -63,7 +63,7 @@ class AutoCommand extends Command {
 		try {
 			if (!message.guild) return true;
 			if (!message.channel.nsfw) {
-				message.util.send(':x: This command only runs in NSFW channels');
+				message.channel.send(':x: This command only runs in NSFW channels');
 				return true;
 			}
 
