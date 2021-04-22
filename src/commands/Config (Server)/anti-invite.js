@@ -14,11 +14,11 @@ class AntiInviteCommand extends Command {
 
 		try {
 			if (status === 'enable') {
-				serverconf.update('anti_invite', true);
+				serverconf.update('anti.invite', true);
 				return message.channel.send('Enabled!');
 			}
 			if (status === 'disable') {
-				serverconf.update('anti_invite', false);
+				serverconf.update('anti.invite', false);
 				return message.channel.send('Disabled!');
 			}
 		}

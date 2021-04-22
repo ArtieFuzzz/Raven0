@@ -14,7 +14,7 @@ class RavenClient extends Client {
 		this.srod = require('srod-v2');
 		this.cache = new Set();
 
-		Client.defaultGuildSchema.add('anti_invite', 'boolean', {
+		Client.defaultGuildSchema.add('anti.invite', 'boolean', {
 			default: false,
 			configurable: false,
 		});

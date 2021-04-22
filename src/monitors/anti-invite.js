@@ -16,8 +16,8 @@ module.exports = class extends Monitor {
 	}
 
 	async run(msg) {
-		// Line 20 edited: mod.anti.invites > anti_invite & msg.exempt removed
-		if (!msg.guild || !msg.guild.settings.get('anti_invite')) return;
+		// Line 20 edited: mod.anti.invites > anti.invite & msg.exempt removed
+		if (!msg.guild || !msg.guild.settings.get('anti.invite')) return;
 		if (this.inviteRegex.test(msg.content)) msg.delete();
 	}
 
