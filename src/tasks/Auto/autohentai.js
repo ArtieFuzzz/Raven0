@@ -5,6 +5,11 @@ class AutoHentaiTask extends Task {
 
 	async run({ channel }) {
 		const _channel = this.client.channels.get(channel);
+		if (!_channel.nsfw) {
+			_channel.send(':x: This command only runs in NSFW channels');
+			return true;
+		}
+
 		const { url, post } = await this.client.ksoft.images.reddit('hentai');
 		const embed = new MessageEmbed()
 			.setTitle(post.title)

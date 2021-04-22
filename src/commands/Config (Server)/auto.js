@@ -61,6 +61,12 @@ class AutoCommand extends Command {
 	}
 	hentai(message, [status]) {
 		try {
+			if (!message.guild) return true;
+			if (!message.channel.nsfw) {
+				message.util.send(':x: This command only runs in NSFW channels');
+				return true;
+			}
+
 			if (status === 'disable') {
 				this.client.schedule.delete(`${message.guild.id}_auto_hentai`);
 				return message.channel.send('Disabled!');
