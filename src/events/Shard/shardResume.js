@@ -16,7 +16,7 @@ module.exports = class extends Event {
 	async run(shardID, replayed) {
 		this.client.console.log(`[Shards] Shard ${shardID + 1} resumed`, replayed);
 
-		const hook = await this.shardHook;
+		const hook = await this.client.shardHook;
 		if (hook) {
 			const embed = new MessageEmbed()
 				.setTitle('[Resumed]')
