@@ -6,7 +6,9 @@ class ClearCacheTask extends Task {
 		this.client.cache.clear();
 	}
 	async init() {
-		this.client.schedule.create('clearcache', '*/10 * * * *');
+		this.client.schedule.create('clearcache', '*/10 * * * *', {
+			catchUp: false,
+		});
 	}
 
 }
