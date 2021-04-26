@@ -1,5 +1,5 @@
-import appRootPath from 'app-root-path'
-import convict from 'convict'
+import * as appRootPath from 'app-root-path'
+import * as convict from 'convict'
 import { Snowflake } from 'discord.js'
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
@@ -44,6 +44,7 @@ export interface PackageJson {
 }
 
 const isWebhook = (v: unknown): boolean =>
+  /* eslint-disable @typescript-eslint/no-unsafe-return */
   typeof v === 'object' &&
   Object.prototype.hasOwnProperty.call(v, 'id') &&
   Object.prototype.hasOwnProperty.call(v, 'secret')

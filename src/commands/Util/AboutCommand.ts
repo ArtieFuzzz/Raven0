@@ -9,7 +9,7 @@ export default class PingCommand extends Command {
   public constructor () {
     super('about', {
       aliases: ['about'],
-      category: 'basic',
+      category: 'Util',
       description: 'Show information about this bot',
       ratelimit: 3
     })
@@ -29,7 +29,7 @@ export default class PingCommand extends Command {
           '\n-insert a short description of your bot-' +
           '\n ' +
           '\nAs I am still a work in progress, errors may occur. Report any issues to the repository (see below)' +
-          '\nYou can also join the [support server](http://example.com/).\n',
+          '\n`Support server currently unavailable please DM the owner instead @ ArtieFuzzz#8298`.\n',
         color: 0xc4c4c4,
         thumbnail: {
           url: this.client.user.avatarURL({ dynamic: true })
@@ -37,11 +37,11 @@ export default class PingCommand extends Command {
         fields: [
           {
             name: 'Developed by',
-            value: 'Your Discord Tag | GitHub: [Username](https://github.com/username)',
+            value: 'ArtieFuzzz#8298 | GitLab: [ArtieFuzzz](https://gitlab.com/raven0-bot/Raven/-/tree/TypeScript)',
             inline: false
           },
           {
-            name: 'Bot Name',
+            name: 'Raven0',
             value: `Version: ${pkg.version}` + '\nWritten in TypeScript, powered by Node.js',
             inline: false
           },

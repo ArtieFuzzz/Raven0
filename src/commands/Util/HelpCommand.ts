@@ -8,7 +8,7 @@ export default class HelpCommand extends Command {
   public constructor () {
     super('help', {
       aliases: ['help'],
-      category: 'basic',
+      category: 'Util',
       description: 'Show help',
       ratelimit: 3,
       args: [

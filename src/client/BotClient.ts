@@ -1,20 +1,18 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
-import StatusUpdater from '@tmware/status-rotate'
-import appRootPath from 'app-root-path'
+// import StatusUpdater from '@tmware/status-rotate'
+import * as appRootPath from 'app-root-path'
 import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
 import { ActivityOptions, Message } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
+import { KSoftClient } from '@ksoft/api'
 
 export default class BotClient extends AkairoClient {
+  public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
   public logger = WebhookLogger.instance
   public eventEmitter = EventEmitterSingleton.instance
-  public statusUpdater: StatusUpdater = new StatusUpdater(
-    this,
-    'https://gist.githubusercontent.com/TMUniversal/253bd3172c3002be3e15e1152dd31bd4/raw/exampleFile.json'
-  )
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
@@ -101,10 +99,10 @@ export default class BotClient extends AkairoClient {
     await this.login(config.clientToken)
 
     // Register event handling for custom events
-    this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
+    // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
 
     // Set a startup notice. This will be overridden upon ready.
-    this.user.setActivity({ name: 'Starting up...', type: 'PLAYING' })
+    this.user.setActivity({ name: 'Spotify', type: 'LISTENING' })
 
     // Automate status changes and upload stat uploads.
     this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
@@ -112,10 +110,10 @@ export default class BotClient extends AkairoClient {
     return this
   }
 
-  public async changeStatus (options?: ActivityOptions) {
+  /* public async changeStatus (options?: ActivityOptions) {
     if (options) return await this.statusUpdater.updateStatus(options)
     return await this.statusUpdater.updateStatus()
-  }
+  } */
 
   public stop () {
     this.logger.warn('PROCESS', 'Received exit signal => quitting in 4 seconds...')

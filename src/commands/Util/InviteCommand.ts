@@ -6,7 +6,7 @@ export default class InviteCommand extends Command {
   public constructor () {
     super('invite', {
       aliases: ['invite'],
-      category: 'basic',
+      category: 'Util',
       description: 'Generate an invite link for the bot.',
       ratelimit: 3
     })
@@ -22,7 +22,7 @@ export default class InviteCommand extends Command {
       MessageEmbed.common({ author: message.member.user })
         // Update the permissions your bot needs in the invite link below
         .setDescription(
-          `[Add me to your server](https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=8&scope=bot)`
+          `[Add me to your server](https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=52224&scope=bot)`
         )
     )
   }

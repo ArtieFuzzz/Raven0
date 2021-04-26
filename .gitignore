@@ -91,3 +91,4 @@ typings/
 config/main.json
 build
 .vscode
+package-lock.json

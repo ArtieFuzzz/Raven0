@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
-import StatusUpdater from '@tmware/status-rotate'
+// import StatusUpdater from '@tmware/status-rotate'
 import { AkairoClient } from 'discord-akairo'
 import { Presence } from 'discord.js'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import BotClient from './BotClient'
+import { KSoftClient } from '@ksoft/api'
 
 declare module 'discord-akairo' {
   interface AkairoClient {
@@ -12,8 +13,8 @@ declare module 'discord-akairo' {
     listenerHandler: ListenerHandler
     inhibitorHandler: InhibitorHandler
     logger: WebhookLogger
-    statusUpdater: StatusUpdater
     customEmitter: EventEmitterSingleton
+    ksoft: KSoftClient
 
     start(): Promise<BotClient>
     changeStatus(): Promise<Presence>

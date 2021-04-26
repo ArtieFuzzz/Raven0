@@ -1,0 +1,31 @@
+import { Command } from 'discord-akairo'
+import { Message } from 'discord.js'
+import { MessageEmbed } from '../../structures/MessageEmbed'
+
+export default class PingCommand extends Command {
+  public constructor () {
+    super('aww', {
+      aliases: ['awww'],
+      category: 'Images',
+      description: 'Returns a cute command',
+      ratelimit: 3
+    })
+
+    this.help = {
+      usage: 'aww',
+      examples: ['aww']
+    }
+  }
+
+  public async exec (message: Message): Promise<Message> {
+    const { url, post } = await this.client.ksoft.images.aww()
+    return await message.util.send(
+      MessageEmbed.common({ author: message.member.user })
+        .setTitle(post.title)
+        .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
+        .setURL(post.link)
+        .setTimestamp()
+        .setImage(url)
+        .setColor('RANDOM'))
+  }
+}

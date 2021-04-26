@@ -1,4 +1,5 @@
-import moment, { Moment } from 'moment'
+import { Moment } from 'moment'
+import * as moment from 'moment'
 
 export function toDiscordMarkdownLink (url: string, name?: string) {
   return `[${name || url}](${url})`

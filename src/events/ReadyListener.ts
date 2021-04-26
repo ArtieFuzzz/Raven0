@@ -24,6 +24,6 @@ export default class ReadyListener extends Listener {
       'CLIENT',
       `${this.client.user.tag} logged in with ${users} users, in ${channels} channels of ${guilds} guilds.`
     )
-    this.eventEmitter.emit('changeStatus')
+    // this.eventEmitter.emit('changeStatus')
   }
 }

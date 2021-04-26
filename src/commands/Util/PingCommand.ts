@@ -5,7 +5,7 @@ export default class PingCommand extends Command {
   public constructor () {
     super('ping', {
       aliases: ['ping'],
-      category: 'basic',
+      category: 'Util',
       description: 'Check latency',
       ratelimit: 3
     })
