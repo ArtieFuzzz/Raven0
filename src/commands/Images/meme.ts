@@ -2,18 +2,18 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 
-export default class FoxCommand extends Command {
+export default class MemeCommand extends Command {
   public constructor () {
-    super('meme', {
-      aliases: ['meme'],
+    super('fox', {
+      aliases: ['fox'],
       category: 'Images',
-      description: 'Returns a meme from various subreddits',
+      description: 'Returns a fox Image',
       ratelimit: 3
     })
 
     this.help = {
-      usage: 'fox',
-      examples: ['fox']
+      usage: 'meme',
+      examples: ['memes']
     }
   }
 
