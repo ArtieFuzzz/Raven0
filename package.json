@@ -15,7 +15,6 @@
     "clean": "rimraf ./build && mkdir build",
     "preversion": "yarn test",
     "postversion": "git push && git push --tags",
-    "prepare": "husky install",
     "prettiest": "prettier --write . && yarn run lint:fix",
     "semantic-release": "semantic-release"
   },
