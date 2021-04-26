@@ -7,7 +7,7 @@ export default class AwwCommand extends Command {
     super('aww', {
       aliases: ['aww'],
       category: 'Images',
-      description: 'Returns a cute command',
+      description: 'Returns a dankmeme Image',
       ratelimit: 3
     })
 
