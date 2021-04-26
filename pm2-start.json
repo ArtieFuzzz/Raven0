@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "discord-bot",
+      "name": "Raven0t",
       "script": "build/index.js",
       "instances": "1",
       "interpreter": "node@15.5.1",
