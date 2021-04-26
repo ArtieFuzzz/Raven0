@@ -7,7 +7,7 @@ export default class AwwCommand extends Command {
     super('facepalm', {
       aliases: ['facepalm'],
       category: 'Images',
-      description: 'Returns a Image you should facepalm at',
+      description: 'Returns a Image from r/facepalm',
       ratelimit: 3
     })
 

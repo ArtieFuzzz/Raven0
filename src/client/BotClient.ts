@@ -2,7 +2,7 @@
 // import StatusUpdater from '@tmware/status-rotate'
 import * as appRootPath from 'app-root-path'
 import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
-import { ActivityOptions, Message } from 'discord.js'
+import { Message } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
