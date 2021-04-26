@@ -5,7 +5,7 @@ import { MessageEmbed } from '../../structures/MessageEmbed'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg: PackageJson = require('../../../package.json')
 
-export default class PingCommand extends Command {
+export default class AboutCommand extends Command {
   public constructor () {
     super('about', {
       aliases: ['about'],
