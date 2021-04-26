@@ -18,7 +18,7 @@ export default class AwwCommand extends Command {
   }
 
   public async exec (message: Message): Promise<Message> {
-    const { url, post } = await this.client.ksoft.images.aww()
+    const { url, post } = await this.client.ksoft.images.reddit('dankmemes', { removeNSFW: true, span: 'day' })
     const embed = new MessageEmbed()
       .setTitle(post.title)
       .setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
