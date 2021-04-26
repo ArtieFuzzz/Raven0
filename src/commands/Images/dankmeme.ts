@@ -4,8 +4,8 @@ import { MessageEmbed } from '../../structures/MessageEmbed'
 
 export default class AwwCommand extends Command {
   public constructor () {
-    super('aww', {
-      aliases: ['aww'],
+    super('dankmeme', {
+      aliases: ['dankmeme', 'dkm'],
       category: 'Images',
       description: 'Returns a dankmeme Image',
       ratelimit: 3
