@@ -22,7 +22,7 @@
     "@ksoft/api": "^3.1.9",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
-    "axios": "0.21.1",
+    "centra": "^2.4.2",
     "convict": "^6.0.1",
     "countapi-js": "^1.0.2",
     "discord-akairo": "^8.1.0",
@@ -56,13 +56,14 @@
     "bot"
   ],
   "authors": {
-    "TMUniversal": "(Template) git+https://github.com/TMUniversal/discord-bot-template.git"
+    "TMUniversal": "(Template) https://github.com/TMUniversal/discord-bot-template.git",
+		"ArtieFuzzz (#8298)": "(Developer) https://gitlab.com/raven0-bot"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TMUniversal/discord-bot-template/issues"
+    "url": "https://gitlab.com/raven0-bot/Raven/-/issues"
   },
-  "homepage": "https://github.com/TMUniversal/discord-bot-template#readme",
+  "homepage": "https://gitlab.com/Raven/0-bot/Raven",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
