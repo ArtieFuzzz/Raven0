@@ -1,1 +1,0 @@
-`ja-JP.js` Hasn't fully been created. Feel free to translate!

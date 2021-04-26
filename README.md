@@ -1,44 +1,83 @@
-# Sparrow
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![Discord Bots](https://top.gg/api/widget/609269728455688193.svg)](https://top.gg/bot/609269728455688193)
+# Discord Bot Template (TypeScript)
 
-Open source discord bot made with [discord-akairo](https://discord-akairo.github.io)
+<div>
+  <p align="center">
+    <a href="https://github.com/TMUniversal/discord-bot-template/blob/stable/package.json#L3">
+      <img src="https://img.shields.io/github/package-json/v/TMUniversal/discord-bot-template?style=flat&color=c4c4c4" />
+    </a>
+    <a href="https://tmuniversal.eu/redirect/patreon">
+      <img src="https://img.shields.io/badge/Patreon-support_me-fa6956.svg?style=flat&logo=patreon" />
+    </a>
+    <br />
+    <a href="https://github.com/TMUniversal/discord-bot-template/actions">
+      <img src="https://github.com/TMUniversal/discord-bot-template/workflows/Build/badge.svg" />
+    </a>
+    <a href="https://github.com/TMUniversal/discord-bot-template/issues">
+      <img src="https://img.shields.io/github/issues/TMUniversal/discord-bot-template.svg?style=flat">
+    </a>
+    <a href="https://github.com/TMUniversal/discord-bot-template/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/TMUniversal/discord-bot-template.svg?style=flat">
+    </a>
+    <a href="https://github.com/TMUniversal/discord-bot-template/blob/stable/LICENSE.md">
+      <img src="https://img.shields.io/github/license/TMUniversal/discord-bot-template.svg?style=flat">
+    </a>
+  </p>
+</div>
 
-To view the list of command use the help command: [prefix]help
+## Getting Started
 
-# Setup.
-Step 1: Rename .env.example to .env and fill out all the fields and change the prefix! <br> 
-Important Notes for .env: 
-- The SALT variable can be a random string 
-- The PRIVATE_KEY variable has to be generated from the keyGen.js file | will start with: ed25519sk
-- The PUBLIC_KEY variable has to be generated from the keyGen.js file | will start with: ed25519pk
-- The KEY variable has to be generated from the keyGen.js file | will start with: symmetric
+Hosting a discord bot comes with some requirements:
 
-Step 2: Install the packages <code>npm install</code> You may need to add --force <br>
-Step 3: All set! Now just run <code>npm start</code> or <code>node src/main</code> <br>
+### Installation
 
-# Issues or bugs
-Open an issue and describe the bug / issue
+Assuming you have [Node.js](https://nodejs.org/en/download/current/) installed, install the required packages:
 
-## Contributors ✨
+> Please use the latest version on Node.js, as this project is constantly keeping up to date.
+> discord-bot-template is built and tested with the latest version of Node.js (as of now that is v14.4.0)
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+- In the project folder: `yarn install`
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/all-contributors/all-contributors-bot"><img src="https://avatars.githubusercontent.com/u/46843839?v=4?s=100" width="100px;" alt=""/><br /><sub><b>allcontributors[bot]</b></sub></a><br /><a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://gitlab.com/ArtieFuzzz"><img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/6321672/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>ArtieFuzzz</b></sub></a><br /><a href="https://gitlab.com/raven-studio/Sparrow/issues?author_username=ArtieFuzzz" title="Bug reports">🐛</a> <a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Code">💻</a> <a href="#design-ArtieFuzzz" title="Design">🎨</a> <a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Documentation">📖</a> <a href="#ideas-ArtieFuzzz" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-ArtieFuzzz" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-ArtieFuzzz" title="Maintenance">🚧</a> <a href="#plugin-ArtieFuzzz" title="Plugin/utility libraries">🔌</a> <a href="#projectManagement-ArtieFuzzz" title="Project Management">📆</a> <a href="https://gitlab.com/raven-studio/Sparrow/merge_requests?scope=all&state=all&approver_usernames[]=ArtieFuzzz" title="Reviewed Pull Requests">👀</a> <a href="https://gitlab.com/raven-studio/Sparrow/commits/master" title="Tests">⚠️</a></td>
-  </tr>
-</table>
+### Setup
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+- In the config directory, make a copy of `main.example.json`, rename it to `main.json`.
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+- Fill in the necessary values, remove the comment (since comments are not supported in JSON).
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+  - `owners` may be an array of strings
+
+- Customize what your bot says and does, here's what you should change:
+  - Status messages in `src/client/BotClient.ts`
+  - Your bot's description in `src/commands/basic/AboutCommand.ts`
+  - The required permissions in `src/commands/basic/InviteCommand.ts`
+
+```JS
+  {
+    "clientToken": "<Discord Bot Token>",
+    "webhook": {
+      "id": "",
+      "secret": ""
+    },
+    "prefix": ">",
+    "owners": "<Your Discord ID>",
+    // OR
+    "owners": ["<Your Discord ID>", "<Another Discord ID>"]
+  }
+```
+
+### Starting
+
+To start the bot, it must first be complied.
+
+- Run `yarn run build`
+
+- You may then start with `yarn start` or, if you have pm2 installed: `pm2 start pm2-start.json`
+
+- Alternatively: Run `yarn run cs` to build and then start.
+
+## Credits
+
+Credits to [Hydractify](https://github.com/Hydractify/kanna_kobayashi) for their logging system.
+
+## License
+
+discord-bot-template is released under the [MIT License](LICENSE.md).

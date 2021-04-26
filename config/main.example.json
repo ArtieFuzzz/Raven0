@@ -1,0 +1,10 @@
+{
+  "clientToken": "",
+  "webhook": {
+    "id": "",
+    "secret": ""
+  },
+  "prefix": ">",
+  "owners": "",
+  "userBlacklist": ["<some id>"]
+}
