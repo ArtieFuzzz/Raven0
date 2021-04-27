@@ -15,12 +15,13 @@ export default class EvalCommand extends Command {
 
     this.help = {
       usage: 'eval',
-      examples: ['eval thi.client']
+      examples: ['eval this.client']
     }
   }
 
   public async exec (message: Message): Promise<Message> {
-		const prefix = process.env.PREFIX
+		const prefix = process.env.CLIENT_PREFIX
+
     const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }));
 
