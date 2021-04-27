@@ -92,3 +92,5 @@ config/main.json
 build
 .vscode
 package-lock.json
+.stignore
+okteto.yml
