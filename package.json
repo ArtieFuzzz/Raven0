@@ -33,7 +33,8 @@
     "owoifyx": "^1.0.1",
     "srod-v2": "^1.0.2",
     "sxcu.js": "^1.0.1",
-    "uwuifier": "^3.0.0"
+    "uwuifier": "^3.0.0",
+    "yiff": "2.0.3"
   },
   "devDependencies": {
     "@tmuniversal/ts": "^1.1.2",
