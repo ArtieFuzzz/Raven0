@@ -26,7 +26,7 @@ export default class AboutCommand extends Command {
         title: this.client.user.username + ' About',
         description:
           `Hello! I'm ${this.client.user.username}, a discord bot!` +
-          '\n-insert a short description of your bot-' +
+          '\nA bot with image commands!' +
           '\n ' +
           '\nAs I am still a work in progress, errors may occur. Report any issues to the repository (see below)' +
           '\n`Support server currently unavailable please DM the owner instead @ ArtieFuzzz#8298`.\n',
