@@ -3,12 +3,12 @@ import { Message, DMChannel } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 import * as Yiff from 'yiff'
 
-export default class E621Command extends Command {
+export default class E926Command extends Command {
   public constructor () {
-    super('e621', {
-      aliases: ['e621'],
+    super('e926', {
+      aliases: ['e926'],
       category: 'NSFW',
-      description: 'Returns an Image from e621 with your selected tags',
+      description: 'Returns an Image from e926 with your selected tags',
       ratelimit: 3,
       args: [
         {
@@ -20,8 +20,8 @@ export default class E621Command extends Command {
     })
 
     this.help = {
-      usage: 'e621',
-      examples: ['e621']
+      usage: 'e926',
+      examples: ['e926']
     }
   }
 
@@ -30,13 +30,13 @@ export default class E621Command extends Command {
     if (!message.channel.nsfw) return await message.util.send(':x: This command only runs in NSFW channels')
 
     try {
-      const e6 = new Yiff.e621({
+      const e9 = new Yiff.e926({
         creator: 'ArtieFuzzz#8298',
         name: 'Raven0',
         version: '1.0'
       })
       if (!tags) return await message.channel.send('No tags were specified')
-      const { image, page, artist } = await e6.request(tags)
+      const { image, page, artist } = await e9.request(tags)
 
       const embed = new MessageEmbed()
         .setTitle('Source')

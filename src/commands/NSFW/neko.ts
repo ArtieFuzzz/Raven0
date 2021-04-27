@@ -4,10 +4,10 @@ import { MessageEmbed } from '../../structures/MessageEmbed'
 
 export default class AssCommand extends Command {
   public constructor () {
-    super('ass', {
-      aliases: ['ass'],
+    super('neko', {
+      aliases: ['neko'],
       category: 'NSFW',
-      description: 'Returns an ass Image',
+      description: 'Returns an neko Image',
       ratelimit: 3
     })
 
@@ -21,14 +21,14 @@ export default class AssCommand extends Command {
     if (message.channel instanceof DMChannel) return await message.channel.send('You can\'t use this command in DMs!')
     if (!message.channel.nsfw) return await message.util.send(':x: This command only runs in NSFW channels')
 
-    const { url } = await this.client.ksoft.images.random('ass', { nsfw: true })
+    const { url } = await this.client.ksoft.images.random('neko', { nsfw: true })
     const embed = new MessageEmbed()
-      .setTitle('Thicc?')
+      .setTitle('Uhh...')
       .setFooter('Powered by api.ksoft.si')
       .setURL(url)
       .setTimestamp()
       .setImage(url)
-      .setColor('BLACK')
+      .setColor('WHITE')
     return await message.util.send(embed)
   }
 }
