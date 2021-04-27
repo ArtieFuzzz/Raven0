@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
-import c from '@aero/centra'
+import * as c from '@aero/centra'
 
 export default class UrbanCommand extends Command {
   public constructor () {
@@ -29,7 +29,7 @@ export default class UrbanCommand extends Command {
   public async exec (message: Message, { search }: { search: string }): Promise<Message> {
     try {
       const res = await c(`https://api.urbandictionary.com/v0/define?term=${search}`).send()
-      const { list } = await res.json()
+      const { list } = await res.json
       const embed = new MessageEmbed()
         .setTitle(list[0].word)
         .setDescription(list[0].definition)
