@@ -4,7 +4,6 @@
       "name": "Raven0",
       "script": "build/index.js",
       "instances": "1",
-      "interpreter": "node@15.5.1",
       "watch": false,
       "args": ["--color"],
       "merge_logs": true,
