@@ -19,17 +19,21 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@aero/centra": "^1.0.6",
     "@ksoft/api": "^3.1.9",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
-    "centra": "^2.4.2",
     "convict": "^6.0.1",
     "countapi-js": "^1.0.2",
     "discord-akairo": "^8.1.0",
     "discord.js": "12.5.3",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
-    "moment-duration-format": "^2.3.2"
+    "moment-duration-format": "^2.3.2",
+    "owoifyx": "^1.0.1",
+    "srod-v2": "^1.0.2",
+    "sxcu.js": "^1.0.1",
+    "uwuifier": "^3.0.0"
   },
   "devDependencies": {
     "@tmuniversal/ts": "^1.1.2",
@@ -57,7 +61,7 @@
   ],
   "authors": {
     "TMUniversal": "(Template) https://github.com/TMUniversal/discord-bot-template.git",
-		"ArtieFuzzz (#8298)": "(Developer) https://gitlab.com/raven0-bot"
+    "ArtieFuzzz (#8298)": "(Developer) https://gitlab.com/raven0-bot"
   },
   "license": "MIT",
   "bugs": {

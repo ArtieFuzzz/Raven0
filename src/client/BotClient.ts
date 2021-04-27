@@ -11,6 +11,7 @@ import { KSoftClient } from '@ksoft/api'
 
 export default class BotClient extends AkairoClient {
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
+  public srod = require('srod-v2')
   public logger = WebhookLogger.instance
   public eventEmitter = EventEmitterSingleton.instance
 
