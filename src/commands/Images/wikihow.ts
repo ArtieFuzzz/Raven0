@@ -2,28 +2,28 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 
-export default class FoxCommand extends Command {
+export default class WikiHowCommand extends Command {
   public constructor () {
-    super('fox', {
-      aliases: ['fox'],
+    super('wikihow', {
+      aliases: ['wikihow', 'wh'],
       category: 'Images',
-      description: 'Returns a fox Image',
+      description: 'Returns a wikihow Article and Image',
       ratelimit: 3
     })
 
     this.help = {
-      usage: 'fox',
-      examples: ['fox']
+      usage: 'wikihow',
+      examples: ['wikihow', 'wh']
     }
   }
 
   public async exec (message: Message): Promise<Message> {
-    const { url } = await this.client.ksoft.images.random('fox', { nsfw: false })
+    const { url, article } = await this.client.ksoft.images.wikihow()
     const embed = new MessageEmbed()
-      .setTitle('Foxx!')
+      .setTitle(article.title)
       .setFooter('Powered by api.ksoft.si')
       .setURL(url)
-      .setColor('ORANGE')
+      .setColor('GREEN')
       .setTimestamp()
       .setImage(url)
     return await message.util.send(embed)

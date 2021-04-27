@@ -25,7 +25,7 @@ export default class DankMemeCommand extends Command {
       .setURL(post.link)
       .setTimestamp()
       .setImage(url)
-      .setColor('RANDOM')
+      .setColor('DARK_GREEN')
     return await message.util.send(embed)
   }
 }

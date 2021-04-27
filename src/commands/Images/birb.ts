@@ -2,28 +2,28 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 
-export default class FoxCommand extends Command {
+export default class BirbCommand extends Command {
   public constructor () {
-    super('fox', {
-      aliases: ['fox'],
+    super('birb', {
+      aliases: ['birb', 'bird'],
       category: 'Images',
-      description: 'Returns a fox Image',
+      description: 'Returns a birb (bird) Image',
       ratelimit: 3
     })
 
     this.help = {
-      usage: 'fox',
-      examples: ['fox']
+      usage: 'birb',
+      examples: ['birb', 'bird']
     }
   }
 
   public async exec (message: Message): Promise<Message> {
-    const { url } = await this.client.ksoft.images.random('fox', { nsfw: false })
+    const { url } = await this.client.ksoft.images.random('birb', { nsfw: false })
     const embed = new MessageEmbed()
-      .setTitle('Foxx!')
+      .setTitle('Birb')
       .setFooter('Powered by api.ksoft.si')
       .setURL(url)
-      .setColor('ORANGE')
+      .setColor('LIME')
       .setTimestamp()
       .setImage(url)
     return await message.util.send(embed)

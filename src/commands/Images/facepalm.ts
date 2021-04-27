@@ -25,7 +25,7 @@ export default class FacepalmCommand extends Command {
       .setURL(post.link)
       .setTimestamp()
       .setImage(url)
-      .setColor('RANDOM')
+      .setColor('WHITE')
     return await message.util.send(embed)
   }
 }

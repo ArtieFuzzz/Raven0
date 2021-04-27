@@ -4,10 +4,10 @@ import { MessageEmbed } from '../../structures/MessageEmbed'
 
 export default class MemeCommand extends Command {
   public constructor () {
-    super('fox', {
-      aliases: ['fox'],
+    super('meme', {
+      aliases: ['meme'],
       category: 'Images',
-      description: 'Returns a fox Image',
+      description: 'Returns a meme from various subreddits',
       ratelimit: 3
     })
 
