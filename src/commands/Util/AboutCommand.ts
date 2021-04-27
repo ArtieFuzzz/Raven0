@@ -56,14 +56,15 @@ export default class AboutCommand extends Command {
             name: 'Built With',
             value:
               '[Discord.js](https://github.com/discordjs/discord.js#readme)' +
-              '\n[Discord Akairo](https://github.com/discord-akairo/discord-akairo#readme)',
-            inline: true
+              '\n[Discord Akairo](https://github.com/discord-akairo/discord-akairo#readme)' +
+              '\n[Discord Bot Template By TMUniversal (MIT License)](https://github.com/TMUniversal/discord-bot-template)',
+            inline: false
           }
         ],
         timestamp: new Date(),
         footer: {
           icon_url: this.client.user.avatarURL({ dynamic: true }),
-          text: 'Discord Bot Template by TMUniversal (MIT License)'
+          text: 'Raven0 - Since 2021'
         }
       })
     )
