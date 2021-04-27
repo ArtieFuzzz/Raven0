@@ -13,6 +13,7 @@ interface Configuration {
   prefix: string
   owners: Snowflake | Snowflake[]
   userBlacklist: Snowflake[]
+  serverBlacklist: Snowflake[]
 }
 
 export interface PackageJson {
@@ -23,7 +24,7 @@ export interface PackageJson {
   scripts: {
     [name: string]: string
   }
-  author: string
+  authors: string[]
   contributors: string[]
   license: string
   devDependencies?: {
@@ -93,6 +94,11 @@ const config = convict<Configuration>({
       env: 'LOGS_WEBHOOK_SECRET',
       default: ''
     }
+  },
+  serverBlacklist: {
+    format: Array,
+    env: 'CLIENT_SERVER_BLACKLIST',
+    default: []
   }
 })
 

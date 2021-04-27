@@ -2,7 +2,7 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 
-export default class AwwCommand extends Command {
+export default class DankMemeCommand extends Command {
   public constructor () {
     super('dankmeme', {
       aliases: ['dankmeme', 'dkm'],
@@ -12,8 +12,8 @@ export default class AwwCommand extends Command {
     })
 
     this.help = {
-      usage: 'aww',
-      examples: ['aww']
+      usage: 'dankmeme',
+      examples: ['dankmeme', 'dkm']
     }
   }
 

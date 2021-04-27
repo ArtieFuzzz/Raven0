@@ -2,7 +2,7 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
 
-export default class AwwCommand extends Command {
+export default class FacepalmCommand extends Command {
   public constructor () {
     super('facepalm', {
       aliases: ['facepalm'],
