@@ -37,8 +37,8 @@ export default class EvalCommand extends Command {
     }
     else {
       try {
-        // eslint-disable-next-line no-eval
-        const evald = eval(query)
+        /* eslint-disable prefer-const, no-eval */
+        let evald = eval(query)
         const res = typeof evald === 'string' ? evald : inspect(evald, { depth: 0 })
 
         embed.addField('Result', code('js', res))
@@ -49,7 +49,7 @@ export default class EvalCommand extends Command {
         }
         else {
           embed
-            .addField('Type', code('css', typeof evald))
+            .addField('Type', code('ts', typeof evald))
             .setColor('GREEN')
         }
       }

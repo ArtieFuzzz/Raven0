@@ -102,11 +102,10 @@ export default class BotClient extends AkairoClient {
     // Register event handling for custom events
     // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
 
-    // Set a startup notice. This will be overridden upon ready.
     this.user.setActivity({ name: `Spotify | ${process.env.CLIENT_PREFIX}`, type: 'LISTENING' })
 
     // Automate status changes and upload stat uploads.
-    this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
+    // this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
 
     return this
   }

@@ -25,7 +25,7 @@ export default class EightBallCommand extends Command {
   }
 
   public async exec (message: Message, { question }: { question: string}): Promise<Message> {
-    const Responses = ['Yes', 'No', 'Maybe', 'Probably', 'Not Sure', 'Definitely', 'Certainly', 'Definitely not', 'Certainly not', 'Sure', 'Nope!', '...', '???', '!!!']; const Random = Responses[Math.floor(Math.random() * Responses.length)]
+    const Responses = ['Yes', 'No', 'Maybe', 'Probably', 'Not Sure', 'Definitely', 'Certainly', 'Definitely not', 'Certainly not', 'Sure', 'Nope!', '...', '???', '!!!', 'Say again']; const Random = Responses[Math.floor(Math.random() * Responses.length)]
 
     if (!question) return await message.channel.send('You didn\'t ask a question or anything...')
     const Embed = new MessageEmbed()
