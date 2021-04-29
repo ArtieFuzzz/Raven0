@@ -1,21 +1,25 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
 // import StatusUpdater from '@tmware/status-rotate'
 import * as appRootPath from 'app-root-path'
-import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
+import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, MongooseProvider } from 'discord-akairo'
 import { Message } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
-import { connect } from 'mongoose'
+import Guild from '../models/guild'
+import * as mongoose from 'mongoose'
 
 export default class BotClient extends AkairoClient {
+  // api.ksoft.si
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
+  // Something random on discord
   public srod = require('srod-v2')
   public logger = WebhookLogger.instance
   public eventEmitter = EventEmitterSingleton.instance
-  public db = connect(process.env.MONGO_URI)
+  // Guild settings
+  public settings = new MongooseProvider(Guild)
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
@@ -27,7 +31,11 @@ export default class BotClient extends AkairoClient {
 
   public commandHandler: CommandHandler = new CommandHandler(this, {
     directory: path.join(__dirname, '..', 'commands'),
-    prefix: config.prefix,
+    prefix: (message) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      if (message.guild) return this.settings.get(message.guild.id, 'prefix', config.prefix)
+      return `${config.prefix}`
+    },
     allowMention: false,
     handleEdits: false,
     commandUtil: true,
@@ -100,6 +108,20 @@ export default class BotClient extends AkairoClient {
     console.log('[Bot]', 'Starting up...')
     await this._init()
     await this.login(config.clientToken)
+    // Connect to mongoDB database
+    mongoose
+      .connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
+      .then(() => {
+        // eslint-disable-next-line no-console
+        console.log('✅ Connected to database')
+      })
+      // eslint-disable-next-line no-console
+      .catch((err) => console.log(err))
+    // Init settings
+    await this.settings.init()
 
     // Register event handling for custom events
     // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())

@@ -17,6 +17,7 @@ declare module 'discord-akairo' {
     customEmitter: EventEmitterSingleton
     ksoft: KSoftClient
     srod: srod
+    settings: MongooseProvider
 
     start(): Promise<BotClient>
     changeStatus(): Promise<Presence>
