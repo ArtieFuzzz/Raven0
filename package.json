@@ -30,6 +30,7 @@
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.12.6",
     "owoifyx": "^1.0.1",
     "srod-v2": "^1.0.2",
     "sxcu.js": "^1.0.1",

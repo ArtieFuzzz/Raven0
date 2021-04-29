@@ -30,7 +30,7 @@ export class WebhookLogger extends Logger {
     const options: WebhookMessageOptions = {
       avatarURL: 'https://vignette.wikia.nocookie.net/avatar/images/1/1f/Joo_Dee.png/revision/latest?cb=20140422090643',
       embeds: [embed],
-      username: `${this.client.user.tag}'s Logs`
+      username: 'Bot Log'
     }
 
     if (cleaned.length <= 2048) {

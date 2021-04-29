@@ -8,12 +8,14 @@ import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
+import { connect } from 'mongoose'
 
 export default class BotClient extends AkairoClient {
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
   public srod = require('srod-v2')
   public logger = WebhookLogger.instance
   public eventEmitter = EventEmitterSingleton.instance
+  public db = connect(process.env.MONGO_URI)
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
