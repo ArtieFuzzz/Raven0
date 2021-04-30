@@ -56,7 +56,7 @@ elif [ "$1" == "build+run" ]
     runContainer
 elif [ "$1" == "help" ]
   then
-    echo "This script is makes dockerizing easier."
+    echo "This script makes dockerizing easier."
     echo "Options:"
     echo "  help:       This help page."
     echo "  build:      Build a container image"
