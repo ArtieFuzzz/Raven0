@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo'
-import { Message } from 'discord.js'
+import { Message, Snowflake } from 'discord.js'
 
 export default class PingCommand extends Command {
   public constructor () {
@@ -25,15 +25,21 @@ export default class PingCommand extends Command {
   }
 
   public async exec (message: Message, { prefix }: { prefix: string }): Promise<Message> {
+    const id: Snowflake = message.guild.id
+
     if (prefix === 'get') {
-      const pre: string = this.client.settings.get(message.id, 'prefix', process.env.CLIENT_PREFIX)
+      const pre: string = this.client.guildSettings.get(id, 'prefix', process.env.CLIENT_PREFIX)
       return await message.reply(`The prefix set on this server is currently ${pre}`)
     }
     if (prefix === 'clear') {
-      await this.client.settings.delete(message.guild.id, 'prefix')
+      await this.client.guildSettings.delete(id, 'prefix')
       return await message.reply(`Prefix is back to the default ${process.env.CLIENT_PREFIX}`)
     }
-    await this.client.settings.set(message.guild.id, 'prefix', prefix)
+    if (!prefix) {
+      const pre: string = this.client.guildSettings.get(id, 'prefix', process.env.CLIENT_PREFIX)
+      return await message.reply(`The prefix set on this server is currently ${pre}`)
+    }
+    await this.client.guildSettings.set(id, 'prefix', prefix)
     return await message.reply(`Prefix changed to ${prefix}`)
   }
 }

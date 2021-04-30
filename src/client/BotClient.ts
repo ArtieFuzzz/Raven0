@@ -9,6 +9,7 @@ import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
 import Guild from '../models/guild'
+import User from '../models/user'
 import * as mongoose from 'mongoose'
 
 export default class BotClient extends AkairoClient {
@@ -19,7 +20,8 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   public eventEmitter = EventEmitterSingleton.instance
   // Guild settings
-  public settings = new MongooseProvider(Guild)
+  public guildSettings = new MongooseProvider(Guild)
+  public userSettings = new MongooseProvider(User)
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
@@ -33,7 +35,7 @@ export default class BotClient extends AkairoClient {
     directory: path.join(__dirname, '..', 'commands'),
     prefix: (message) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      if (message.guild) return this.settings.get(message.guild.id, 'prefix', config.prefix)
+      if (message.guild) return this.guildSettings.get(message.guild.id, 'prefix', config.prefix)
       return `${config.prefix}`
     },
     allowMention: false,
@@ -121,7 +123,8 @@ export default class BotClient extends AkairoClient {
       // eslint-disable-next-line no-console
       .catch((err) => console.log(err))
     // Init settings
-    await this.settings.init()
+    await this.guildSettings.init()
+    await this.userSettings.init()
 
     // Register event handling for custom events
     // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
