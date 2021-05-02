@@ -8,6 +8,6 @@ echo "[I] | (Re-)installing..."
 yarn
 echo "[I] | (Re-)building..."
 yarn build
-#echo "[I] | (Re-)starting the bot..."
-#pm2 start pm2-start.json
+echo "[I] | (Re-)starting the bot..."
+pm2 start pm2-start.json
 echo "[I] | Done."
