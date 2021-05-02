@@ -7,14 +7,7 @@
 
 ## Data Collection
 
-We Store The Following Data:
-
-* Guild ID - Prefix, Settings and etc.
-* User ID (We do not collect user IDs yet) - User settings.
-
-## Data Removal
-
-* Contact me on discord and send me your discord ID
+We do not collect any data.
 
 ## Infrastructure
 
