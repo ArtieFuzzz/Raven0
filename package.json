@@ -25,7 +25,7 @@
     "app-root-path": "^3.0.0",
     "convict": "^6.0.1",
     "countapi-js": "^1.0.2",
-    "discord-akairo": "github:ItsAuric/discord-akairo",
+    "discord-akairo": "^8.1.0",
     "discord.js": "12.5.3",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
