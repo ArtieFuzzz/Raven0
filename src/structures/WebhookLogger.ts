@@ -28,7 +28,7 @@ export class WebhookLogger extends Logger {
 
     const embed: MessageEmbed = new MessageEmbed().setTimestamp().setColor(colors[level][2]).setFooter(this._processTag)
     const options: WebhookMessageOptions = {
-      avatarURL: 'https://vignette.wikia.nocookie.net/avatar/images/1/1f/Joo_Dee.png/revision/latest?cb=20140422090643',
+      avatarURL: 'https://dont.go-outsi.de/t/2zxdjm.jpeg',
       embeds: [embed],
       username: 'Bot Log'
     }
