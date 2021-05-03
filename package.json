@@ -4,13 +4,13 @@
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
-	"engines": {
+  "engines": {
     "node": ">=15.0.0"
   },
   "scripts": {
     "start": "node .",
-		"start:windows": "./scripts/update.bat",
-		"start:linux": "./scripts/update.sh",
+    "start:windows": "./scripts/update.bat",
+    "start:linux": "./scripts/update.sh",
     "prod": "NODE_ENV=\"production\" yarn start",
     "build": "yarn run clean && yarn run build:ts",
     "build:ts": "tsc -p ./",
