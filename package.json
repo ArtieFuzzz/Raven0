@@ -36,6 +36,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "owoifyx": "^1.0.1",
+    "pm2": "^4.5.6",
     "srod-v2": "^1.0.2",
     "sxcu.js": "^1.0.1",
     "uwuifier": "^3.0.0",
