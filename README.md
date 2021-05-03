@@ -24,7 +24,17 @@ If you are upgrading to a newer version use:
 Running this will fetch the latest update, rebuild and restart the bot. Use this to start the bot to update to the lastest version without any of that fuss.
 
 **Requirements:**
+
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/)
 * Yarn installed globally (`npm install -g yarn`)
-* PM2 installed globally (`npm install -g pm2`)
+
+**License**
+
+This project is licensed under the MIT License
+
+===
+
+**Credits**
+
+* TMUniversal for the [Template](https://github.com/TMUniversal/discord-bot-template)
