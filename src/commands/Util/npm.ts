@@ -7,7 +7,7 @@ export default class AdviceCommand extends Command {
   public constructor () {
     super('npm', {
       aliases: ['npm'],
-      category: 'Miscellaneous',
+      category: 'Util',
       description: 'Search up a NPM Package',
       ratelimit: 3,
       args: [
