@@ -1,11 +1,16 @@
 {
   "name": "raven0",
-  "version": "1.2.5-BETA",
+  "version": "1.2.6-BETA",
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
+	"engines": {
+    "node": ">=15.0.0"
+  },
   "scripts": {
     "start": "node .",
+		"start:windows": "./scripts/update.bat",
+		"start:linux": "./scripts/update.sh",
     "prod": "NODE_ENV=\"production\" yarn start",
     "build": "yarn run clean && yarn run build:ts",
     "build:ts": "tsc -p ./",
