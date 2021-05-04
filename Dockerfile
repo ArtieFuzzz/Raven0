@@ -6,10 +6,10 @@ WORKDIR /opt/raven0
 
 COPY package*.json ./
 
+COPY . .
+
 RUN yarn
 
 RUN yarn build
-
-COPY . .
 
 CMD [ "yarn", "start" ]
