@@ -1,0 +1,18 @@
+image: node:alpine
+
+stages:
+	- lint
+	- test
+
+eslint:
+ stage: lint
+ script:
+ 		- yarn install
+		- yarn lint
+ allow_failure: true
+
+test:
+	stage: test
+	script:
+		- yarn install
+		- yarn test

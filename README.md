@@ -2,6 +2,9 @@
 
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
+This branch is updated daily and will be merged with the main branch once it's ready
+* This branch won't be deleted when no longer needed instead it will be archived.
+
 ## Self Hosting Instruction
 
 * Make sure you have TypeScript and Yarn installed on your PC/Laptop
