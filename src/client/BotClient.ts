@@ -14,7 +14,9 @@ export default class BotClient extends AkairoClient {
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
   // Something random on discord
   public srod = require('srod-v2')
+  // Webhook logger
   public logger = WebhookLogger.instance
+  // Emitter
   public eventEmitter = EventEmitterSingleton.instance
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
