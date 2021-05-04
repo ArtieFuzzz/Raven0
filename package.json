@@ -11,6 +11,7 @@
     "start": "node .",
     "start:windows": "./scripts/update.bat",
     "start:linux": "./scripts/update.sh",
+		"start:ts-node": "ts-node start ./src/index.ts",
     "prod": "NODE_ENV=\"production\" yarn start",
     "build": "yarn run clean && yarn run build:ts",
     "build:ts": "tsc -p ./",

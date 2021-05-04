@@ -1,5 +1,7 @@
 # Raven0
 
+# This branch has been archived. Moved to nightly	branch
+
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
 ## Self Hosting Instruction
