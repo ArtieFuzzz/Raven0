@@ -30,17 +30,19 @@ export default class E926Command extends Command {
     if (!message.channel.nsfw) return await message.util.send(':x: This command only runs in NSFW channels')
 
     try {
+      // eslint-disable-next-line new-cap
       const e9 = new Yiff.e926({
         creator: 'ArtieFuzzz#8298',
         name: 'Raven0',
         version: '1.0'
       })
       if (!tags) return await message.channel.send('No tags were specified')
-      const { image, page, artist } = await e9.request(tags)
+      const { image, page, artist }: { image?: string, page: string, artist?: string[] } = await e9.request(tags)
 
       const embed = new MessageEmbed()
         .setTitle('Source')
         .setURL(page)
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         .setFooter(`Artist(s): ${artist}`)
         .setImage(image)
         .setColor('RANDOM')

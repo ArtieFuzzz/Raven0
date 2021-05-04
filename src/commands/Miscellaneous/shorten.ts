@@ -29,7 +29,7 @@ export default class ShortenCommand extends Command {
     if (!link) return await message.channel.send('Can\'t create a short URL from thin air!')
     try {
       const shortlink = await sxcu.shortenLink(link)
-      const url = await shortlink.getUrl()
+      const url: string = await shortlink.getUrl()
       message.channel.send(`**Done!** ${url}`)
     }
     catch (err) {

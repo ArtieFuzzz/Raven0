@@ -23,7 +23,6 @@ export default class AdviceCommand extends Command {
     let [users, guilds, channels, memory] = [0, 0, 0, 0]
 
     if (this.client.shard) {
-      // eslint-disable-next-line quotes
       const results = await this.client.shard.broadcastEval('[this.users.cache.size, this.guilds.cache.size, this.channels.cache.size, (process.memoryUsage().heapUsed / 1024 / 1024)]')
       for (const result of results) {
         /* eslint-disable @typescript-eslint/restrict-plus-operands */
