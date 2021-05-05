@@ -17,7 +17,7 @@ This branch is updated daily and will be merged with the main branch once it's r
 * For windows run update.bat in the `scripts` folder. Please note that this will not automatically restart your bot
 * If you run on VPS with pm2, you can use `pm2 start pm2-start.json` or `yarn start:linux` (recommended)
 * You're now all set!
-* Having trouble with Self Hosting? You can join the support server [here](https://discord.gg/7jP2gMDvRN)
+* Having trouble with Self Hosting? You can join the support server [here](https://discord.gg/quht6bcFbX)
 
 ## Updating
 
