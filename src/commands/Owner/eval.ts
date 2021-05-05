@@ -26,11 +26,9 @@ export default class EvalCommand extends Command {
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
 
     const args = message.content.slice(prefix.length).trim()
-    // eslint-disable-next-line require-unicode-regexp
       .split(/ +/g); args.shift()
     const query = args.join(' ')
-    // eslint-disable-next-line no-shadow
-    const code = (lang, code) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
+    const code = (lang: string, code: string) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
 
     if (!query) {
       message.channel.send('Please, write something so I can evaluate!')

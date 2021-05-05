@@ -35,6 +35,7 @@ export default class UrbanCommand extends Command {
         .setDescription(list[0].definition)
         .addField('Example', list[0].example)
         .setURL(list[0].permalink)
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         .setFooter(`Author: ${list[0].author} | ID: ${list[0].defid} | Upvotes: ${list[0].thumbs_up} | Downvotes: ${list[0].thumbs_down}`)
       message.channel.send(embed)
     }
