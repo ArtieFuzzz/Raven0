@@ -17,5 +17,5 @@ build:
  stage: build
  script:
  - echo $ENV > .env
- - docker build $IMAGE .
+ - docker build --tag $IMAGE .
  - docker push $IMAGE
