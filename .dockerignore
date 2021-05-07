@@ -7,6 +7,5 @@ logs
 .eslintcache
 .kube
 README.md
-tsconfig.json
 TODO.md
 package-lock.json
