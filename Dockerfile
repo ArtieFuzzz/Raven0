@@ -1,6 +1,7 @@
 FROM node:alpine
 
-RUN apk add libtool autoconf automake g++ gcc git make
+RUN apk update
+RUN apk add py3-pip libtool autoconf automake g++ gcc git make
 
 WORKDIR /opt/raven0
 
@@ -8,8 +9,8 @@ COPY package*.json ./
 
 COPY . .
 
-RUN yarn
+RUN npm install
 
-RUN yarn build
+RUN npm run build
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]

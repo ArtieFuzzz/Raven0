@@ -5,9 +5,9 @@ git reset --hard
 git checkout
 git pull
 echo "[I] | (Re-)installing..."
-yarn
+npm i
 echo "[I] | (Re-)building..."
-yarn build
+npm run build
 echo "[I] | (Re-)starting the bot..."
-yarn dlx pm2 start pm2-start.json
+pm2 start pm2-start.json
 echo "[I] | Done."

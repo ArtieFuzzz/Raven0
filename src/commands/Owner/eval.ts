@@ -5,9 +5,9 @@ import { MessageEmbed } from '../../structures/MessageEmbed'
 
 export default class EvalCommand extends Command {
   public constructor () {
-    super('owner', {
+    super('eval', {
       aliases: ['eval'],
-      category: 'Util',
+      category: 'Owner',
       description: 'Check latency',
       ratelimit: 3,
       ownerOnly: true

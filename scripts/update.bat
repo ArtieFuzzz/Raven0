@@ -4,7 +4,7 @@ git reset --hard
 git checkout
 git pull
 echo "[I] | (Re-)installing..."
-yarn
+npm i
 echo "[I] | (Re-)building..."
-yarn build
+npm run build
 echo "[I] | Done."
