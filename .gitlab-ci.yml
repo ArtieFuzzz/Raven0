@@ -4,17 +4,17 @@ stages:
 - build
 
 variables:
- IMAGE: ${CI_REGISTRY}/${CI_IMAGE_PATH}:${CI_IMAGE_REF_SLUG}
+ IMAGE: $CI_REGISTRY/$CI_IMAGE_PATH:$CI_IMAGE_REF_SLUG
 
 services:
   - docker:dind
 
- before_script:
-  - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_TOKEN $CI_REGISTRY
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
 
 build:
  stage: build
  script:
  - echo $ENV > .env
- - docker build ${IMAGE} .
- - docker push ${IMAGE}
+ - docker build --tag $IMAGE .
+ - docker push $IMAGE
