@@ -10,7 +10,7 @@ services:
   - docker:dind
 
 before_script:
-  - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_TOKEN $CI_REGISTRYz
+  - docker login -u "$CI_REGISTRY_USER" --password $CI_REGISTRY_TOKEN $CI_REGISTRY
 
 build:
  stage: build
