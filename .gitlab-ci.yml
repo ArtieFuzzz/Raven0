@@ -15,6 +15,6 @@ before_script:
 build:
  stage: build
  script:
- - echo $ENV > .env
+ - echo -n "$ENV" | base64 -d > .env
  - docker build --tag $IMAGE .
  - docker push $IMAGE
