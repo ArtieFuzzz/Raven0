@@ -10,7 +10,6 @@ services:
   - docker:dind
 
 before_script:
-  - echo $TEST
   - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
 
 build:
