@@ -9,7 +9,7 @@ variables:
 services:
   - docker:dind
 
- before_script:
+before_script:
   - docker login -u "$CI_REGISTRY_USER" -p $CI_REGISTRY_TOKEN $CI_REGISTRY
 
 build:
