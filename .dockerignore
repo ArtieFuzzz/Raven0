@@ -1,9 +1,11 @@
 node_modules
 scripts
-yarn-error.log
 build
 logs
 .eslintrc
 .stignore
 .eslintcache
 .kube
+README.md
+TODO.md
+package-lock.json

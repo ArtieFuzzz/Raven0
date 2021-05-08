@@ -2,6 +2,9 @@ import { Listener } from 'discord-akairo'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pkg = require('../../package.json')
+
 export default class ReadyListener extends Listener {
   logger: WebhookLogger
   eventEmitter: EventEmitterSingleton
@@ -22,7 +25,8 @@ export default class ReadyListener extends Listener {
     const guilds = this.client.guilds.cache.size
     this.logger.info(
       'CLIENT',
-      `${this.client.user.tag} logged in with ${users} users, in ${channels} channels of ${guilds} guilds.`
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `${this.client.user.tag} logged in with ${users} users, in ${channels} channels of ${guilds} guilds. Version: ${pkg.version}`
     )
     // this.eventEmitter.emit('changeStatus')
   }

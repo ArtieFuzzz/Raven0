@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "1.2.7-dev",
+  "version": "1.2.8-rc",
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
@@ -13,13 +13,13 @@
     "start:linux": "./scripts/update.sh",
     "start:ts-node": "ts-node start ./src/index.ts",
     "prod": "NODE_ENV=\"production\" yarn start",
-    "build": "yarn run clean && yarn run build:ts",
+    "build": "npm run clean && npm run build:ts",
     "build:ts": "tsc -p ./",
-    "test": "yarn run lint src/",
+    "test": "npm run lint src/",
     "lint": "eslint --cache --report-unused-disable-directives --ext .js,.ts --ignore-path .gitignore",
-    "lint:fix": "yarn run lint src/ --fix",
+    "lint:fix": "npm run lint src/ --fix",
     "clean": "rimraf ./build && mkdir build",
-    "preversion": "yarn test",
+    "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "prettiest": "prettier --write . && yarn run lint:fix",
     "semantic-release": "semantic-release"
@@ -57,7 +57,7 @@
     "@types/ws": "^7.4.1",
     "eslint": "^7.23.0",
     "rimraf": "^3.0.2",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^17.2.0",
     "typescript": "^4.2.4"
   },
   "keywords": [
