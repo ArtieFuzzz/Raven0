@@ -30,4 +30,4 @@ build:
  - docker build --tag $IMAGE .
  - docker push $IMAGE
  only:
- - master
+ - main
