@@ -29,7 +29,7 @@ export default class AboutCommand extends Command {
           '\nA bot with image commands! Just partner me up with some other bots and you\'re good to go!' +
           '\n ' +
           '\nAs I am still a work in progress, errors may occur. Report any issues to the repository (see below)' +
-          '\n`Support server [here](https://discord.gg/quht6bcFbX)`.\n',
+          '\nSupport server [here](https://discord.gg/quht6bcFbX).\n',
         color: 0xc4c4c4,
         thumbnail: {
           url: this.client.user.avatarURL({ dynamic: true })
