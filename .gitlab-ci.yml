@@ -22,7 +22,7 @@ dev_build:
  only:
  - nightly
  tags:
- - nightly
+ - docker
 
 build:
  stage: build
@@ -33,4 +33,4 @@ build:
  only:
  - main
  tags:
- - main
+ - docker
