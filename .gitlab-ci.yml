@@ -1,10 +1,12 @@
 image: docker:latest
 
 stages:
+- dev_build
 - build
 
 variables:
  IMAGE: $CI_REGISTRY/$CI_IMAGE_PATH:$CI_IMAGE_REF_SLUG
+ DEV_IMAGE: $CI_REGISTRY/$CI_IMAGE_PATH:$CI_IMAGE_REF_SLUG-rc
 
 services:
   - docker:dind
@@ -12,9 +14,20 @@ services:
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
 
+dev_build:
+ stage: dev_build
+ script:
+ - echo -n "$DEV_ENV" | base64 -d > .env
+ - docker build --tag $DEV_IMAGE .
+ - docker push $DEV_IMAGE
+ only:
+ - nightly
+
 build:
  stage: build
  script:
  - echo -n "$ENV" | base64 -d > .env
  - docker build --tag $IMAGE .
  - docker push $IMAGE
+ only:
+ - master
