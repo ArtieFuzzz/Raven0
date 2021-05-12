@@ -1,5 +1,6 @@
+/* eslint-disable import/no-duplicates */
 import { Moment } from 'moment'
-import * as moment from 'moment'
+import moment from 'moment'
 
 export function toDiscordMarkdownLink (url: string, name?: string) {
   return `[${name || url}](${url})`

@@ -1,5 +1,5 @@
-import * as appRootPath from 'app-root-path'
-import * as convict from 'convict'
+import appRootPath from 'app-root-path'
+import convict from 'convict'
 import { Snowflake } from 'discord.js'
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
