@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
-// import StatusUpdater from '@tmware/status-rotate'
+import StatusUpdater from '@tmware/status-rotate'
 import * as appRootPath from 'app-root-path'
 import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
 import { Message } from 'discord.js'
@@ -18,6 +18,10 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   // Emitter
   public eventEmitter = EventEmitterSingleton.instance
+  public statusUpdater: StatusUpdater = new StatusUpdater(
+    this,
+    'https://gist.githubusercontent.com/ArtieFuzzz/cffec7f98533e86265cf5f80a584e883/raw/fb0e152d5de92862009e67c3dedd92fcbb9d3234/presence.json'
+  )
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
@@ -104,7 +108,7 @@ export default class BotClient extends AkairoClient {
     await this.login(config.clientToken)
 
     // Register event handling for custom events
-    // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
+    this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
 
     this.user.setActivity({ name: `Spotify | ${process.env.CLIENT_PREFIX}`, type: 'LISTENING' })
 

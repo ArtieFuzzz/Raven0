@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
-// import StatusUpdater from '@tmware/status-rotate'
+import StatusUpdater from '@tmware/status-rotate'
 import { AkairoClient, CommandHandler, ListenerHandler, InhibitorHandler } from 'discord-akairo'
 import { Presence } from 'discord.js'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
