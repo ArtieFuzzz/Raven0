@@ -18,6 +18,7 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   // Emitter
   public eventEmitter = EventEmitterSingleton.instance
+  // Status
   public statusUpdater: StatusUpdater = new StatusUpdater(
     this,
     [
