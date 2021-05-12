@@ -10,7 +10,8 @@ export default class AdviceCommand extends Command {
       aliases: ['stats'],
       category: 'Util',
       description: 'The bot stats',
-      ratelimit: 3
+      ratelimit: 3,
+      cooldown: 2000
     })
 
     this.help = {

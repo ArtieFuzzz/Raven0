@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
-import * as c from '@aero/centra'
+import c from '@aero/centra'
 
 export default class AdviceCommand extends Command {
   public constructor () {
@@ -9,7 +9,8 @@ export default class AdviceCommand extends Command {
       aliases: ['npm'],
       category: 'Util',
       description: 'Search up a NPM Package',
-      ratelimit: 3,
+      ratelimit: 2,
+      cooldown: 5000,
       args: [
         {
           id: 'data',

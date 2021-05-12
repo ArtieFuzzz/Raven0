@@ -9,6 +9,7 @@ export default class AdviceCommand extends Command {
       category: 'Util',
       description: 'Make a poll',
       ratelimit: 3,
+      cooldown: 2000,
       args: [
         {
           id: 'str',
