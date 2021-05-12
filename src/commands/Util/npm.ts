@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../structures/MessageEmbed'
-import c from '@aero/centra'
+import * as c from '@aero/centra'
 
 export default class AdviceCommand extends Command {
   public constructor () {
