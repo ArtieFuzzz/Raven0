@@ -28,7 +28,7 @@ export default class AboutCommand extends Command {
           `Hello! I'm ${this.client.user.username}, a discord bot!` +
           '\nA bot with image commands! Just partner me up with some other bots and you\'re good to go!' +
           '\n ' +
-          '\nAs I am still a work in progress, errors may occur. Report any issues to the repository (see below)' +
+          '\nUpdates can occur at any time. Please report any issues to the repository (see below)' +
           '\nSupport server [here](https://discord.gg/quht6bcFbX).\n',
         color: 0xc4c4c4,
         thumbnail: {
