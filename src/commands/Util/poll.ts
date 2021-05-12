@@ -12,6 +12,7 @@ export default class AdviceCommand extends Command {
       args: [
         {
           id: 'str',
+          match: 'content',
           type: 'string',
           description: 'Message'
         }
