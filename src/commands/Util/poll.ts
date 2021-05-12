@@ -30,7 +30,7 @@ export default class AdviceCommand extends Command {
     const poll = new MessageEmbed()
       .setTitle('Poll!')
       .setDescription(str)
-      .setAuthor(message.author.tag)
+      .setFooter(message.author.tag, message.author.avatarURL())
 
     await message.channel.send(poll).then(embed => {
       embed.react('👍')
