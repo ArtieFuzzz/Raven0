@@ -29,6 +29,7 @@ export default class EightBallCommand extends Command {
 
     if (!question) return await message.channel.send('You didn\'t ask a question or anything...')
     const Embed = new MessageEmbed()
+      .setTitle('The 8ball says...')
       .setColor('RANDOM')
       .setDescription(Random)
       .setFooter(`Requested By ${message.author.username}`)
