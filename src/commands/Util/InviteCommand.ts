@@ -20,7 +20,6 @@ export default class InviteCommand extends Command {
   public async exec (message: Message): Promise<Message> {
     return await message.util.send(
       MessageEmbed.common({ author: message.member.user })
-        // Update the permissions your bot needs in the invite link below
         .setDescription(
           `[Add me to your server](https://discord.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=52224&scope=bot)`
         )

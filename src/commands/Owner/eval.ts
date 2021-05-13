@@ -20,12 +20,10 @@ export default class EvalCommand extends Command {
   }
 
   public async exec (message: Message): Promise<Message> {
-    const prefix = process.env.CLIENT_PREFIX
-
     const embed = new MessageEmbed()
       .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
 
-    const args = message.content.slice(prefix.length).trim()
+    const args = message.content.slice(process.env.CLIENT_PREFIX.length).trim()
       .split(/ +/g); args.shift()
     const query = args.join(' ')
     const code = (lang: string, code: string) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
