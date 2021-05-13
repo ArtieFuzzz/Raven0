@@ -28,6 +28,6 @@ export default class ReadyListener extends Listener {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `${this.client.user.tag} logged in with ${users} users, in ${channels} channels of ${guilds} guilds. Version: ${pkg.version}`
     )
-    // this.eventEmitter.emit('changeStatus')
+    this.eventEmitter.emit('changeStatus')
   }
 }

@@ -10,7 +10,8 @@ export default class AdviceCommand extends Command {
       aliases: ['stats'],
       category: 'Util',
       description: 'The bot stats',
-      ratelimit: 3
+      ratelimit: 3,
+      cooldown: 2000
     })
 
     this.help = {
@@ -35,11 +36,11 @@ export default class AdviceCommand extends Command {
 
     return await message.util.send(
       new MessageEmbed({
-        title: `${this.client.user.tag} v${config.version}`,
+        title: `${this.client.user.tag} ${config.version}`,
         description:
           '\n **Versions**' +
           `\n **Node.js:** ${process.version}` +
-          `\n **TypeScript:** ${typescript.version}` +
+          `\n **TypeScript:** v${typescript.version}` +
           `\n **Discord.js:** ${DiscVer}` +
           `\n **Discord-Akairo:** ${AkaiVer} \n` +
           '\n **Status**' +

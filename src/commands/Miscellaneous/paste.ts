@@ -30,7 +30,7 @@ export default class PasteCommand extends Command {
     try {
       const paste = await sxcu.createPaste(str)
       const url: string = await paste.getUrl()
-      message.channel.send(`Created: ${url}`)
+      message.util.reply(`Created: ${url}`)
     }
     catch (err) {
       return await message.channel.send(err.message)

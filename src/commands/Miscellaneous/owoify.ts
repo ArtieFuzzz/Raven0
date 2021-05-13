@@ -13,6 +13,7 @@ export default class OwOifyCommand extends Command {
         {
           id: 'str',
           type: 'string',
+          match: 'content',
           description: 'String to owoify'
         }
       ]

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-base-to-string */
-// import StatusUpdater from '@tmware/status-rotate'
+import StatusUpdater from '@tmware/status-rotate'
 import * as appRootPath from 'app-root-path'
 import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
-import { Message } from 'discord.js'
+import { ActivityOptions, Message } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
@@ -18,6 +18,19 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   // Emitter
   public eventEmitter = EventEmitterSingleton.instance
+  // Status
+  public statusUpdater: StatusUpdater = new StatusUpdater(
+    this,
+    [
+      { type: 'LISTENING', name: `To Music | ${config.prefix}` },
+      { type: 'LISTENING', name: `${this.users.cache.size} users` },
+      { type: 'WATCHING', name: `Over ${this.users.cache.size} users` },
+      { type: 'PLAYING', name: `In ${this.guilds.cache.size} servers` },
+      { type: 'PLAYING', name: `${config.prefix}help for help` },
+      { type: 'WATCHING', name: `${this.guilds.cache.size} servers` },
+      { type: 'PLAYING', name: `Running Version: ${config.version}` }
+    ]
+  )
 
   public listenerHandler: ListenerHandler = new ListenerHandler(this, {
     directory: path.join(__dirname, '..', 'events')
@@ -104,20 +117,18 @@ export default class BotClient extends AkairoClient {
     await this.login(config.clientToken)
 
     // Register event handling for custom events
-    // this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
-
-    this.user.setActivity({ name: `Spotify | ${process.env.CLIENT_PREFIX}`, type: 'LISTENING' })
+    this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
 
     // Automate status changes and upload stat uploads.
-    // this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
+    this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
 
     return this
   }
 
-  /* public async changeStatus (options?: ActivityOptions) {
+  public async changeStatus (options?: ActivityOptions) {
     if (options) return await this.statusUpdater.updateStatus(options)
     return await this.statusUpdater.updateStatus()
-  } */
+  }
 
   public stop () {
     this.logger.warn('PROCESS', 'Received exit signal => quitting in 4 seconds...')
