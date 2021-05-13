@@ -2,8 +2,8 @@
 
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
-This branch is updated daily and will be merged with the main branch once it's ready
-* This branch won't be deleted when no longer needed instead it will be archived.
+Nightly Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/nightly/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/nightly)
+Main Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/main/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/main) 
 
 ## Self Hosting Instruction
 
