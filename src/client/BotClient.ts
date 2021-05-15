@@ -10,25 +10,17 @@ import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
 
 export default class BotClient extends AkairoClient {
-  // api.ksoft.si
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
-  // Something random on discord
   public srod = require('srod-v2')
-  // Webhook logger
   public logger = WebhookLogger.instance
-  // Emitter
+  public crypto = require('@raven0-bot/cryption') // Don't ask I just use it as a util thing :v)
   public eventEmitter = EventEmitterSingleton.instance
-  // Status
   public statusUpdater: StatusUpdater = new StatusUpdater(
     this,
     [
       { type: 'LISTENING', name: `To Music | ${config.prefix}` },
-      { type: 'LISTENING', name: `${this.users.cache.size} users` },
-      { type: 'WATCHING', name: `Over ${this.users.cache.size} users` },
-      { type: 'PLAYING', name: `In ${this.guilds.cache.size} servers` },
-      { type: 'PLAYING', name: `${config.prefix}help for help` },
-      { type: 'WATCHING', name: `${this.guilds.cache.size} servers` },
-      { type: 'PLAYING', name: `Running Version: ${config.version}` }
+      { type: 'WATCHING', name: 'Report bugs to the support server in the about command' },
+      { type: 'PLAYING', name: `Version: ${config.version}` }
     ]
   )
 

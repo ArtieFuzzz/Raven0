@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "Shōkaku",
+  "version": "Sōryū",
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
@@ -27,6 +27,7 @@
   "dependencies": {
     "@aero/centra": "^1.0.6",
     "@ksoft/api": "^3.1.9",
+    "@raven0-bot/cryption": "^1.0.3",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
     "convict": "^6.0.1",
