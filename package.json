@@ -28,6 +28,7 @@
     "@aero/centra": "^1.0.6",
     "@ksoft/api": "^3.1.9",
     "@raven0-bot/cryption": "^1.0.3",
+    "@raven0-bot/store": "^1.0.2",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
     "convict": "^6.0.1",
@@ -40,8 +41,10 @@
     "owoifyx": "^1.0.1",
     "pm2": "^4.5.6",
     "srod-v2": "^1.0.2",
+    "store": "github:thattonybo/store",
     "sxcu.js": "^1.0.1",
     "uwuifier": "^3.0.0",
+    "xennon": "^0.1.3",
     "yiff": "2.0.3"
   },
   "devDependencies": {
