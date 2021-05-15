@@ -27,8 +27,9 @@ export default class AdviceCommand extends Command {
   }
 
   public async exec (message: Message, { str }: { str: string}): Promise<Message> {
-    if (!str) return await message.channel.send('Can\'t make a poll if you don\'t give me anything to make a poll with')
+    if (!str) return await message.util.reply('Can\'t make a poll if you don\'t give me anything to make a poll with')
 
+    message.delete()
     const poll = new MessageEmbed()
       .setTitle('Poll!')
       .setDescription(str)
