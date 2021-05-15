@@ -6,6 +6,7 @@ import { WebhookLogger } from '../structures/WebhookLogger'
 import BotClient from './BotClient'
 import { KSoftClient } from '@ksoft/api'
 import srod from 'srod-v2'
+import XennonStore from 'xennon'
 
 declare module 'discord-akairo' {
   interface AkairoClient {
@@ -16,6 +17,7 @@ declare module 'discord-akairo' {
     customEmitter: EventEmitterSingleton
     ksoft: KSoftClient
     srod: srod
+    store: XennonStore
 
     start(): Promise<BotClient>
     changeStatus(): Promise<Presence>

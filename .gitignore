@@ -91,4 +91,4 @@ build
 package-lock.json
 .stignore
 okteto.yml
-XennonStore
+Store

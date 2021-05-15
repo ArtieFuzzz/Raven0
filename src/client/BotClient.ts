@@ -16,7 +16,7 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   public crypto = require('@raven0-bot/cryption') // Don't ask I just use it as a util thing :v)
   public eventEmitter = EventEmitterSingleton.instance
-  public store = new XennonStore()
+  public store = new XennonStore({ name: 'store', path: './Store', backups: { enabled: false } })
   public statusUpdater: StatusUpdater = new StatusUpdater(
     this,
     [
