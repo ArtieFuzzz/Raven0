@@ -8,7 +8,6 @@ import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
-import XennonStore from 'xennon'
 
 export default class BotClient extends AkairoClient {
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
@@ -16,7 +15,6 @@ export default class BotClient extends AkairoClient {
   public logger = WebhookLogger.instance
   public crypto = require('@raven0-bot/cryption') // Don't ask I just use it as a util thing :v)
   public eventEmitter = EventEmitterSingleton.instance
-  public store = new XennonStore({ name: 'store', path: './Store', backups: { enabled: false } })
   public statusUpdater: StatusUpdater = new StatusUpdater(
     this,
     [
