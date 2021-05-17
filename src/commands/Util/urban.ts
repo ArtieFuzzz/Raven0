@@ -7,7 +7,7 @@ export default class UrbanCommand extends Command {
   public constructor () {
     super('urban', {
       aliases: ['urban', 'ub'],
-      category: 'Miscellaneous',
+      category: 'Util',
       description: 'Search something up on the Trusty Urban Dictionary',
       ratelimit: 3,
       args: [

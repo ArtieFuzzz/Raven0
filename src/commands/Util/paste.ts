@@ -6,7 +6,7 @@ export default class PasteCommand extends Command {
   public constructor () {
     super('paste', {
       aliases: ['paste'],
-      category: 'Miscellaneous',
+      category: 'Util',
       description: 'create a Paste (cancer-co.de)',
       ratelimit: 3,
       args: [
