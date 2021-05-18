@@ -5,6 +5,7 @@
     "secret": ""
   },
   "prefix": "b!",
-  "owners": "",
-  "userBlacklist": ["<some id>"]
+  "owners": [""],
+  "userBlacklist": ["<some id>"],
+	"serverBlacklist": ["some id"]
 }
