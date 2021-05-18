@@ -9,28 +9,40 @@ Main Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/ma
 
 * Make sure you have TypeScript and Yarn installed on your PC/Laptop
 * To install TypeScript run `npm install -g typescript`
-* To install Yarn run `npm install -g yarn`
 * To configure the bot you need to copy .env.example to .env and main.json.example in config to main.json and fill out the files
-* Then install the dependencise with `yarn install`
-* Then build the projects with `yarn build`
-* Once done you can run `yarn start` or `yarn prod` for Production. Use `yarn start:linux` to update, build and restart the bot everytime you run it. (Linux exclusive)
+* Then install the dependencise with `npm install`
+* Then build the projects with `npm run build`
+* Once done you can run `npm start` or `npm run prod` for Production.
 * For windows run update.bat in the `scripts` folder. Please note that this will not automatically restart your bot
-* If you run on VPS with pm2, you can use `pm2 start pm2-start.json` or `yarn start:linux` (recommended)
+* If you run on VPS with pm2, you can use `pm2 start pm2-start.json` (recommended)
 * You're now all set!
+* Having trouble with Self Hosting? You can join the support server [here](https://discord.gg/quht6bcFbX)
+
+## Self Hosting - Docker
+
+* Make sure you have docker installed
+* Copy the .env.example file to .env and fill it out also do the same for main.json.example
+* Now run `docker build .` to build.  A tag is optional.
+* Now you're all set! Just run the built image.
+* Having trouble with Self Hosting? You can join the support server [here](https://discord.gg/quht6bcFbX)
+
+## Self Hosting - Docker Compose
+
+* Make sure you have docker and / or docker-compose
+* Copy the .env.example file to .env and fill it out also do the same for main.json.example.
+* Now run `docker compose up -d` to run in the background or `docker compose up` to run in the terminal.
 * Having trouble with Self Hosting? You can join the support server [here](https://discord.gg/quht6bcFbX)
 
 ## Updating
 
-If you are upgrading to a newer version use:
-* `yarn start:linux` For Linux users
-* `yarn start:windows` For Windows users (No auto restart.)
-Running this will fetch the latest update, rebuild and restart the bot. Use this to start the bot to update to the lastest version without any of that fuss.
+If you are upgrading to a newer version use the files in the scripts folder.
+* update.bat - Windows (No auto start)
+* update.sh - Linux
 
 **Requirements:**
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/)
-* Yarn installed globally (`npm install -g yarn`)
 
 **License**
 
