@@ -92,3 +92,4 @@ package-lock.json
 .stignore
 okteto.yml
 Store
+src/commands/Test

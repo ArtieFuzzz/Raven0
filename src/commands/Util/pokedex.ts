@@ -31,6 +31,7 @@ export default class UrbanCommand extends Command {
       const res = await c(`https://some-random-api.ml/pokedex?pokemon=${search}`).send()
       const data = await res.json
 
+      if (!search) return await message.util.reply('Please give me a pokemon to search for')
       if (data.error) return await message.util.reply('That pokemon does not exist')
 
       const embed = new MessageEmbed()
@@ -41,11 +42,13 @@ export default class UrbanCommand extends Command {
         .addField('Weight', data.weight, true)
         .addField('Base XP', data.base_experience, true)
         .setDescription(data.description)
+        .setImage(data.sprites.normal)
         // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        .setFooter(`ID: ${data.id}`)
+        .setFooter(`HP: ${data.stats.hp}, Attack: ${data.stats.attack}, Defense: ${data.stats.defense}, SP_ATK: ${data.stats.sp_atk}, SP_DEF: ${data.stats.sp_def}, Speed ${data.stats.speed}`)
       return await message.channel.send(embed)
     }
     catch (err) {
+      this.client.logger.error(err)
       return await message.channel.send(err.message)
     }
   }
