@@ -6,3 +6,16 @@ services:
     restart: always
     volumes:
       - .:/raven0/opt/build
+  mongo_db:
+		image: mongo:latest
+		restart: always
+		environment:
+			MONGO_INITDB_ROOT_USERNAME: raven
+      MONGO_INITDB_ROOT_PASSWORD: raven
+		ports:
+			- 27017:27017
+		volumes:
+			- mongodb_data_container:/data/db
+
+volumes:
+	mongodb_data_container:

@@ -8,6 +8,7 @@ import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
+import mongoose from 'mongoose'
 
 export default class BotClient extends AkairoClient {
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
@@ -85,6 +86,12 @@ export default class BotClient extends AkairoClient {
       path.normalize(appRootPath.toString()).replace(/\\/g, '\\\\').replace(/\//g, '\\/'),
       'gmi'
     )
+
+    // Connect to the database
+    mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }).then(() => { this.logger.info('CLIENT', 'Connected to MongoDB') }).catch((err: string) => { this.logger.error('ERROR', `Error connecting to MongoDB: ${err}`) })
 
     this.on('error', async e => await this.logger.error('CLIENT', e.message))
     this.on('warn', async w => await this.logger.warn('CLIENT', w))
