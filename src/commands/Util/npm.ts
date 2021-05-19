@@ -30,6 +30,8 @@ export default class AdviceCommand extends Command {
     const request = c(`https://registry.npmjs.org/${data}`)
     const { error, name, maintainers, author, keywords, license } = await request.json()
 
+    if (!data) return await message.channel.send('No package name was given')
+
     if (error) {
       return await message.channel.send('Err! Not found')
     }
