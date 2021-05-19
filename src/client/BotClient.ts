@@ -90,7 +90,9 @@ export default class BotClient extends AkairoClient {
     // Connect to the database
     mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true
     }).then(() => { this.logger.info('CLIENT', 'Connected to MongoDB') }).catch((err: string) => { this.logger.error('ERROR', `Error connecting to MongoDB: ${err}`) })
 
     this.on('error', async e => await this.logger.error('CLIENT', e.message))
