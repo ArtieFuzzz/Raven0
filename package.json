@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "Sōryū",
+  "version": "Kaga",
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
