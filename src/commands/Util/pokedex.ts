@@ -42,7 +42,7 @@ export default class UrbanCommand extends Command {
         .addField('Weight', data.weight, true)
         .addField('Base XP', data.base_experience, true)
         .setDescription(data.description)
-        .setImage(data.sprites.normal)
+        .setThumbnail(data.sprites.animated)
         // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         .setFooter(`HP: ${data.stats.hp}, Attack: ${data.stats.attack}, Defense: ${data.stats.defense}, SP_ATK: ${data.stats.sp_atk}, SP_DEF: ${data.stats.sp_def}, Speed ${data.stats.speed}`)
       return await message.channel.send(embed)
