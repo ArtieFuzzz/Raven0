@@ -6,7 +6,7 @@ services:
     restart: always
     volumes:
       - .:/raven0/opt/build
-  mongo_db:
+  mongodb:
 		image: mongo:latest
 		restart: always
 		environment:
