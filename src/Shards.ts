@@ -12,3 +12,6 @@ const Sharder = new ShardingManager('./index', {
 Sharder.on('shardCreate', async (shard) => {
 	Logger.info('[ShardManager]', `Launched Shard #${shard}`)
 })
+
+
+Sharder.spawn()
