@@ -6,7 +6,7 @@ export default class ShortenCommand extends Command {
   public constructor () {
     super('shorten', {
       aliases: ['shorten'],
-      category: 'Miscellaneous',
+      category: 'Util',
       description: 'Make some long URL shorter and sus',
       ratelimit: 3,
       args: [

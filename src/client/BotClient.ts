@@ -8,27 +8,20 @@ import config from '../config'
 import EventEmitterSingleton from '../structures/EventEmitterSingleton'
 import { WebhookLogger } from '../structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
+import mongoose from 'mongoose'
 
 export default class BotClient extends AkairoClient {
-  // api.ksoft.si
   public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
-  // Something random on discord
   public srod = require('srod-v2')
-  // Webhook logger
   public logger = WebhookLogger.instance
-  // Emitter
+  public crypto = require('@raven0-bot/cryption') // Don't ask I just use it as a util thing :v)
   public eventEmitter = EventEmitterSingleton.instance
-  // Status
   public statusUpdater: StatusUpdater = new StatusUpdater(
     this,
     [
       { type: 'LISTENING', name: `To Music | ${config.prefix}` },
-      { type: 'LISTENING', name: `${this.users.cache.size} users` },
-      { type: 'WATCHING', name: `Over ${this.users.cache.size} users` },
-      { type: 'PLAYING', name: `In ${this.guilds.cache.size} servers` },
-      { type: 'PLAYING', name: `${config.prefix}help for help` },
-      { type: 'WATCHING', name: `${this.guilds.cache.size} servers` },
-      { type: 'PLAYING', name: `Running Version: ${config.version}` }
+      { type: 'WATCHING', name: 'Report bugs to the support server in the about command' },
+      { type: 'PLAYING', name: `Version: ${config.version}` }
     ]
   )
 
@@ -94,6 +87,14 @@ export default class BotClient extends AkairoClient {
       'gmi'
     )
 
+    // Connect to the database
+    mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true
+    }).then(() => { this.logger.info('CLIENT', 'Connected to MongoDB') }).catch((err: string) => { this.logger.error('ERROR', `Error connecting to MongoDB: ${err}`) })
+
     this.on('error', async e => await this.logger.error('CLIENT', e.message))
     this.on('warn', async w => await this.logger.warn('CLIENT', w))
 
@@ -120,7 +121,7 @@ export default class BotClient extends AkairoClient {
     this.eventEmitter.on('changeStatus', async () => await this.changeStatus())
 
     // Automate status changes and upload stat uploads.
-    this.setInterval(() => this.eventEmitter.emit('changeStatus'), 5 * 60 * 1000) // every five minutes
+    this.setInterval(() => this.eventEmitter.emit('changeStatus'), 2 * 60 * 1000) // every two minutes
 
     return this
   }

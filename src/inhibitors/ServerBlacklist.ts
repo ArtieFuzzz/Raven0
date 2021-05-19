@@ -1,6 +1,6 @@
 import { Inhibitor } from 'discord-akairo'
 import { Message } from 'discord.js'
-import configFile from '../config'
+import config from '../config'
 
 export default class UserBlacklist extends Inhibitor {
   constructor () {
@@ -12,6 +12,6 @@ export default class UserBlacklist extends Inhibitor {
   }
 
   exec (message: Message) {
-    return configFile.serverBlacklist.includes(message.author.id)
+    return config.serverBlacklist.includes(message.author.id)
   }
 }

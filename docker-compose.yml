@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  bot:
+    build: .
+    hostname: raven0
+    restart: always
+    volumes:
+      - .:/raven0/opt/build
+  mongodb:
+		image: mongo:latest
+		restart: always
+		environment:
+			MONGO_INITDB_ROOT_USERNAME: raven
+      MONGO_INITDB_ROOT_PASSWORD: raven
+		ports:
+			- 27017:27017
+		volumes:
+			- mongodb_data_container:/data/db
+
+volumes:
+	mongodb_data_container:

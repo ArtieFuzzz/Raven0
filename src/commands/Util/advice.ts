@@ -5,7 +5,7 @@ export default class AdviceCommand extends Command {
   public constructor () {
     super('advice', {
       aliases: ['advice'],
-      category: 'Miscellaneous',
+      category: 'Util',
       description: 'Get some advice',
       ratelimit: 3
     })
