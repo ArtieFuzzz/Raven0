@@ -12,40 +12,40 @@ import configFile from '../config'
 const webhook: WebhookClient = new WebhookClient(configFile.webhook.id, configFile.webhook.secret)
 
 export class WebhookLogger extends Logger {
-  protected static _instance: WebhookLogger
+	protected static _instance: WebhookLogger
 
-  public static get instance (): WebhookLogger {
-    return this._instance || new this()
-  }
+	public static get instance (): WebhookLogger {
+		return this._instance || new this()
+	}
 
-  private readonly _webhookLevel: LogLevel = LogLevel.SILLY
+	private readonly _webhookLevel: LogLevel = LogLevel.SILLY
 
-  protected _write (level: LogLevel, tag: string, data: any[]): void {
-    super._write(level, `Webhook][${tag}`, data)
-    if (this._webhookLevel < level) return
+	protected _write (level: LogLevel, tag: string, data: any[]): void {
+		super._write(level, `Webhook][${tag}`, data)
+		if (this._webhookLevel < level) return
 
-    const cleaned: string = this._prepareText(data)
+		const cleaned: string = this._prepareText(data)
 
-    const embed: MessageEmbed = new MessageEmbed().setTimestamp().setColor(colors[level][2]).setFooter(this._processTag)
-    const options: WebhookMessageOptions = {
-      avatarURL: 'https://dont.go-outsi.de/t/2zxdjm.jpeg',
-      embeds: [embed],
-      username: 'Bot Log'
-    }
+		const embed: MessageEmbed = new MessageEmbed().setTimestamp().setColor(colors[level][2]).setFooter(this._processTag)
+		const options: WebhookMessageOptions = {
+			avatarURL: 'https://dont.go-outsi.de/t/2zxdjm.jpeg',
+			embeds: [embed],
+			username: 'Bot Log'
+		}
 
-    if (cleaned.length <= 2048) {
-      embed.setDescription(cleaned)
-    }
-    else {
-      embed.setDescription('Data is too long, falling back to file.')
-      options.files = [new MessageAttachment(Buffer.from(cleaned), 'file.txt')]
-    }
+		if (cleaned.length <= 2048) {
+			embed.setDescription(cleaned)
+		}
+		else {
+			embed.setDescription('Data is too long, falling back to file.')
+			options.files = [new MessageAttachment(Buffer.from(cleaned), 'file.txt')]
+		}
 
-    if (tag) embed.setTitle(tag)
+		if (tag) embed.setTitle(tag)
 
-    webhook
-      .send(options)
-      // Message is still in the console
-      .catch(() => undefined)
-  }
+		webhook
+			.send(options)
+		// Message is still in the console
+			.catch(() => undefined)
+	}
 }
