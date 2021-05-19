@@ -7,10 +7,14 @@
 
 ## Data Collection
 
-We do not collect any data.
+We only collect the following data:
+- Guild IDs
+- User IDs
+
+We only use this data for server configurations or user configurations.
 
 ## Infrastructure
 
 * How can user contact us to for issue? or error on code?
 
-> They can contact me on discord: ArtieFuzzz#8298.
+> Contact me on discord: ArtieFuzzz#8298.
