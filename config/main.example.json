@@ -7,5 +7,6 @@
   "prefix": "b!",
   "owners": [""],
   "userBlacklist": ["<some id>"],
-	"serverBlacklist": ["some id"]
+	"serverBlacklist": ["some id"],
+	"mongoURI": ""
 }

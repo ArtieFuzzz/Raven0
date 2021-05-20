@@ -88,7 +88,7 @@ export default class BotClient extends AkairoClient {
 		)
 
 		// Connect to the database
-		mongoose.connect(process.env.MONGO_URI, {
+		mongoose.connect(config.mongoURI, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useFindAndModify: false,

@@ -10,7 +10,14 @@ export default class EvalCommand extends Command {
 			category: 'Owner',
 			description: 'Check latency',
 			ratelimit: 3,
-			ownerOnly: true
+			ownerOnly: true,
+			args: [
+				{
+					id: 'query',
+					type: 'string',
+					match: 'content'
+				}
+			]
 		})
 
 		this.help = {
@@ -19,13 +26,10 @@ export default class EvalCommand extends Command {
 		}
 	}
 
-	public async exec (message: Message): Promise<Message> {
+	public async exec (message: Message, { query }: { query: string}): Promise<Message> {
 		const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
 
-		const args = message.content.slice(process.env.CLIENT_PREFIX.length).trim()
-			.split(/ +/g); args.shift()
-		const query = args.join(' ')
 		const code = (lang: string, code: string) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
 
 		if (!query) {

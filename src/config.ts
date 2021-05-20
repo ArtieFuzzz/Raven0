@@ -14,6 +14,7 @@ interface Configuration {
 	owners: Snowflake | Snowflake[]
 	userBlacklist: Snowflake[]
 	serverBlacklist: Snowflake[]
+	mongoURI: string
 }
 
 export interface PackageJson {
@@ -99,6 +100,11 @@ const config = convict<Configuration>({
 		format: Array,
 		env: 'CLIENT_SERVER_BLACKLIST',
 		default: []
+	},
+	mongoURI: {
+		format: String,
+		env: 'MONGO_URI',
+		default: ''
 	}
 })
 
