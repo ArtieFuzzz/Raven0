@@ -1,6 +1,6 @@
 import BotClient from './client/BotClient'
 import dotenv from 'dotenv'
-import * as Sentry from '@sentry/node'
+import Sentry from '@sentry/node'
 import os from 'os'
 import conf from './config'
 import { version as discordVersion } from 'discord.js'
