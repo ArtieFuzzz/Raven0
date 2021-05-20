@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { inspect } from 'util'
-import { MessageEmbed } from '../../structures/MessageEmbed'
+import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 
 export default class EvalCommand extends Command {
 	public constructor () {

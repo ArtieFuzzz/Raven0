@@ -15,6 +15,7 @@ interface Configuration {
 	userBlacklist: Snowflake[]
 	serverBlacklist: Snowflake[]
 	mongoURI: string
+	sentryURI: string
 }
 
 export interface PackageJson {
@@ -104,6 +105,11 @@ const config = convict<Configuration>({
 	mongoURI: {
 		format: String,
 		env: 'MONGO_URI',
+		default: ''
+	},
+	sentryURI: {
+		format: String,
+		env: 'SENTRY_URI',
 		default: ''
 	}
 })

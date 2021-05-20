@@ -4,10 +4,10 @@
  */
 import { MessageAttachment, WebhookClient, WebhookMessageOptions } from 'discord.js'
 
-import { colors, LogLevel } from '../types/LogLevel'
+import { colors, LogLevel } from '../../types/LogLevel'
 import { Logger } from './Logger'
 import { MessageEmbed } from './MessageEmbed'
-import configFile from '../config'
+import configFile from '../../config'
 
 const webhook: WebhookClient = new WebhookClient(configFile.webhook.id, configFile.webhook.secret)
 

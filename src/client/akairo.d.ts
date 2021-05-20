@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/method-signature-style */
 import { AkairoClient, CommandHandler, ListenerHandler, InhibitorHandler } from 'discord-akairo'
 import { Presence } from 'discord.js'
-import EventEmitterSingleton from '../structures/EventEmitterSingleton'
-import { WebhookLogger } from '../structures/WebhookLogger'
+import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
+import { WebhookLogger } from '../lib/structures/WebhookLogger'
 import BotClient from './BotClient'
 import { KSoftClient } from '@ksoft/api'
 import srod from 'srod-v2'

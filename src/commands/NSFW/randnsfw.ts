@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
 import { Message, DMChannel } from 'discord.js'
-import { MessageEmbed } from '../../structures/MessageEmbed'
+import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 
 export default class HentaiGifCommand extends Command {
 	public constructor () {

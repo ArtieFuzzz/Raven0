@@ -8,5 +8,6 @@
   "owners": [""],
   "userBlacklist": ["<some id>"],
 	"serverBlacklist": ["some id"],
-	"mongoURI": ""
+	"mongoURI": "",
+	"sentryURI": ""
 }

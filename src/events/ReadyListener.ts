@@ -1,6 +1,6 @@
 import { Listener } from 'discord-akairo'
-import EventEmitterSingleton from '../structures/EventEmitterSingleton'
-import { WebhookLogger } from '../structures/WebhookLogger'
+import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
+import { WebhookLogger } from '../lib/structures/WebhookLogger'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../package.json')

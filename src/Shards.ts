@@ -1,6 +1,8 @@
 import { ShardingManager, Shard } from 'discord.js'
 import config from './config'
-import { WebhookLogger } from './structures/WebhookLogger'
+import { WebhookLogger } from './lib/structures/WebhookLogger'
+import env from 'dotenv'
+env.config()
 
 const Logger = WebhookLogger.instance
 

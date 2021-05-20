@@ -1,7 +1,7 @@
 import { Command, Listener } from 'discord-akairo'
 import { Message } from 'discord.js'
-import EventEmitterSingleton from '../structures/EventEmitterSingleton'
-import { WebhookLogger } from '../structures/WebhookLogger'
+import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
+import { WebhookLogger } from '../lib/structures/WebhookLogger'
 
 export default class MissingPermissionsHandler extends Listener {
 	logger: WebhookLogger

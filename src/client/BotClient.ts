@@ -5,10 +5,11 @@ import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 
 import { ActivityOptions, Message } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
-import EventEmitterSingleton from '../structures/EventEmitterSingleton'
-import { WebhookLogger } from '../structures/WebhookLogger'
+import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
+import { WebhookLogger } from '../lib/structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
 import mongoose from 'mongoose'
+import Sentry from '@sentry/node'
 
 export default class BotClient extends AkairoClient {
 	public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
@@ -95,7 +96,10 @@ export default class BotClient extends AkairoClient {
 			useCreateIndex: true
 		}).then(() => { this.logger.info('CLIENT', 'Connected to MongoDB') }).catch((err: string) => { this.logger.error('ERROR', `Error connecting to MongoDB: ${err}`) })
 
-		this.on('error', async e => await this.logger.error('CLIENT', e.message))
+		this.on('error', async e => {
+			await this.logger.error('CLIENT', e.message)
+			Sentry.captureException(e)
+		})
 		this.on('warn', async w => await this.logger.warn('CLIENT', w))
 
 		//  Process handling / do not crash on error
@@ -104,10 +108,12 @@ export default class BotClient extends AkairoClient {
 		process.on('uncaughtException', (err: Error) => {
 			const errorMsg = (err ? err.stack || err : '').toString().replace(pathRegex, '.')
 			this.logger.error('EXCEPTION', errorMsg)
+			Sentry.captureException(errorMsg)
 		})
 		process.on('unhandledRejection', (err: Error) => {
 			const errorMsg = (err ? err.stack || err : '').toString().replace(pathRegex, '.')
 			this.logger.error('REJECTION', 'Uncaught Promise error: \n' + errorMsg)
+			Sentry.captureException(errorMsg)
 		})
 	}
 

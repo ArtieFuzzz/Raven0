@@ -5,9 +5,9 @@
 import moment from 'moment'
 import { inspect } from 'util'
 
-import { colors, LogLevel } from '../types/LogLevel'
+import { colors, LogLevel } from '../../types/LogLevel'
 
-export { Loggable } from '../decorators/LoggerDecorator'
+export { Loggable } from '../../decorators/LoggerDecorator'
 
 type LevelFunctions = 'silly' | 'debug' | 'verbose' | 'info' | 'warn' | 'error'
 

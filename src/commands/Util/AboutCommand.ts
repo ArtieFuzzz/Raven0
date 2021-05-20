@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { PackageJson } from '../../config'
-import { MessageEmbed } from '../../structures/MessageEmbed'
+import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg: PackageJson = require('../../../package.json')
 

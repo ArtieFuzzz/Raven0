@@ -1,6 +1,6 @@
 import { Command, version as AkaiVer } from 'discord-akairo'
 import { Message, version as DiscVer } from 'discord.js'
-import { MessageEmbed } from '../../structures/MessageEmbed'
+import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 import * as typescript from 'typescript'
 import config from '../../config'
 
