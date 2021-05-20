@@ -8,8 +8,8 @@ import os from 'os'
 const logger = WebhookLogger.instance
 
 export default async function init (): Promise<any> {
-	if (!conf.sentryURI) return await logger.error('[Sentry]', 'A Sentry URI was not set in the main.json file')
-	if (conf.sentryURI) return await logger.info('[Sentry]', 'Starting!')
+	if (!conf.sentryURI) return await logger.error('Sentry', 'A Sentry URI was not set in the main.json file')
+	if (conf.sentryURI) return await logger.info('Sentry', 'Starting!')
 
 	Sentry.init({
 		dsn: conf.sentryURI,

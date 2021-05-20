@@ -13,7 +13,7 @@ const Sharder = new ShardingManager('./index.js', {
 })
 
 Sharder.on('shardCreate', async (shard: Shard) => {
-	Logger.info('[ShardManager]', `Launched Shard #${shard.id + 1}`)
+	Logger.info('ShardManager', `Launched Shard #${shard.id + 1}`)
 })
 
 Sharder.spawn()
