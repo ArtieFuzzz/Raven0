@@ -9,7 +9,7 @@ import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
 import { WebhookLogger } from '../lib/structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
 import mongoose from 'mongoose'
-import Sentry from '@sentry/node'
+import * as Sentry from '@sentry/node'
 
 export default class BotClient extends AkairoClient {
 	public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
