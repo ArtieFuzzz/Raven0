@@ -38,7 +38,7 @@ export default class EvalCommand extends Command {
 		else {
 			try {
 				/* eslint-disable prefer-const, no-eval */
-				let evald = eval(query)
+				let evald = await eval(query)
 				const res = typeof evald === 'string' ? evald : inspect(evald, { depth: 0 })
 
 				embed.addField('Result', code('js', res))
