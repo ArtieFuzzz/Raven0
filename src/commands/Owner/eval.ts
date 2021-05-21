@@ -7,8 +7,7 @@ export default class EvalCommand extends Command {
 	public constructor () {
 		super('eval', {
 			aliases: ['eval'],
-			category: 'Owner',
-			description: 'Check latency',
+			description: 'Evaluate JavaScript code',
 			ratelimit: 3,
 			ownerOnly: true,
 			args: [
