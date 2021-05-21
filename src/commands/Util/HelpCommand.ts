@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { Command } from 'discord-akairo'
 import { Message, User } from 'discord.js'
 import config from '../../config'
@@ -37,7 +38,9 @@ export default class HelpCommand extends Command {
 
 			for (const [id, category] of this.client.commandHandler.categories) {
 				if (id === 'owner' && !this.hasAccess(message.author)) continue
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 				const commands = category.filter(c => (c.ownerOnly ? this.hasAccess(message.author) : true)).map(c => c.id)
+				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 				helpEmbed.addField(`**${id[0].toUpperCase() + id.slice(1)}**`, markdownCodifyArray(commands))
 			}
 
