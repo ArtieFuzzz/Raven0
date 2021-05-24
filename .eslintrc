@@ -24,6 +24,9 @@
     "@typescript-eslint/restrict-template-expressions": 1,
     "@typescript-eslint/no-unsafe-assignment": 0,
     "@typescript-eslint/no-unsafe-member-access": 0,
-    "@typescript-eslint/no-unsafe-call": 0
+    "@typescript-eslint/no-unsafe-call": 0,
+		"@typescript-eslint/indent": ["error", "tab"],
+		"no-tabs": 0,
+		"prefer-const": 0
   }
 }

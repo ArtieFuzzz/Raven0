@@ -3,7 +3,7 @@
  * @author Hydractify
  * @see https://github.com/Hydractify/kanna_kobayashi
  */
-import { Logger } from '../structures/Logger'
+import { Logger } from '../lib/structures/Logger'
 import { LogLevel } from '../types/LogLevel'
 
 function getHandler(prefix: string): ProxyHandler<Logger> {
