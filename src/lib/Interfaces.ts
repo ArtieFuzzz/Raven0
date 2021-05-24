@@ -1,4 +1,4 @@
-export interface Guild {
+export interface MongoGuild {
 	guildID: Number
 	registeredAt: Number
 	data: Object

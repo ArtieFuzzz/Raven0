@@ -9,7 +9,6 @@
 
 We only collect the following data:
 - Guild IDs
-- User IDs
 
 We only use this data for server configurations or user configurations.
 
