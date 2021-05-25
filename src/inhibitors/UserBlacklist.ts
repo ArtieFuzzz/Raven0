@@ -1,6 +1,6 @@
 import { Inhibitor } from 'discord-akairo'
 import { Message } from 'discord.js'
-import configFile from '../config'
+import { getUser } from '../lib/Mongo'
 
 export default class UserBlacklist extends Inhibitor {
 	constructor () {
@@ -11,7 +11,9 @@ export default class UserBlacklist extends Inhibitor {
 		})
 	}
 
-	exec (message: Message) {
-		return configFile.userBlacklist.includes(message.author.id)
+	public async exec (message: Message): Promise<any> {
+		let User = await getUser(message.author.id)
+
+		if (User.data.blacklisted) return await message.util.reply('You are blacklisted from using this bot')
 	}
 }

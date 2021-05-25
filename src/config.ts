@@ -12,8 +12,6 @@ interface Configuration {
 	}
 	prefix: string
 	owners: Snowflake | Snowflake[]
-	userBlacklist: Snowflake[]
-	serverBlacklist: Snowflake[]
 	mongoURI: string
 	sentryURI: string
 }
@@ -79,11 +77,6 @@ const config = convict<Configuration>({
 		env: 'CLIENT_OWNERS',
 		default: []
 	},
-	userBlacklist: {
-		format: Array,
-		env: 'CLIENT_USER_BLACKLIST',
-		default: []
-	},
 	webhook: {
 		format: 'webhook',
 		id: {
@@ -96,11 +89,6 @@ const config = convict<Configuration>({
 			env: 'LOGS_WEBHOOK_SECRET',
 			default: ''
 		}
-	},
-	serverBlacklist: {
-		format: Array,
-		env: 'CLIENT_SERVER_BLACKLIST',
-		default: []
 	},
 	mongoURI: {
 		format: String,

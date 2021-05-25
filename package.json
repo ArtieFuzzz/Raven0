@@ -4,6 +4,10 @@
   "description": "A template for discord bots in typescript.",
   "main": "build/index.js",
   "private": true,
+	"author": "Raven0 (https://gitlab.com/raven0-bot)",
+	"contributors": [
+		"ArtieFuzzz <jardenz.den@gmail.com> (https://artiefuzzz.is-a.dev)"
+	],
   "engines": {
     "node": ">=15.0.0"
   },
@@ -72,10 +76,6 @@
     "discord",
     "bot"
   ],
-  "authors": {
-    "TMUniversal": "(Template) https://github.com/TMUniversal/discord-bot-template.git",
-    "ArtieFuzzz (#8298)": "(Developer) @ https://gitlab.com/raven0-bot"
-  },
   "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/raven0-bot/Raven/-/issues"
