@@ -1,7 +1,7 @@
 {
   "name": "raven0",
   "version": "Kasagi",
-  "description": "A template for discord bots in typescript.",
+  "description": "A discord bot made in TypeScript.",
   "main": "build/index.js",
   "private": true,
 	"author": "Raven0 (https://gitlab.com/raven0-bot)",
@@ -76,7 +76,7 @@
     "discord",
     "bot"
   ],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://gitlab.com/raven0-bot/Raven/-/issues"
   },
