@@ -8,6 +8,7 @@ export default class EvalCommand extends Command {
 		super('eval', {
 			aliases: ['eval'],
 			description: 'Evaluate JavaScript code',
+			category: 'owner',
 			ownerOnly: true,
 			args: [
 				{

@@ -55,7 +55,7 @@ export default class HelpCommand extends Command {
 			const embed = new MessageEmbed()
 				.setTitle(cmd.aliases[0])
 				.setDescription(cmd.description)
-				.setFooter(`${this.client.user.username} v${config.version}`)
+				.setFooter(`${this.client.user.username} | Version > ${config.version}`)
 				.setTimestamp()
 
 			if (cmd.aliases.slice(1).length > 0) {
