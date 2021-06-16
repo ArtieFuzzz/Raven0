@@ -4,10 +4,10 @@
   "description": "A discord bot made in TypeScript.",
   "main": "build/index.js",
   "private": true,
-	"author": "Raven0 (https://gitlab.com/raven0-bot)",
-	"contributors": [
-		"ArtieFuzzz <jardenz.den@gmail.com> (https://artiefuzzz.is-a.dev)"
-	],
+  "author": "Raven0 (https://gitlab.com/raven0-bot)",
+  "contributors": [
+    "ArtieFuzzz <jardenz.den@gmail.com> (https://artiefuzzz.is-a.dev)"
+  ],
   "engines": {
     "node": ">=15.0.0"
   },
@@ -31,7 +31,6 @@
   "dependencies": {
     "@aero/centra": "^1.0.6",
     "@ksoft/api": "^3.1.9",
-    "@raven0-bot/cryption": "^1.0.3",
     "@sentry/node": "^6.4.1",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
@@ -45,7 +44,7 @@
     "moment-duration-format": "^2.3.2",
     "mongoose": "^5.12.10",
     "owoifyx": "^1.0.1",
-    "pm2": "^4.5.6",
+    "pm2": "^5.1.0",
     "srod-v2": "^1.0.2",
     "store": "github:thattonybo/store",
     "sxcu.js": "^1.0.1",

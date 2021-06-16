@@ -29,6 +29,7 @@ declare module 'discord-akairo' {
 
 	interface Command {
 		help?: CommandHelpInformation
+		nsfw?: boolean
 	}
 }
 

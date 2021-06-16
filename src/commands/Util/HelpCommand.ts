@@ -33,14 +33,12 @@ export default class HelpCommand extends Command {
 		if (!command || command?.length === 0) {
 			const helpEmbed = new MessageEmbed()
 				.setTitle(this.client.user.username + ' Command List')
-				.setFooter(`${this.client.user.username} v${config.version}`)
+				.setFooter(`${this.client.user.username} | Version > ${config.version}`)
 				.setTimestamp()
 
 			for (const [id, category] of this.client.commandHandler.categories) {
 				if (id === 'owner' && !this.hasAccess(message.author)) continue
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 				const commands = category.filter(c => (c.ownerOnly ? this.hasAccess(message.author) : true)).map(c => c.id)
-				// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
 				helpEmbed.addField(`**${id[0].toUpperCase() + id.slice(1)}**`, markdownCodifyArray(commands))
 			}
 
