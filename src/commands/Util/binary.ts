@@ -31,18 +31,23 @@ export default class BinaryCommand extends Command {
 	}
 
 	public async exec (message: Message, { op, str }: { op: string, str: string}): Promise<Message> {
-		if (op[0].toLowerCase() === 'encode') {
-			const res = await c(`https://some-random-api.ml/binary?text=${str.slice(op[0].length)}`).send()
-			const { binary } = res.json
+		if (op[0].toLowerCase() === 'encode') return await this.Encode(message, { op, str })
+		if (op[0].toLowerCase() === 'decode') return await this.Decode(message, { op, str })
 
-			return await message.channel.send(binary)
-		}
-		if (op[0].toLowerCase() === 'decode') {
-			const res = await c(`https://some-random-api.ml/binary?decode=${str.slice(op[0].length)}`).send()
-			const { text } = res.json
-
-			return await message.channel.send(text)
-		}
 		return await message.channel.send('Options > decode || encode')
+	}
+
+	private async Encode (message: Message, { op, str }: { op: string, str: string}) {
+		const res = await c(`https://some-random-api.ml/binary?text=${str.slice(op[0].length)}`).send()
+		const { binary } = res.json
+
+		return await message.channel.send(binary)
+	}
+
+	private async Decode (message: Message, { op, str }: { op: string, str: string}) {
+		const res = await c(`https://some-random-api.ml/binary?decode=${str.slice(op[0].length)}`).send()
+		const { text } = res.json
+
+		return await message.channel.send(text)
 	}
 }
