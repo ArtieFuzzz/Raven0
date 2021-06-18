@@ -9,12 +9,12 @@ WORKDIR /opt/build/raven0
 
 COPY package*.json ./
 
-COPY . .
-
 RUN npm install
 
 RUN npm run build
 
-RUN rm -rf src
+COPY node_modules .
+
+COPY build ./
 
 ENTRYPOINT [ "npm", "start" ]
