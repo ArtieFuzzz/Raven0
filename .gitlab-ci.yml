@@ -11,7 +11,7 @@ services:
   - docker:dind
 
 before_script:
-  - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
+  - echo "$DOCKER_PASSWORD" | docker login $CI_REGISTRY --username $DOCKER_USERNAME --password-stdin docker.io
 
 dev:
  stage: build
