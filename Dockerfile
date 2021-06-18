@@ -7,14 +7,12 @@ RUN apk add py3-pip libtool autoconf automake g++ gcc git make
 
 WORKDIR /opt/build/raven0
 
-COPY package*.json ./
+COPY . .
 
 RUN npm install
 
 RUN npm run build
 
-COPY node_modules .
-
-COPY build ./
+RUN rm -rf src
 
 ENTRYPOINT [ "npm", "start" ]
