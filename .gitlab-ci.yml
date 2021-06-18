@@ -13,7 +13,7 @@ services:
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
 
-dev_build:
+dev:
  stage: build
  script:
  - echo -n "$DEV_ENV" | base64 -d > .env
@@ -24,7 +24,7 @@ dev_build:
  tags:
  - docker
 
-build:
+production:
  stage: build
  script:
  - echo -n "$ENV" | base64 -d > .env
