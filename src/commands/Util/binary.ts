@@ -33,8 +33,9 @@ export default class BinaryCommand extends Command {
 	public async exec (message: Message, { op, str }: { op: string, str: string}): Promise<Message> {
 		if (op[0].toLowerCase() === 'encode') return await this.Encode(message, { op, str })
 		if (op[0].toLowerCase() === 'decode') return await this.Decode(message, { op, str })
-
-		return await message.channel.send('Options > decode || encode')
+		else {
+			return await message.reply('Options: Encode | Decode')
+		}
 	}
 
 	private async Encode (message: Message, { op, str }: { op: string, str: string}) {
