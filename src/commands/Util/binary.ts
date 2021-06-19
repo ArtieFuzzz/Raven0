@@ -39,14 +39,14 @@ export default class BinaryCommand extends Command {
 	}
 
 	private async Encode (message: Message, { op, str }: { op: string, str: string}) {
-		const res = await c(`https://some-random-api.ml/binary?text=${str.slice(op[0].length)}`).send()
+		const res = await c(`https://some-random-api.ml/binary?text=${str.slice(op[0].length).trim()}`).send()
 		const { binary } = res.json
 
 		return await message.channel.send(binary)
 	}
 
 	private async Decode (message: Message, { op, str }: { op: string, str: string}) {
-		const res = await c(`https://some-random-api.ml/binary?decode=${str.slice(op[0].length)}`).send()
+		const res = await c(`https://some-random-api.ml/binary?decode=${str.slice(op[0].length).trim()}`).send()
 		const { text } = res.json
 
 		return await message.channel.send(text)
