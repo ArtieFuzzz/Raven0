@@ -1,6 +1,6 @@
 import { Inhibitor } from 'discord-akairo'
 import { Message } from 'discord.js'
-import config from '../config'
+import { getGuild } from '../lib/Mongo'
 
 export default class UserBlacklist extends Inhibitor {
 	constructor () {
@@ -11,7 +11,9 @@ export default class UserBlacklist extends Inhibitor {
 		})
 	}
 
-	exec (message: Message) {
-		return config.serverBlacklist.includes(message.author.id)
+	public async exec (message: Message): Promise<any> {
+		let Guild = await getGuild(message.guild.id)
+
+		if (Guild.data.blacklisted) return await message.util.reply('This server is blacklisted')
 	}
 }

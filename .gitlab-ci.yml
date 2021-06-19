@@ -11,12 +11,12 @@ services:
   - docker:dind
 
 before_script:
-  - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin docker.io
+  - echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin $CI_REGISTRY
 
-dev_build:
+dev:
  stage: build
  script:
- - echo -n "$DEV_ENV" | base64 -d > .env
+ - echo -n "$DEV_CONF" | base64 -d > config/main.json
  - docker build --tag $DEV_IMAGE .
  - docker push $DEV_IMAGE
  only:
@@ -24,10 +24,10 @@ dev_build:
  tags:
  - docker
 
-build:
+production:
  stage: build
  script:
- - echo -n "$ENV" | base64 -d > .env
+ - echo -n "$CONF" | base64 -d > config/main.json
  - docker build --tag $IMAGE .
  - docker push $IMAGE
  only:

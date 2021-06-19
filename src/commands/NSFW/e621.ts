@@ -4,6 +4,7 @@ import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 import * as Yiff from 'yiff'
 
 export default class E621Command extends Command {
+	nsfw: boolean
 	public constructor () {
 		super('e621', {
 			aliases: ['e621'],
@@ -19,6 +20,7 @@ export default class E621Command extends Command {
 			]
 		})
 
+		this.nsfw = true
 		this.help = {
 			usage: 'e621',
 			examples: ['e621']
@@ -26,9 +28,6 @@ export default class E621Command extends Command {
 	}
 
 	public async exec (message: Message, { tags }: { tags: string}): Promise<Message> {
-		if (message.channel instanceof DMChannel) return await message.channel.send('You can\'t use this command in DMs!')
-		if (!message.channel.nsfw) return await message.util.send(':x: This command only runs in NSFW channels')
-
 		try {
 			// eslint-disable-next-line new-cap
 			const e6 = new Yiff.e621({

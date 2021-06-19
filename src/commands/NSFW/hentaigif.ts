@@ -3,6 +3,7 @@ import { Message, DMChannel } from 'discord.js'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 
 export default class HentaiGifCommand extends Command {
+	nsfw: boolean
 	public constructor () {
 		super('hentaigif', {
 			aliases: ['hentaigif', 'hg'],
@@ -11,6 +12,7 @@ export default class HentaiGifCommand extends Command {
 			ratelimit: 3
 		})
 
+		this.nsfw = true
 		this.help = {
 			usage: 'hentaigif',
 			examples: ['hentaigif']
@@ -18,9 +20,6 @@ export default class HentaiGifCommand extends Command {
 	}
 
 	public async exec (message: Message): Promise<Message> {
-		if (message.channel instanceof DMChannel) return await message.channel.send('You can\'t use this command in DMs!')
-		if (!message.channel.nsfw) return await message.util.send(':x: This command only runs in NSFW channels')
-
 		const { url } = await this.client.ksoft.images.random('hentai_gif', { nsfw: true })
 		const embed = new MessageEmbed()
 			.setTitle('Hentaii!!')

@@ -37,7 +37,7 @@ export default class AboutCommand extends Command {
 				fields: [
 					{
 						name: 'Developed by',
-						value: 'ArtieFuzzz#8298 | GitLab: [ArtieFuzzz](https://gitlab.com/raven0-bot/Raven/-/tree/TypeScript)',
+						value: 'ArtieFuzzz#8298 | [GitLab](https://gitlab.com/raven0-bot/Raven) [Website](https://artiefuzzz.is-a.dev)',
 						inline: false
 					},
 					{
@@ -64,7 +64,7 @@ export default class AboutCommand extends Command {
 				timestamp: new Date(),
 				footer: {
 					icon_url: this.client.user.avatarURL({ dynamic: true }),
-					text: 'Raven0 - Since 2021'
+					text: 'Raven0 - Since 2021 - Present'
 				}
 			})
 		)

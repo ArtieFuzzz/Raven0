@@ -1,33 +1,31 @@
 import { Command } from 'discord-akairo'
-import { Message, DMChannel } from 'discord.js'
+import { Message } from 'discord.js'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 
-export default class BigTiddyCommand extends Command {
-	nsfw: boolean
+export default class AstroPhotographyCommand extends Command {
 	public constructor () {
-		super('notraps', {
-			aliases: ['notraps'],
-			category: 'NSFW',
-			description: 'Returns an Image from r/NoTraps',
+		super('astrophotography', {
+			aliases: ['astronomy', 'astrophotography'],
+			category: 'Images',
+			description: 'Returns a Image from r/astrophotography',
 			ratelimit: 3
 		})
 
-		this.nsfw = true
 		this.help = {
-			usage: 'notraps',
-			examples: ['notraps']
+			usage: 'astronomy',
+			examples: ['astronomy', 'astrophotography']
 		}
 	}
 
 	public async exec (message: Message): Promise<Message> {
-		const { url, post } = await this.client.ksoft.images.reddit('notraps', { span: 'day', removeNSFW: false })
+		const { url, post } = await this.client.ksoft.images.reddit('astrophotography', { removeNSFW: true, span: 'day' })
 		const embed = new MessageEmbed()
 			.setTitle(post.title)
 			.setFooter(`Powered by api.ksoft.si ${post.author} | Upvotes: ${post.upvotes} | Downvotes ${post.downvotes}`)
 			.setURL(post.link)
-			.setColor('PINK')
 			.setTimestamp()
 			.setImage(url)
+			.setColor('DARK_GREEN')
 		return await message.util.send(embed)
 	}
 }

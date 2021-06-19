@@ -12,17 +12,16 @@ import mongoose from 'mongoose'
 import * as Sentry from '@sentry/node'
 
 export default class BotClient extends AkairoClient {
-	public ksoft = new KSoftClient(process.env.KSOFT_TOKEN)
+	public ksoft = new KSoftClient(config.ksoftToken)
 	public srod = require('srod-v2')
 	public logger = WebhookLogger.instance
-	public crypto = require('@raven0-bot/cryption') // Don't ask I just use it as a util thing :v)
 	public eventEmitter = EventEmitterSingleton.instance
 	public statusUpdater: StatusUpdater = new StatusUpdater(
 		this,
 		[
-			{ type: 'LISTENING', name: `To Music | ${config.prefix}` },
-			{ type: 'WATCHING', name: 'Report bugs to the support server in the about command' },
-			{ type: 'PLAYING', name: `Version: ${config.version}` }
+			{ type: 'WATCHING', name: `The Dark Skies | ${config.prefix}` },
+			{ type: 'WATCHING', name: `The Birds Fly Over | ${config.prefix}` },
+			{ type: 'WATCHING', name: `The Dark Blue Skies | ${config.prefix}` }
 		]
 	)
 
