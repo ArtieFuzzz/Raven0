@@ -14,6 +14,7 @@ interface Configuration {
 	owners: Snowflake | Snowflake[]
 	mongoURI: string
 	sentryURI: string
+	ksoftToken: string
 }
 
 export interface PackageJson {
@@ -98,6 +99,10 @@ const config = convict<Configuration>({
 	sentryURI: {
 		format: String,
 		env: 'SENTRY_URI',
+		default: ''
+	},
+	ksoftToken: {
+		format: String,
 		default: ''
 	}
 })

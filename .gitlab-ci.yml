@@ -16,7 +16,7 @@ before_script:
 dev:
  stage: build
  script:
- - echo -n "$DEV_ENV" | base64 -d > .env
+ - echo -n "$DEV_CONF" | base64 -d > config/main.json
  - docker build --tag $DEV_IMAGE .
  - docker push $DEV_IMAGE
  only:
@@ -27,7 +27,7 @@ dev:
 production:
  stage: build
  script:
- - echo -n "$ENV" | base64 -d > .env
+ - echo -n "$CONF" | base64 -d > config/main.json
  - docker build --tag $IMAGE .
  - docker push $IMAGE
  only:
