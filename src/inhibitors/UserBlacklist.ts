@@ -4,8 +4,8 @@ import { getUser } from '../lib/Mongo'
 
 export default class UserBlacklist extends Inhibitor {
 	constructor () {
-		super('blacklist', {
-			reason: 'blacklist',
+		super('userBlacklist', {
+			reason: 'blacklisted',
 			priority: 1,
 			category: 'blacklists'
 		})

@@ -2,11 +2,11 @@ import { Inhibitor } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { getGuild } from '../lib/Mongo'
 
-export default class UserBlacklist extends Inhibitor {
+export default class ServerBlacklist extends Inhibitor {
 	constructor () {
 		super('serverBlacklist', {
-			reason: 'blacklist',
-			priority: 1,
+			reason: 'blacklisted',
+			priority: 2,
 			category: 'blacklists'
 		})
 	}
