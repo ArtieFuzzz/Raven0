@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "Kasagi",
+  "version": "Hasura",
   "description": "A discord bot made in TypeScript.",
   "main": "build/index.js",
   "private": true,
