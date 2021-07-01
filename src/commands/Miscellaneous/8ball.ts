@@ -13,7 +13,8 @@ export default class EightBallCommand extends Command {
 				{
 					id: 'question',
 					type: 'string',
-					description: 'The question you ask the 8ball'
+					description: 'The question you ask the 8ball',
+					match: 'content'
 				}
 			]
 		})

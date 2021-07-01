@@ -6,7 +6,7 @@ export default class ServerBlacklist extends Inhibitor {
 	constructor () {
 		super('serverBlacklist', {
 			reason: 'blacklisted',
-			priority: 2,
+			priority: 1,
 			category: 'blacklists'
 		})
 	}

@@ -2,8 +2,9 @@
 
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
-Nightly Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/nightly/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/nightly)
-Main Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/main/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/main) 
+* Nightly Build Status [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/nightly/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/nightly)
+
+* Main Build Status: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/main/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/main)
 
 ## Self Hosting Instruction
 
@@ -36,6 +37,7 @@ Main Pipeline: [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/ma
 ## Updating
 
 If you are upgrading to a newer version use the files in the scripts folder.
+
 * update.bat - Windows (No auto start)
 * update.sh - Linux
 
@@ -44,12 +46,12 @@ If you are upgrading to a newer version use the files in the scripts folder.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/)
 
-**License**
+## License
 
 This project is licensed under the MIT License
 
 ===
 
-**Credits**
+## Credits
 
 * TMUniversal for the [Template](https://github.com/TMUniversal/discord-bot-template)
