@@ -31,7 +31,7 @@
   "dependencies": {
     "@aero/centra": "^1.0.6",
     "@ksoft/api": "^3.1.9",
-    "@sentry/node": "^6.4.1",
+    "@sentry/node": "^6.8.0",
     "@tmware/status-rotate": "^1.2.2",
     "app-root-path": "^3.0.0",
     "convict": "^6.0.1",
@@ -39,16 +39,16 @@
     "dayjs": "^1.8.36",
     "discord-akairo": "^8.1.0",
     "discord.js": "12.5.3",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.12.10",
+    "mongoose": "^5.13.0",
     "owoifyx": "^1.0.1",
     "pm2": "^5.1.0",
     "srod-v2": "^1.0.2",
     "store": "github:thattonybo/store",
     "sxcu.js": "^1.0.1",
-    "uwuifier": "^3.0.0",
+    "uwuifier": "^3.0.4",
     "yiff": "2.0.3"
   },
   "devDependencies": {
@@ -61,12 +61,12 @@
     "@types/convict": "^6.0.1",
     "@types/debug": "^4.1.5",
     "@types/moment-duration-format": "^2.2.2",
-    "@types/node": "^14.14.37",
-    "@types/ws": "^7.4.1",
-    "eslint": "^7.23.0",
+    "@types/node": "^14.17.4",
+    "@types/ws": "^7.4.5",
+    "eslint": "^7.29.0",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.2.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.5"
   },
   "keywords": [
     "discord",

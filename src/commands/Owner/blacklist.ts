@@ -37,9 +37,7 @@ export default class BlacklistCommand extends Command {
 	public async exec (message: Message, { op, id }: { op: string, id: string }): Promise<Message> {
 		if (op[0].toLowerCase() === 'user') return await this.User(message, id.slice(op[0].length).trim())
 		if (op[0].toLowerCase() === 'guild') return await this.Guild(message, id.slice(op[0].length).trim())
-		else {
-			return await message.reply('Options: User | Guild')
-		}
+		return await message.reply('Options: User | Guild')
 	}
 
 	private async User (message: Message, id: string): Promise<Message> {
@@ -73,7 +71,7 @@ export default class BlacklistCommand extends Command {
 		}
 		if (!guildData.data.blacklisted) {
 			await User.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: true } })
-			return await message.channel.send(`${guild.name} (${guild.id})} Was blacklisted`)
+			return await message.channel.send(`${guild.name} (${guild.id}) Was blacklisted`)
 		}
 	}
 }
