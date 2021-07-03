@@ -37,12 +37,16 @@ export default class E621Command extends Command {
 			const req: YiffStruct = await yiff.e621(Tags, 1)
 
 			const embed = new MessageEmbed()
-				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-				.setDescription(`\`[[link](https://e621.net/post/${req[0].id})]\``)
+				.setTitle('Source')
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				.setURL(`https://e926.net/post/${req[0].id}`)
 				.setImage(req[0].file.url)
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				.setFooter(`Artist(s): ${req[0].tags.artist} | Ups: ${req[0].score.up} | Downs ${req[0].score.down} | Total Score: ${req[0].score.total}`)
 				.setColor('RANDOM')
+			// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+			if (req[0].tags.lore) embed.setDescription('`[LORE]`' + req[0].tags.lore)
+
 			return await message.util.send(embed)
 		}
 		catch (e) {
