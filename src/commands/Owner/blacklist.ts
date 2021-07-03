@@ -66,11 +66,11 @@ export default class BlacklistCommand extends Command {
 		const guildData = await getGuild(guild.id)
 
 		if (guildData.data.blacklisted) {
-			await User.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: false } })
+			await Guild.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: false } })
 			return await message.channel.send(`${guild.name} (${guild.id}) Was unblacklisted`)
 		}
 		if (!guildData.data.blacklisted) {
-			await User.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: true } })
+			await Guild.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: true } })
 			return await message.channel.send(`${guild.name} (${guild.id}) Was blacklisted`)
 		}
 	}
