@@ -5,27 +5,27 @@ import Yiff from 'yiff'
 import { yiffConfig } from '../../lib/config'
 import { YiffStruct } from '../../lib/interfaces'
 
-export default class E621Command extends Command {
+export default class E926Command extends Command {
 	nsfw: boolean
 	public constructor () {
-		super('e621', {
-			aliases: ['e621'],
+		super('e926', {
+			aliases: ['e926'],
 			category: 'NSFW',
-			description: 'Returns an Image from e621 with your selected tags',
+			description: 'Returns an Image from e926 with your selected tags',
 			ratelimit: 3,
 			args: [
 				{
-					id: 'Tags',
+					id: 'tags',
 					type: 'string',
 					match: 'content'
 				}
 			]
 		})
 
-		this.nsfw = true
+		this.nsfw = false
 		this.help = {
-			usage: 'e621',
-			examples: ['e621']
+			usage: 'e926',
+			examples: ['e926']
 		}
 	}
 
@@ -34,11 +34,11 @@ export default class E621Command extends Command {
 
 		try {
 			if (!Tags) return await message.channel.send('No tags were specified')
-			const req: YiffStruct = await yiff.e621(Tags, 1)
+			const req: YiffStruct = await yiff.e926(Tags, 1)
 
 			const embed = new MessageEmbed()
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-				.setDescription(`\`[[link](https://e621.net/post/${req[0].id})]\``)
+				.setDescription(`\`[[link](https://e926.net/post/${req[0].id})]\``)
 				.setImage(req[0].file.url)
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				.setFooter(`Artist(s): ${req[0].tags.artist} | Ups: ${req[0].score.up} | Downs ${req[0].score.down} | Total Score: ${req[0].score.total}`)
