@@ -1,10 +1,11 @@
-import pkg from '../config'
+import Yiff from 'yiff'
+import pkg from '../../config'
 
-const yiffConfig = {
+const yiff = new Yiff({
 	useragent: `Raven0/${pkg.version} (https://raven0-bot.gitlab.io/)`,
 	killswitch: {
 		enabled: true
 	}
-}
+})
 
-export { yiffConfig }
+export default yiff

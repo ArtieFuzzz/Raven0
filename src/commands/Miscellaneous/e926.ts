@@ -1,8 +1,7 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
-import Yiff from 'yiff'
-import { yiffConfig } from '../../lib/config'
+import Yiff from '../../lib/util/yiff'
 import { YiffStruct } from '../../lib/interfaces'
 
 export default class E926Command extends Command {
@@ -30,11 +29,9 @@ export default class E926Command extends Command {
 	}
 
 	public async exec (message: Message, { Tags }: { Tags: string}): Promise<Message> {
-		const yiff = new Yiff(yiffConfig)
-
 		try {
 			if (!Tags) return await message.channel.send('No tags were specified')
-			const req: YiffStruct = await yiff.e926(Tags, 1)
+			const req: YiffStruct = await Yiff.e926(Tags, 1)
 
 			const embed = new MessageEmbed()
 				.setTitle('Source')
