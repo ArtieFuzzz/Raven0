@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  bot:
+  raven0:
     build: .
     hostname: raven0
     restart: always
@@ -16,6 +16,5 @@ services:
 			- 27017:27017
 		volumes:
 			- mongodb_data_container:/data/db
-
 volumes:
 	mongodb_data_container:

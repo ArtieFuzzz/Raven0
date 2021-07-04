@@ -28,9 +28,9 @@ export class WebhookLogger extends Logger {
 
 		const embed: MessageEmbed = new MessageEmbed().setTimestamp().setColor(colors[level][2]).setFooter(this._processTag)
 		const options: WebhookMessageOptions = {
-			avatarURL: 'https://dont.go-outsi.de/t/2zxdjm.jpeg',
+			avatarURL: 'https://lazy.devswhofuckdevs.xyz/t/53cf_ZucK.png',
 			embeds: [embed],
-			username: 'Bot Log'
+			username: '[BOT LOGS]'
 		}
 
 		if (cleaned.length <= 2048) {

@@ -94,7 +94,7 @@ const config = convict<Configuration>({
 	mongoURI: {
 		format: String,
 		env: 'MONGO_URI',
-		default: ''
+		default: 'mongo://raven:raven@localhost:27017'
 	},
 	sentryURI: {
 		format: String,

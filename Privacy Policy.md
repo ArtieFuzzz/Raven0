@@ -8,13 +8,15 @@
 ## Data Collection
 
 We only collect the following data:
-- Guild IDs
-- User IDs
 
-We only use this data for server configurations or user configurations.
+* Guild IDs
+
+* User IDs
+
+We only use this data for Blacklisting.
 
 ## Infrastructure
 
-* How can user contact us to for issue? or error on code?
+* How can a user contact us for an issue? Or a code error?
 
 > Contact me on discord: ArtieFuzzz#8298.
