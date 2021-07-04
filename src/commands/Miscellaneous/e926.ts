@@ -15,7 +15,7 @@ export default class E926Command extends Command {
 			ratelimit: 3,
 			args: [
 				{
-					id: 'tags',
+					id: 'Tags',
 					type: 'string',
 					match: 'content'
 				}
@@ -39,13 +39,13 @@ export default class E926Command extends Command {
 			const embed = new MessageEmbed()
 				.setTitle('Source')
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-				.setURL(`https://e926.net/post/${req[0].id}`)
+				.setURL(`https://e926.net/posts/${req[0].id}`)
 				.setImage(req[0].file.url)
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				.setFooter(`Artist(s): ${req[0].tags.artist} | Ups: ${req[0].score.up} | Downs ${req[0].score.down} | Total Score: ${req[0].score.total}`)
 				.setColor('RANDOM')
 			// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-			if (req[0].tags.lore) embed.setDescription('`[LORE]`' + req[0].tags.lore)
+			if (req[0].tags.lore.length > 0) embed.setDescription('`[LORE]`' + req[0].tags.lore)
 
 			return await message.util.send(embed)
 		}

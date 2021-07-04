@@ -46,7 +46,6 @@
     "owoifyx": "^1.0.1",
     "pm2": "^5.1.0",
     "srod-v2": "^1.0.2",
-    "store": "github:thattonybo/store",
     "sxcu.js": "^1.0.1",
     "uwuifier": "^3.0.4",
     "yiff": "^3.1.2"
@@ -65,7 +64,6 @@
     "@types/ws": "^7.4.5",
     "eslint": "^7.29.0",
     "rimraf": "^3.0.2",
-    "semantic-release": "^17.2.0",
     "typescript": "^4.3.5"
   },
   "keywords": [
