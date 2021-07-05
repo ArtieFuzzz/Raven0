@@ -36,9 +36,11 @@ export default class BotClient extends AkairoClient {
 	public commandHandler: CommandHandler = new CommandHandler(this, {
 		directory: path.join(__dirname, '..', 'commands'),
 		prefix: config.prefix,
-		allowMention: false,
+		allowMention: true,
 		handleEdits: false,
 		commandUtil: true,
+		blockBots: true,
+		blockClient: true,
 		commandUtilLifetime: 60 * 1000,
 		defaultCooldown: 6e3,
 		argumentDefaults: {
