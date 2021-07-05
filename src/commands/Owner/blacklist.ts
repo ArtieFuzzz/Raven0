@@ -1,11 +1,9 @@
-/**
- * TODO
- **/
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import Guild from '../../lib/models/Guild'
 import User from '../../lib/models/User'
 import { getUser, getGuild } from '../../lib/Mongo'
+import config from '../../config'
 
 export default class BlacklistCommand extends Command {
 	public constructor () {
@@ -16,28 +14,35 @@ export default class BlacklistCommand extends Command {
 			ownerOnly: true,
 			args: [
 				{
-					id: 'op',
-					type: 'string',
-					match: 'separate'
-				},
-				{
 					id: 'id',
 					type: 'string',
-					match: 'content'
+					match: 'rest'
+				},
+				{
+					id: 'guildFlag',
+					type: 'flag',
+					match: 'flag',
+					flag: ['-g', '--guild']
+				},
+				{
+					id: 'userFlag',
+					type: 'flag',
+					match: 'flag',
+					flag: ['-u', '--user']
 				}
 			]
 		})
 
 		this.help = {
-			usage: 'blacklist <user | guild>',
-			examples: ['blacklist']
+			usage: 'blacklist <-u --user | -g --guild> <ID>',
+			examples: ['blacklist -u 389252140184633363']
 		}
 	}
 
-	public async exec (message: Message, { op, id }: { op: string, id: string }): Promise<Message> {
-		if (op[0].toLowerCase() === 'user') return await this.User(message, id.slice(op[0].length).trim())
-		if (op[0].toLowerCase() === 'guild') return await this.Guild(message, id.slice(op[0].length).trim())
-		return await message.reply('Options: User | Guild')
+	public async exec (message: Message, { id, guildFlag, userFlag }: { id: string, guildFlag: boolean, userFlag: boolean}): Promise<Message> {
+		if (userFlag) return await this.User(message, id)
+		if (guildFlag) return await this.Guild(message, id)
+		return await message.reply(`${config.prefix}blacklist <-u --user | -g --guild> <ID>`)
 	}
 
 	private async User (message: Message, id: string): Promise<Message> {

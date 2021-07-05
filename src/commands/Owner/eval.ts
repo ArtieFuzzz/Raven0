@@ -12,32 +12,38 @@ export default class EvalCommand extends Command {
 			ownerOnly: true,
 			args: [
 				{
-					id: 'query',
+					id: 'expression',
 					type: 'string',
-					match: 'content'
+					match: 'rest'
+				},
+				{
+					id: 'silentFlag',
+					type: 'flag',
+					match: 'flag',
+					flag: ['-s', '--silent']
 				}
 			]
 		})
 
 		this.help = {
-			usage: 'eval',
-			examples: ['eval this.client']
+			usage: 'eval [-s --silent] <js>',
+			examples: ['eval this.client', 'eval --silent message.channel(\'No output\')']
 		}
 	}
 
-	public async exec (message: Message, { query }: { query: string}): Promise<Message> {
+	public async exec (message: Message, { expression, silentFlag }: { expression: string, silentFlag: boolean }): Promise<Message> {
 		const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
 
 		const code = (lang: string, code: string) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
 
-		if (!query) {
+		if (!expression) {
 			message.channel.send('Please, write something so I can evaluate!')
 		}
 		else {
 			try {
 				/* eslint-disable prefer-const, no-eval */
-				let evald = eval(query)
+				let evald = eval(expression)
 				const res = typeof evald === 'string' ? evald : inspect(evald, { depth: 0 })
 
 				embed.addField('Result', code('js', res))
@@ -58,7 +64,8 @@ export default class EvalCommand extends Command {
 					.setColor('RED')
 			}
 			finally {
-				// eslint-disable-next-line no-unsafe-finally
+				/* eslint-disable no-unsafe-finally */
+				if (silentFlag) return null
 				return await message.channel.send(embed)
 			}
 		}
