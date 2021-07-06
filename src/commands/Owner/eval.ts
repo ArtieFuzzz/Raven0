@@ -46,44 +46,56 @@ export default class EvalCommand extends Command {
 		}
 	}
 
-	public async exec (message: Message, { expression, silentFlag, depthOption, asyncFlag }: { expression: string, silentFlag: boolean, depthOption: string, asyncFlag: boolean, logFlag: boolean}): Promise<Message> {
+	public async exec (message: Message, { expression, silentFlag, depthOption, asyncFlag }: { expression: string, silentFlag: boolean, depthOption: string, asyncFlag: boolean, logFlag: boolean}): Promise<any> {
 		if (!expression) return await message.channel.send('I have nothing to evaluate!')
-		return await this.eval(message, expression, depthOption, asyncFlag, silentFlag)
-	}
 
-	private async eval (message: Message, expression: string, depthOption?: string, asyncFlag?: boolean, silentFlag?: boolean): Promise<Message> {
 		const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
+		const { success, output, Type } = await this.eval(message, expression, depthOption, asyncFlag)
 
-		let output: string, type: string
+		if (silentFlag) return null
+
+		if (success) {
+			embed.setTitle('Success! | Result')
+			embed.setColor('GREEN')
+			embed.addField('Output:', `\`\`\`js\n${String(output).slice(0, 1000) + (output.length >= 1000 ? '....' : '')}\`\`\``)
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
+
+			return await message.channel.send(embed)
+		}
+		if (!success) {
+			embed.setTitle('Error! | Result')
+			embed.setColor('RED')
+			embed.addField('Output:', `\`\`\`js\n${String(output).slice(0, 1000)}\`\`\``)
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
+			return await message.channel.send(embed)
+		}
+	}
+
+	private async eval (message: Message, expression: string, depthOption?: string, asyncFlag?: boolean): Promise<any> {
+		let success: boolean, output: string, Type: string
 		try {
 			if (asyncFlag) expression = `(async () => {\n${expression}\n})()`
 			// eslint-disable-next-line no-eval
 			output = eval(expression)
-			type = typeof output
+			Type = typeof output
 
-			embed.setTitle('Success! | Result')
-			embed.setColor('GREEN')
-			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
-			embed.addField('Type:', `\`\`\`ts\n${type}\`\`\``)
+			success = true
 		}
 		catch (err) {
-			if (!type) type = typeof err
+			if (!Type) Type = typeof err
 			// eslint-disable-next-line @typescript-eslint/prefer-optional-chain
 			if (err && err.stack) this.logger.error('[Eval] ERROR!:', err.stack)
-
-			embed.setTitle('Error! | Result')
-			embed.setColor('RED')
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-			embed.addField('Output:', `\`\`\`js\n${err.message}\`\`\``)
-			embed.addField('Type:', `\`\`\`ts\n${type}\`\`\``)
+			output = err
+			success = false
 		}
 		if (typeof output !== 'string') {
 			output = inspect(output, {
 				depth: depthOption ? parseInt(depthOption) || 0 : 0
 			})
 		}
-		if (silentFlag) return null
-		return await message.channel.send(embed)
+		return { success, output, Type }
 	}
 }
