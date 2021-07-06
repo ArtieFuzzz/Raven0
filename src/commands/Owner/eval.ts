@@ -1,6 +1,5 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
-import { TypeFlags } from 'Typescript'
 import { inspect } from 'util'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 import { WebhookLogger } from '../../lib/structures/WebhookLogger'
