@@ -2,8 +2,10 @@ import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { inspect } from 'util'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
+import { WebhookLogger } from '../../lib/structures/WebhookLogger'
 
 export default class EvalCommand extends Command {
+	logger: WebhookLogger
 	public constructor () {
 		super('eval', {
 			aliases: ['eval'],
@@ -21,53 +23,67 @@ export default class EvalCommand extends Command {
 					type: 'flag',
 					match: 'flag',
 					flag: ['-s', '--silent']
+				},
+				{
+					id: 'depthOption',
+					type: 'string',
+					match: 'option',
+					flag: ['-d', '--depth']
+				},
+				{
+					id: 'asyncFlag',
+					type: 'flag',
+					match: 'flag',
+					flag: ['-a', '--async']
 				}
 			]
 		})
+		this.logger = WebhookLogger.instance
 
 		this.help = {
-			usage: 'eval [-s --silent] <js>',
+			usage: 'eval [-s --silent || -d -depth <number> || -a --async] <js>',
 			examples: ['eval this.client', 'eval --silent message.channel(\'No output\')']
 		}
 	}
 
-	public async exec (message: Message, { expression, silentFlag }: { expression: string, silentFlag: boolean }): Promise<Message> {
+	public async exec (message: Message, { expression, silentFlag, depthOption, asyncFlag }: { expression: string, silentFlag: boolean, depthOption: string, asyncFlag: boolean, logFlag: boolean}): Promise<Message> {
+		if (!expression) return await message.channel.send('I have nothing to evaluate!')
+		return await this.eval(message, expression, depthOption, asyncFlag, silentFlag)
+	}
+
+	private async eval (message: Message, expression: string, depthOption?: string, asyncFlag?: boolean, silentFlag?: boolean): Promise<Message> {
 		const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
 
-		const code = (lang: string, code: string) => `\`\`\`${lang}\n${String(code).slice(0, 1000) + (code.length >= 1000 ? '...' : '')}\n\`\`\``.replace(this.client.token, 'Uh oh! I can\'t do that!')
+		let output: string, type: string
+		try {
+			if (asyncFlag) expression = `(async () => {\n${expression}\n})()`
+			// eslint-disable-next-line no-eval
+			output = eval(expression)
+			type = typeof output
 
-		if (!expression) {
-			message.channel.send('Please, write something so I can evaluate!')
+			embed.setTitle('Success! | Result')
+			embed.setColor('GREEN')
+			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
+			embed.addField('Type:', `\`\`\`ts\n${type}\`\`\``)
 		}
-		else {
-			try {
-				/* eslint-disable prefer-const, no-eval */
-				let evald = eval(expression)
-				const res = typeof evald === 'string' ? evald : inspect(evald, { depth: 0 })
+		catch (err) {
+			if (!type) type = typeof err
+			// eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+			if (err && err.stack) this.logger.error('[Eval] ERROR!:', err.stack)
 
-				embed.addField('Result', code('js', res))
-
-				// eslint-disable-next-line no-mixed-operators
-				if (!res || !evald && evald !== 0) {
-					embed.setColor('RED')
-				}
-				else {
-					embed
-						.addField('Type', code('ts', typeof evald))
-						.setColor('GREEN')
-				}
-			}
-			catch (error) {
-				embed
-					.addField('Error', code('js', error))
-					.setColor('RED')
-			}
-			finally {
-				/* eslint-disable no-unsafe-finally */
-				if (silentFlag) return null
-				return await message.channel.send(embed)
-			}
+			embed.setTitle('Error! | Result')
+			embed.setColor('RED')
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			embed.addField('Output:', `\`\`\`js\n${err.message}\`\`\``)
+			embed.addField('Type:', `\`\`\`ts\n${type}\`\`\``)
 		}
+		if (typeof output !== 'string') {
+			output = inspect(output, {
+				depth: depthOption ? parseInt(depthOption) || 0 : 0
+			})
+		}
+		if (silentFlag) return null
+		return await message.channel.send(embed)
 	}
 }
