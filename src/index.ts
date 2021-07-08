@@ -19,6 +19,7 @@ Sentry.init({
 Sentry.configureScope(scope => {
 	scope.setTags({
 		host: `${os.hostname()}`,
+		sharded: false,
 		'akairo-version': akairoVersion,
 		'discord.js-version': discordVersion
 	})

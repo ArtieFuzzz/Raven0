@@ -36,14 +36,14 @@ export default class AdviceCommand extends Command {
 
 		return await message.util.send(
 			new MessageEmbed({
-				title: `${this.client.user.tag} ${config.version}`,
+				title: `${this.client.user.tag} | ${config.version}`,
 				description:
-          '\n **Versions**' +
+          '\n **Versions:**' +
           `\n **Node.js:** ${process.version}` +
           `\n **TypeScript:** v${typescript.version}` +
           `\n **Discord.js:** ${DiscVer}` +
           `\n **Discord-Akairo:** ${AkaiVer} \n` +
-          '\n **Status**' +
+          '\n **Stats:**' +
           `\n **Memory Usage:** ${(memory || process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB` +
           `\n **User Count:** ${(users || this.client.users.cache.size).toLocaleString()}` +
           `\n **Guild Count:** ${(guilds || this.client.guilds.cache.size).toLocaleString()}` +

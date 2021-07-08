@@ -14,6 +14,6 @@ export default class ServerBlacklist extends Inhibitor {
 	public async exec (message: Message): Promise<any> {
 		let Guild = await getGuild(message.guild.id)
 
-		if (Guild.data.blacklisted) return await message.util.reply('This server is blacklisted')
+		if (Guild.blacklisted) return await message.util.reply('This server is blacklisted')
 	}
 }
