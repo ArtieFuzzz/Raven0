@@ -14,6 +14,6 @@ export default class UserBlacklist extends Inhibitor {
 	public async exec (message: Message): Promise<any> {
 		let User = await getUser(message.author.id)
 
-		if (User.data.blacklisted) return await message.util.reply('You are blacklisted from using this bot')
+		if (User.blacklisted) return await message.util.reply('You are blacklisted from using this bot')
 	}
 }

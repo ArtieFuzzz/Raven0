@@ -52,12 +52,12 @@ export default class BlacklistCommand extends Command {
 		}
 		const userData = await getUser(user.id)
 
-		if (userData.data.blacklisted) {
-			await User.findOneAndUpdate({ userID: user.id }, { data: { blacklisted: false } })
+		if (userData.blacklisted) {
+			await User.findOneAndUpdate({ userID: user.id }, { blacklisted: false })
 			return await message.channel.send(`${user.tag} Was unblacklisted`)
 		}
-		if (!userData.data.blacklisted) {
-			await User.findOneAndUpdate({ userID: user.id }, { data: { blacklisted: true } })
+		if (!userData.blacklisted) {
+			await User.findOneAndUpdate({ userID: user.id }, { blacklisted: true })
 			return await message.channel.send(`${user.tag} Was blacklisted`)
 		}
 	}
@@ -70,12 +70,12 @@ export default class BlacklistCommand extends Command {
 		}
 		const guildData = await getGuild(guild.id)
 
-		if (guildData.data.blacklisted) {
-			await Guild.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: false } })
+		if (guildData.blacklisted) {
+			await Guild.findOneAndUpdate({ guildID: guild.id }, { blacklisted: false })
 			return await message.channel.send(`${guild.name} (${guild.id}) Was unblacklisted`)
 		}
-		if (!guildData.data.blacklisted) {
-			await Guild.findOneAndUpdate({ guildID: guild.id }, { data: { blacklisted: true } })
+		if (!guildData.blacklisted) {
+			await Guild.findOneAndUpdate({ guildID: guild.id }, { blacklisted: true })
 			return await message.channel.send(`${guild.name} (${guild.id}) Was blacklisted`)
 		}
 	}

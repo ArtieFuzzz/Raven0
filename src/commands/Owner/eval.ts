@@ -3,6 +3,7 @@ import { Message } from 'discord.js'
 import { inspect } from 'util'
 import { MessageEmbed } from '../../lib/structures/MessageEmbed'
 import { WebhookLogger } from '../../lib/structures/WebhookLogger'
+import c from '@aero/centra'
 
 export default class EvalCommand extends Command {
 	logger: WebhookLogger
@@ -55,10 +56,20 @@ export default class EvalCommand extends Command {
 
 		if (silentFlag) return null
 
+		if (output.length > 1000) {
+			const { key }: { key: string } = await c('https://hastebin.com', 'POST')
+				.path('documents')
+				.body(output)
+				.json()
+
+			return await message.channel.send(`The output was longer than 2000 characters: https://hastebin.com/${key}`)
+		}
+
 		if (success) {
 			embed.setTitle('Success! | Result')
 			embed.setColor('GREEN')
-			embed.addField('Output:', `\`\`\`js\n${String(output).slice(0, 1000) + (output.length >= 1000 ? '....' : '')}\`\`\``)
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
 			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
 
@@ -67,7 +78,8 @@ export default class EvalCommand extends Command {
 		if (!success) {
 			embed.setTitle('Error! | Result')
 			embed.setColor('RED')
-			embed.addField('Output:', `\`\`\`js\n${String(output).slice(0, 1000)}\`\`\``)
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
 			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
 			return await message.channel.send(embed)
