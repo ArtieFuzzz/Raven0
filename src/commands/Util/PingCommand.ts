@@ -17,6 +17,13 @@ export default class PingCommand extends Command {
 	}
 
 	public async exec (message: Message): Promise<Message> {
-		return await message.util.send(`Pong! ${this.client.ws.ping}ms`)
+		const sent = await message.util.reply('Pong!')
+		// @ts-expect-error
+		const timeDiff = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt)
+		return await message.util.reply([
+			'Pong!',
+			`🔂 **RTT**: ${timeDiff} ms`,
+			`💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`
+		])
 	}
 }
