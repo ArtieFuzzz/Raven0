@@ -2,7 +2,7 @@
 import StatusUpdater from '@tmware/status-rotate'
 import * as appRootPath from 'app-root-path'
 import { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } from 'discord-akairo'
-import { ActivityOptions, Message } from 'discord.js'
+import { ActivityOptions, Message, Intents } from 'discord.js'
 import * as path from 'path'
 import config from '../config'
 import EventEmitterSingleton from '../lib/structures/EventEmitterSingleton'
@@ -10,6 +10,9 @@ import { WebhookLogger } from '../lib/structures/WebhookLogger'
 import { KSoftClient } from '@ksoft/api'
 import mongoose from 'mongoose'
 import * as Sentry from '@sentry/node'
+
+const intents = new Intents()
+intents.add('DIRECT_MESSAGES', 'GUILDS', 'GUILD_MESSAGES')
 
 export default class BotClient extends AkairoClient {
 	public ksoft = new KSoftClient(config.ksoftToken)
@@ -61,6 +64,9 @@ export default class BotClient extends AkairoClient {
 	public constructor () {
 		super({
 			ownerID: config.owners
+		},
+		{
+			disableMentions: 'everyone'
 		})
 
 		// eslint-disable-next-line no-console
