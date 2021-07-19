@@ -1,6 +1,6 @@
 {
   "name": "raven0",
-  "version": "Hasura-1.5",
+  "version": "Hasura-1.5.1",
   "description": "A discord bot made in TypeScript.",
   "main": "build/index.js",
   "private": true,
@@ -37,7 +37,7 @@
     "convict": "^6.2.0",
     "countapi-js": "^1.0.2",
     "dayjs": "^1.10.6",
-    "discord-akairo": "github:discord-akairo/discord-akairo",
+    "discord-akairo": "^8.1.0",
     "discord.js": "12.5.3",
     "dotenv": "^8.6.0",
     "moment": "^2.29.1",
