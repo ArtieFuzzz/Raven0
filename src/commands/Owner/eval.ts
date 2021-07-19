@@ -52,7 +52,7 @@ export default class EvalCommand extends Command {
 
 		const embed = new MessageEmbed()
 			.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }))
-		const { success, output, Type } = await this.eval(message, expression, depthOption, asyncFlag)
+		const { success, output, Type }: { success: boolean, output: string, Type: string} = await this.eval(message, expression, depthOption, asyncFlag)
 
 		if (silentFlag) return null
 
@@ -68,9 +68,7 @@ export default class EvalCommand extends Command {
 		if (success) {
 			embed.setTitle('Success! | Result')
 			embed.setColor('GREEN')
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
 
 			return await message.channel.send(embed)
@@ -78,9 +76,7 @@ export default class EvalCommand extends Command {
 		if (!success) {
 			embed.setTitle('Error! | Result')
 			embed.setColor('RED')
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Output:', `\`\`\`js\n${output}\`\`\``)
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			embed.addField('Type:', `\`\`\`ts\n${Type}\`\`\``)
 			return await message.channel.send(embed)
 		}

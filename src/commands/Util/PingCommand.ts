@@ -20,10 +20,6 @@ export default class PingCommand extends Command {
 		const sent = await message.util.reply('Pong!')
 		// @ts-expect-error
 		const timeDiff = (sent.editedAt || sent.createdAt) - (message.editedAt || message.createdAt)
-		return await message.util.reply([
-			'Pong!',
-			`🔂 **RTT**: ${timeDiff} ms`,
-			`💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`
-		])
+		return await message.util.reply(`Pong!\n🔂 **RTT**: ${timeDiff} ms\n💟 **Heartbeat**: ${Math.round(this.client.ws.ping)} ms`)
 	}
 }
