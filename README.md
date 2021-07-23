@@ -1,5 +1,8 @@
 # Raven0
 
+# DEPRECATED!!
+We now have moved to [North](https://github.com/hidden-umbrella/north)
+
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
 * Nightly Build Status [![pipeline status](https://gitlab.com/raven0-bot/Raven/badges/nightly/pipeline.svg)](https://gitlab.com/raven0-bot/Raven/-/commits/nightly)
