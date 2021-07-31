@@ -1,7 +1,7 @@
 # Raven0
 
 # DEPRECATED!!
-We now have moved to [North](https://github.com/hidden-umbrella/north)
+We now have moved to [Astraea](https://github.com/AstraeaStudios/Astraea)
 
 ✨ Raven0 - Discord Bot Written In Typescript with [Discord-Akairo](https://github.com/discord-akairo/) And [Discord.JS](https://github.com/discordjs) Made With ♥ By ArtieFuzzz (#8298)
 
